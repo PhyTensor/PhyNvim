@@ -1,3 +1,6 @@
+-- Load core configs
+require('core')
+
 -- Bootstrap plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -13,9 +16,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-
--- Load core configs
-require('core')
 
 -- Load plugins
 require('plugins')

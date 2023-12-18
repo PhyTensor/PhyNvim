@@ -10,6 +10,9 @@
 local opt = vim.opt
 local indent = 4
 
+-- cursor
+-- opt.guicursor =  -- "" = fat cursor
+
 -- allow use of mouse in Nvim
 opt.mouse = 'a'
 

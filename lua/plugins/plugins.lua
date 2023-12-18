@@ -14,12 +14,12 @@ local plugins = {
     require('plugins.nvim_web_devicons'),
     require('plugins.neotree'),
     require('plugins.oil'),
-    require('plugins.fluoromachine'),
-    -- require('plugins.synthwave84'),
+    -- require('plugins.fluoromachine'),
+    require('plugins.synthwave84'),
     -- require('plugins.themery'),
 
     -- experimental
-    --require('plugins.themes'),
+    -- require('plugins.themes'),
 }
 
 return plugins

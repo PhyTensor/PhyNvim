@@ -47,6 +47,10 @@ map.set( 'n', '<C-Down>', ':resize +2<CR>', opts )
 map.set( 'n', '<C-Left>', ':vertical resize -2<CR>', opts )
 map.set( 'n', '<C-Right>', ':vertical resize +2<CR>', opts )
 
+-- moving lines of code
+-- map.set( 'n', 'J', ":m '>+<CR>gv=gv", opts )
+-- map.set( 'n', 'K', ":m '<-<CR>gv=gv", opts )
+
 -- Nvim Tree
 map.set( 'n', '<leader>ee', '<Cmd> NvimTreeToggle <CR>', opts )
 map.set( 'n', '<leader>ef', '<Cmd> NvimTreeFocus <CR>', opts )
