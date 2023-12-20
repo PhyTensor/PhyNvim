@@ -1,5 +1,7 @@
 local M = { "nvim-tree/nvim-web-devicons" }
 
+M.event = "VeryLazy"
+
 M.opts = function()
     -- return { override = require "nvchad.icons.devicons" }
 end

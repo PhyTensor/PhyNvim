@@ -1,6 +1,8 @@
--- print("Plugins - treesitter")
-
 local M = { "nvim-treesitter/nvim-treesitter" }
+
+M.enabled = true
+
+M.event = "VeryLazy"
 
 M.dependencies = {
     "nvim-treesitter/playground",
@@ -13,6 +15,7 @@ function M.config()
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
+        auto_install = false, -- automatically install syntax support when entering a new file type buffer
         ensure_installed = {
             "lua",
             "bash",
@@ -24,6 +27,7 @@ function M.config()
             "markdown",
             "yaml",
             "sql",
+            -- "dart",
         },
     })
 end

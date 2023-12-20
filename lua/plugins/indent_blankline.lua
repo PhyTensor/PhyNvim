@@ -1,8 +1,14 @@
 local M = { "lukas-reineke/indent-blankline.nvim" }
 
+M.event = "VeryLazy"
+
 M.main = "ibl"
 
 M.opts  = {
+    enabled = true,
+    indent = {
+        char = '|',
+    },
     --indentLine_enabled = 1,
     -- filetype_exclude = {
     --     "help",

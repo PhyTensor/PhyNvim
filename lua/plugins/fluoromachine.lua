@@ -1,5 +1,11 @@
 local M = { "maxmx03/fluoromachine.nvim" }
 
+M.enabled = true
+
+M.lazy = false      -- load immediately when starting neovim
+
+M.priority = 1000   -- load the colorscheme before other non-lazy-loaded plugins
+
 M.config = function()
     local fm = require('fluoromachine')
 
