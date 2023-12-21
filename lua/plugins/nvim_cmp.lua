@@ -161,8 +161,8 @@ M.config = function()
             -- ["<Tab>"] = cmp.mapping.select_next_item(select_opts), -- next suggestion
             -- ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts), -- previous suggestion
 
-            ["<C-p>"] = cmp.mapping.scroll_docs(-4),            -- scroll backward
-            ["<C-n>"] = cmp.mapping.scroll_docs(4),             -- scroll forward
+            ["<C-[>"] = cmp.mapping.scroll_docs(-4),            -- scroll backward
+            ["<C-]>"] = cmp.mapping.scroll_docs(4),             -- scroll forward
 
             ["<C-Space>"] = cmp.mapping.complete(),             -- show completion suggestions
 

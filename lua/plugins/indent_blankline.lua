@@ -1,13 +1,19 @@
-local M = { "lukas-reineke/indent-blankline.nvim" }
+local M  = { "lukas-reineke/indent-blankline.nvim" }
 
-M.event = "VeryLazy"
+M.event  = "VeryLazy"
 
-M.main = "ibl"
+M.main   = "ibl"
 
-M.opts  = {
+M.opts   = {
     enabled = true,
     indent = {
         char = '|',
+    },
+    whitespace = {
+        remove_blankline_trail = true,
+    },
+    scope = {
+        enabled = false
     },
     --indentLine_enabled = 1,
     -- filetype_exclude = {
@@ -27,6 +33,8 @@ M.opts  = {
     -- show_first_indent_level = false,
     -- show_current_context = true,
     -- show_current_context_start = true,
+    -- show_end_of_line = true,
+    -- space_char_blankline = " ",
 }
 
 M.config = function(_, opts)

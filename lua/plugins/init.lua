@@ -47,7 +47,10 @@ local plugins = {
 }
 
 require("lazy").setup(
+-- {
+-- { import = "plugins.extras.lang.flutter" },
     plugins,
+    -- },
     {
         'configs.lazy_nvim'
     }

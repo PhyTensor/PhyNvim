@@ -2,6 +2,8 @@ local M = { "akinsho/flutter-tools.nvim" }
 
 M.enabled = true
 
+M.lazy = false
+
 M.event = "VeryLazy"
 
 M.dependencies = {
@@ -11,20 +13,20 @@ M.dependencies = {
 
 M.ft = { "flutter", "dart" }
 
-M.config = true
+-- M.config = true
 
 M.opts = function()
     local line = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
     return {
         ui = {
-            border = "rounded", -- line,
+            border = line,
         },
         debugger = {
             enabled = false,
             run_via_dap = false,
             exception_breakpoints = {},
         },
-        outline = { auto_open = false },
+        outline = { auto_open = true },
         decorations = {
             statusline = {
                 device = true,
@@ -44,7 +46,7 @@ M.opts = function()
             color = {
                 enabled = true,
                 background = true,
-                virtual_text = false,
+                virtual_text = true,
             },
             settings = {
                 showTodos = false,
@@ -195,5 +197,9 @@ end
 -- M.config = function (_, opts)
 --     require("flutter-tools").setup(opts)
 -- end
+
+M.config = function(_, opts)
+    require("flutter-tools").setup(opts)
+end
 
 return M
