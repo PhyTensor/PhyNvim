@@ -1,20 +1,24 @@
 local M = { "echasnovski/mini.nvim", version = '*' }
 
+M.enabled = false
+
+M.event = "VeryLazy"
+
 -- function M.align()
 --     require("mini.align").setup()
 -- end
 
-function M.starter()
-    require("mini.starter").setup()
-end
+-- function M.starter()
+--     require("mini.starter").setup()
+-- end
 
 function M.completion()
     require("mini.completion").setup()
 end
 
-function M.tabline()
-    require("mini.tabline").setup()
-end
+-- function M.tabline()
+--     require("mini.tabline").setup()
+-- end
 
 -- function M.comment()
 --   require("mini.comment").setup({})
@@ -25,8 +29,8 @@ end
 -- end
 
 function M.config()
-    M.starter()
-    M.tabline()
+    -- M.starter()
+    -- M.tabline()
     -- M.align()
     M.completion()
     -- M.comment()

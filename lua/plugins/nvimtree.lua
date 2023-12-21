@@ -2,6 +2,8 @@ local M = { "nvim-tree/nvim-tree.lua" }
 
 M.cmd = { "NvimTreeToggle", "NvimTreeFocus" }
 
+M.event = "VeryLazy"
+
 M.opts = function()
     return require("configs.nvimtree")
 end

@@ -1,3 +1,6 @@
+-- Load core configs
+require('core.remap')
+
 -- Bootstrap plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -14,9 +17,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Load core configs
-require('core')
-
 -- Load plugins
 require('plugins')
 
+-- modules not loaded by lazy
+require('core.keymaps')
+require('core.options')
+require("core.mappings")

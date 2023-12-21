@@ -1,5 +1,7 @@
 local M = { "nvim-neo-tree/neo-tree.nvim" }
 
+M.event = "VeryLazy"
+
 M.branch = "v3.x"
 
 M.dependencies = {

@@ -10,15 +10,21 @@
 local opt = vim.opt
 local indent = 4
 
+-- cursor
+-- opt.guicursor =  -- "" = fat cursor
+
 -- allow use of mouse in Nvim
 opt.mouse = 'a'
+
+opt.autowrite = true        -- Enable auto write
+opt.list = false -- Show some invisible characters (tabs...
 
 -- use system clipboard
 opt.clipboard = 'unnamedplus'
 opt.clipboard:append { 'unnamedplus' }
 
 -- COMPLETION
-opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.completeopt = { 'menu', 'menuone', 'preview', 'noselect' }
 opt.pumheight = 10
 
 -- Tab

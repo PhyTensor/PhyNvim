@@ -1,5 +1,8 @@
 local lazy_opts = {
-    change_detection = { notify = false },
+    change_detection = {
+        enabled = true, -- automatically check for config file changes and reload the ui
+        notify = false, -- turn off notificatiosn whenever plugin changes are made
+    },
     defaults = { lazy = true },
     install = { colorscheme = { "nvchad" } },
 
@@ -13,6 +16,10 @@ local lazy_opts = {
     },
 
     performance = {
+        cache = {
+            enabled = true,
+        },
+        reset_packpath = true, -- reset the package path to improve startup time
         rtp = {
             disabled_plugins = {
                 "2html_plugin",
