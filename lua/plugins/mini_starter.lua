@@ -22,13 +22,13 @@ M.opts = {
     -- evaluated first. If `nil` (default), polite greeting will be used.
     header = nil,
     --header = os.date(),
- --    header = table.concat({
-	-- 	[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
-	-- 	[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
-	-- 	[[/ /\  /  __/ (_) \ V /| | | | | | |]],
-	-- 	[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
-	-- 	[[───────────────────────────────────]],
-	-- }, "\n"),
+    --    header = table.concat({
+    -- 	[[  /\ \▔\___  ___/\   /(●)_ __ ___  ]],
+    -- 	[[ /  \/ / _ \/ _ \ \ / / | '_ ` _ \ ]],
+    -- 	[[/ /\  /  __/ (_) \ V /| | | | | | |]],
+    -- 	[[\_\ \/ \___|\___/ \_/ |_|_| |_| |_|]],
+    -- 	[[───────────────────────────────────]],
+    -- }, "\n"),
 
     -- Footer to be displayed after items. Converted to single string via
     -- `tostring` (use `\n` to display several lines). If function, it is
@@ -51,7 +51,7 @@ M.opts = {
 }
 
 M.config = function(_, opts)
-    require('mini.starter').setup(ops)
+    require('mini.starter').setup(opts)
 end
 
 return M

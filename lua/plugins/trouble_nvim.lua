@@ -9,7 +9,7 @@ M.dependencies = {
 }
 
 M.opts = function()
-    return require("configs.trouble")
+    return require("configs.trouble_options")
 end
 
 M.config = function(_, opts)

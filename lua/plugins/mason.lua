@@ -7,6 +7,13 @@ M.dependencies = {
 }
 
 M.opts = {
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+        },
+    },
     ensure_installed = {
         -- LSP
         'clangd',

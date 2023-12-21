@@ -39,15 +39,6 @@ M.dependencies = {
 
 
 M.config = function()
-    require('mason').setup({
-        ui = {
-            icons = {
-                package_installed = "✓",
-                package_pending = "➜",
-                package_uninstalled = "✗",
-            },
-        },
-    })
     require('mason-lspconfig').setup({
         -- Update this list to the language servers you need installed
         ensure_installed = {
@@ -79,9 +70,9 @@ M.config = function()
     local lspconfig = require('lspconfig')
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    local lsp_attach = function(client, bufnr)
-        -- Create your keybindings here...
-    end
+    -- local lsp_attach = function(client, bufnr)
+    --     -- Create your keybindings here...
+    -- end
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -94,7 +85,7 @@ M.config = function()
     require('mason-lspconfig').setup_handlers({
         function(server_name)
             lspconfig[server_name].setup({
-                on_attach = lsp_attach,
+                -- on_attach = lsp_attach,
                 capabilities = lsp_capabilities,
             })
         end

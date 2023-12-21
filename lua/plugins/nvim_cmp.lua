@@ -7,13 +7,13 @@ M.dependencies = {
 
     -- snippet engine
     "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",         -- for autocompletion i.e. completion engine for luasnip
+    "saadparwaiz1/cmp_luasnip", -- for autocompletion i.e. completion engine for luasnip
 
     -- adds LSP completion capabilities
     "hrsh7th/cmp-nvim-lsp",
 
     -- for autocompletion
-    "hrsh7th/cmp-buffer",               -- source for text in buffer
+    "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
 
@@ -33,7 +33,7 @@ M.config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
 
-    local select_opts = {behavior = cmp.SelectBehavior.Select}
+    local select_opts = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
         snippet = {
@@ -161,12 +161,12 @@ M.config = function()
             -- ["<Tab>"] = cmp.mapping.select_next_item(select_opts), -- next suggestion
             -- ["<S-Tab>"] = cmp.mapping.select_prev_item(select_opts), -- previous suggestion
 
-            ["<C-p>"] = cmp.mapping.scroll_docs(-4), -- scroll backward
-            ["<C-n>"] = cmp.mapping.scroll_docs(4), -- scroll forward
+            ["<C-p>"] = cmp.mapping.scroll_docs(-4),            -- scroll backward
+            ["<C-n>"] = cmp.mapping.scroll_docs(4),             -- scroll forward
 
-            ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+            ["<C-Space>"] = cmp.mapping.complete(),             -- show completion suggestions
 
-            ["<C-e>"] = cmp.mapping.abort(), -- clear/cancel completion window
+            ["<C-e>"] = cmp.mapping.abort(),                    -- clear/cancel completion window
 
             ["<CR>"] = cmp.mapping.confirm({ select = false }), -- confirm selection
 
@@ -183,7 +183,7 @@ M.config = function()
                 else
                     cmp.complete()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
             ['<S-Tab>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
@@ -191,7 +191,7 @@ M.config = function()
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
 
             -- jump to the next/prev placeholder in the snippet
@@ -201,7 +201,7 @@ M.config = function()
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
 
             ['<C-b>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(-1) then
@@ -209,7 +209,7 @@ M.config = function()
                 else
                     fallback()
                 end
-            end, {'i', 's'}),
+            end, { 'i', 's' }),
         }),
 
         -- list all data sources nvim-cmp will use to populate the completion list
@@ -218,9 +218,9 @@ M.config = function()
         -- keyword_length = how many characters necessary to begin querying the source
         sources = cmp.config.sources({
             { name = "nvim_lsp", keyword_length = 1, }, -- show suggestions based on response of an lsp
-            { name = "luasnip", keyword_length = 2, }, -- shows available snippets and expands them if they are chosen
-            { name = "buffer", keyword_length = 3 }, -- suggest words/text found within current buffer
-            { name = "path" }, -- autocomplete file system paths
+            { name = "luasnip",  keyword_length = 2, }, -- shows available snippets and expands them if they are chosen
+            { name = "buffer",   keyword_length = 3 },  -- suggest words/text found within current buffer
+            { name = "path" },                          -- autocomplete file system paths
         }),
     })
 end
