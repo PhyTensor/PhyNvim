@@ -8,7 +8,7 @@ end
 
 M.cmd = "Telescope"
 
-M.event = "VeryLazy"
+M.event = "VimEnter" -- "VeryLazy"
 
 M.dependencies = {
     'nvim-lua/plenary.nvim',
@@ -18,7 +18,7 @@ M.dependencies = {
     -- "nvim-telescope/telescope-ui-select.nvim",
 }
 
-M.tag = '0.1.5'
+-- M.tag = '0.1.5'
 
 M.opts = function()
     return require("configs.telescope_options")

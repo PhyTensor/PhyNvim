@@ -1,6 +1,10 @@
 local M = { "echasnovski/mini.starter" }
 
+M.enabled = true
+
 M.event = "VimEnter"
+
+M.version = '*'
 
 M.opts = {
     -- Whether to open starter buffer on VimEnter. Not opened if Neovim was

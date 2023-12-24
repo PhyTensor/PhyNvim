@@ -1,4 +1,4 @@
-local M = { "~/Documents/luadev/themes.nvim" }
+local M = { "http:///home/karoki/Documents/luadev/stackmap.nvim" }
 
 M.config = {}
 

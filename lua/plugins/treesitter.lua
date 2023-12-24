@@ -2,7 +2,7 @@ local M = { "nvim-treesitter/nvim-treesitter" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+M.event = { 'BufRead', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
     "nvim-treesitter/playground",
@@ -23,7 +23,10 @@ function M.config()
                 return file_size > 256 * 1024
             end
         },
-        indent = { enable = true },
+        indent = {
+            enable = true,
+            disable = { "dart" },
+        },
         auto_install = false, -- automatically install syntax support when entering a new file type buffer
         ensure_installed = {
             "lua",
@@ -34,9 +37,10 @@ function M.config()
             "css",
             "json",
             "markdown",
+            "markdown_inline",
             "yaml",
             "sql",
-            -- "dart",
+            "dart",
         },
     })
 end

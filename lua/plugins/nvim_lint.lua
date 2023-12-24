@@ -4,7 +4,7 @@ M.lazy = true
 
 M.event = { "BufReadPre", "BufNewFile" }
 
-M.config = function ()
+M.config = function()
     local lint = require("lint")
 
     lint.linters_by_ft = {

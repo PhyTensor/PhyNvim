@@ -2,8 +2,6 @@ local M = { "akinsho/flutter-tools.nvim" }
 
 M.enabled = true
 
-M.lazy = false
-
 M.event = "VeryLazy"
 
 M.dependencies = {

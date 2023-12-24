@@ -82,3 +82,4 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- use the directory of undot
 -- CONTEXTUAL
 opt.title = true         --set title of window automatically, useful for tabs plugin
 opt.path:append { '**' } -- search (gf or :find) files down into subfolders
+opt.titlestring = "Neovim - %t"

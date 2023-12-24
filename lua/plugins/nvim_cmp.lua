@@ -56,10 +56,10 @@ M.config = function()
             fields = { 'abbr', 'kind', 'menu' },
             format = function(entry, item)
                 local menu_icon = {
-                    nvim_lsp = 'λ Lsp',
-                    luasnip = '⋗ LuaSnip',
-                    buffer = 'Ω Buffer',
-                    path = '🖫 Path',
+                    nvim_lsp = 'λ LSP',
+                    luasnip = '⋗ LUASNIP',
+                    buffer = 'Ω BUFFER',
+                    path = '🖫 PATH',
                 }
 
                 --   פּ ﯟ   some other good icons

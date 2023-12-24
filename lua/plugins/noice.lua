@@ -3,7 +3,7 @@ local M = { "folke/noice.nvim" }
 M.event = "VeryLazy"
 
 M.opts = function()
-    return require("configs.noice")
+    return require("configs.noice_options")
 end
 
 M.dependencies = {

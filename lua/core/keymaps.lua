@@ -30,6 +30,10 @@ opts.desc = "Clear search highlights"
 map.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', opts)
 
 
+opts.desc = "Enter normal mode"
+map.set('i', 'jk', '<Esc>', opts)
+
+
 -- Buffers
 opts.desc = "Delete current buffer"
 map.set('n', '<C-x>', '<cmd>bd<CR>', opts)
@@ -46,7 +50,14 @@ map.set('n', '<leader>l', '<Cmd>Lazy<CR>', opts)
 
 -- Oil
 opts.desc = "Launch Oil"
-map.set('n', '<leader>p', '<Cmd>Oil<CR>', opts)
+map.set('n', '<leader>pv', '<Cmd>Oil<CR>', opts)
+
+
+-- Neovim Project
+opts.desc = "Find project based on patterns"
+map.set('n', '<leader>pp', '<Cmd>Telescope neovim-project discover<CR>', opts)
+opts.desc = "Select project based on recent history"
+map.set('n', '<leader>ph', '<Cmd>Telescope neovim-project history<CR>', opts)
 
 
 -- LazyGit
@@ -55,11 +66,15 @@ map.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', opts)
 
 
 -- Navigation
---map.set( 'n', '<Left>', '<C-w>h', opts )
---map.set( 'n', '<Down>', '<C-w>j', opts )
---map.set( 'n', '<Up>', '<C-w>k', opts )
---map.set( 'n', '<Right>', '<C-w>l', opts )
+-- map.set('i', '<C-h>', '<C-w>h', opts)
+-- map.set('i', '<C-j>', '<C-w>j', opts)
+-- map.set('i', '<C-k>', '<C-w>k', opts)
+-- map.set('i', '<C-l>', '<C-w>l', opts)
 
+
+-- map.set('v', '<leader>p', '\"_dp', { desc = "paste" })
+opts.desc = "Paste without yanking"
+map.set('v', 'P', '\"_dP', opts)
 
 -- Better window navigation
 opts.desc = "Move to left window pane"
@@ -73,14 +88,16 @@ map.set('n', '<C-l>', '<C-w>l', opts)
 
 
 -- Split Window
-opts.desc = "Vertical Split Window"
+opts.desc = "Horizontal Split Window RIGHT"
 map.set('n', '<C-s>s', '<C-w>v', opts)
-opts.desc = "Horizontal Split window"
+opts.desc = "Vertical Split window BELOW"
 map.set('n', '<C-s>v', '<C-w>s', opts)
 opts.desc = "Close current split window"
 map.set('n', '<C-s>x', '<Cmd>close<CR>', opts)
 opts.desc = "Make split windows equal width and height"
 map.set('n', '<C-s>=', '<C-w>=', opts)
+opts.desc = "Delete window"
+map.set('n', '<C-s>c', '<C-w>c', opts)
 
 -- Resize with arrows
 -- delta: 2 lines
@@ -94,10 +111,23 @@ opts.desc = "Resize Right"
 map.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
 
+-- keep cursor in the middle during half page jumps
+opts.desc = "down - middle half page jumps"
+map.set('n', '<C-d>', '<C-d>zz', opts)
+opts.desc = "up - middle half page jumps"
+map.set('n', '<C-u>', '<C-u>zz', opts)
+
+
 -- moving lines of code
 -- map.set( 'n', 'J', ":m '>+<CR>gv=gv", opts )
 -- map.set( 'n', 'K', ":m '<-<CR>gv=gv", opts )
-
+-- Move Lines up and down
+map.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Select all
 opts.desc = "Select All"
@@ -109,6 +139,13 @@ map.set('n', '<leader>a', 'gg<S-v>G', opts)
 -- map.set('n', '<leader>ee', '<Cmd> NvimTreeToggle <CR>', opts)
 -- opts.desc = "NvimTree Focus"
 -- map.set('n', '<leader>ef', '<Cmd> NvimTreeFocus <CR>', opts)
+
+
+-- -- Move to window using the <ctrl> hjkl keys
+--        ["<C-h>"] = { ":TmuxNavigateLeft<CR>", "Goto left window pane" },
+--        ["<C-j>"] = { ":TmuxNavigateDown<CR>", "Goto lower window pane" },
+--        ["<C-k>"] = { ":TmuxNavigateUp<CR>", "Goto upper window pane" },
+--        ["<C-l>"] = { ":TmuxNavigateRight<CR>", "Goto right window pane" },
 
 
 -- NeoTree
@@ -173,6 +210,9 @@ map.set('n', 'gR', function() require('trouble').toggle("lsp_references") end, o
 
 -- LSP
 ------------------------------------------------------
+-- opts.desc = "Show code outline"
+-- map.set({ 'n', 'v' }, '<leader>go', '<cmd>Lspsaga outline<cr>', opts)
+
 opts.desc = "Show LSP references"
 -- map.set( 'n', '<leader>gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts )
 map.set('n', '<leader>gr', '<Cmd>Telescope lsp_references<CR>', opts)
@@ -180,8 +220,9 @@ map.set('n', '<leader>gr', '<Cmd>Telescope lsp_references<CR>', opts)
 opts.desc = "Go to declaration"
 map.set('n', '<leader>gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 
-opts.desc = "Show lsp definitions"
+opts.desc = "Go to lsp definitions"
 map.set('n', '<leader>gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
+-- map.set('n', '<leader>gd', '<Cmd>Lspsaga goto_definition<CR>', opts)
 
 opts.desc = "Show LSP implementations"
 map.set('n', '<leader>gi', '<Cmd>Telescope lsp_implementations<CR>', opts)
@@ -191,9 +232,11 @@ map.set('n', '<leader>gt', '<Cmd> Telescope lsp_type_definitions <CR>', opts)
 
 opts.desc = "See available code actions"
 map.set({ 'n', 'v' }, '<leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+-- map.set({ 'n', 'v' }, '<leader>ca', '<Cmd>Lspsaga code_action<CR>', opts)
 
 opts.desc = "Smart Rename"
 map.set('n', '<leader>rr', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
+-- map.set('n', '<leader>rr', '<Cmd>Lspsaga rename<CR>', opts)
 
 opts.desc = "Show buffer diagnostics for file"
 map.set('n', '<leader>gb', '<Cmd> Telescope diagnostics bufnr=0 <CR>', opts)
@@ -203,12 +246,15 @@ map.set('n', '<leader>gl', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
 opts.desc = "Go to prev diagnostic in buffer"
 map.set('n', '<leader>gp', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+-- map.set('n', '<leader>gp', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 
 opts.desc = "Go to next diagnostic in buffer"
 map.set('n', '<leader>gn', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+-- map.set('n', '<leader>gn', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 
 opts.desc = "Show hover documentation"
 map.set('n', '<leader>gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+-- map.set('n', '<leader>gh', '<Cmd>Lspsaga hover_doc<CR>', opts)
 
 opts.desc = "Restart the LSP"
 map.set('n', '<leader>rs', '<cmd>LspRestart<CR>', opts)

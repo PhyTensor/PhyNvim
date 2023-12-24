@@ -1,6 +1,6 @@
 local M = { "nvim-lualine/lualine.nvim" }
 
-M.event = "VeryLazy"
+M.event = "VimEnter" -- "VeryLazy"
 
 M.dependencies = {
     "nvim-tree/nvim-web-devicons",
@@ -10,7 +10,7 @@ M.dependencies = {
     },
 }
 
-local lazy_status = require("lazy.status")  -- to configure lazy pending updates count
+local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
 M.opts = {
     options = {
@@ -18,8 +18,8 @@ M.opts = {
         -- component_separators = "|",
         -- section_separators = "",
         theme = 'auto', -- 'fluoromachine', -- 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -34,23 +34,23 @@ M.opts = {
         }
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {
             {
                 'filename',
-                file_status = true,         -- displays file status (readonly status, modified status)
-                newfile_status = false,     -- displays new file status (new file means no write after create)
+                file_status = true,     -- displays file status (readonly status, modified status)
+                newfile_status = false, -- displays new file status (new file means no write after create)
 
-                path = 4,                   -- 0: just the filename
+                path = 4,               -- 0: just the filename
                 --                          -- 1: relative path
                 --                          -- 2: absolute path
                 --                          -- 3: absolute path, with tilde as home directory
                 --                          -- 4: filename and parent dir, with tilde as home dir
 
                 symbols = {
-                    modified = '[+]',       -- text to show when file is modified
-                    readonly = '[-]',       -- text to show when file is non-modifiable or readonly
+                    modified = '[+]', -- text to show when file is modified
+                    readonly = '[-]', -- text to show when file is non-modifiable or readonly
                 }
             }
         },
@@ -64,14 +64,14 @@ M.opts = {
             'fileformat',
             'filetype',
         },
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
     },

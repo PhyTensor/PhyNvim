@@ -1,6 +1,6 @@
 local M = { "maxmx03/fluoromachine.nvim" }
 
-M.enabled = false
+M.enabled = true
 
 M.lazy = false    -- load immediately when starting neovim
 
@@ -10,9 +10,9 @@ M.config = function()
     local fm = require('fluoromachine')
 
     fm.setup {
-        glow = true,
-        theme = 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
-        transparent = false,     -- 'full',-- true,
+        glow = false,
+        theme = 'auto',      -- 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
+        transparent = false, -- 'full',-- true,
     }
 
     -- vim.cmd.colorscheme('fluoromachine')
