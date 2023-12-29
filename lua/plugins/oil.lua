@@ -2,9 +2,13 @@ local M = { "stevearc/oil.nvim" }
 
 M.enabled = true
 
-M.lazy = false
+M.event = "VeryLazy"
 
-M.dependencies = { "nvim-tree/nvim-web-devicons" }
+-- M.lazy = false
+
+M.dependencies = {
+    "nvim-tree/nvim-web-devicons",
+}
 
 M.opts = function()
     return require("configs.oil")

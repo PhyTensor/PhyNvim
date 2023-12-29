@@ -1,10 +1,12 @@
 local M = { "rcarriga/nvim-dap-ui" }
 
-M.event = "VeryLazy"
+M.lazy = true
+
+-- M.event = "VeryLazy"
 
 M.dependencies = {
     "mfussenegger/nvim-dap",
-    'theHamsta/nvim-dap-virtual-text', -- inline variable text while debugging
+    'theHamsta/nvim-dap-virtual-text',   -- inline variable text while debugging
     "nvim-telescope/telescope-dap.nvim", -- telescope integration with dap
 }
 
@@ -43,28 +45,28 @@ M.opts = {
             id = "scopes",
             size = 0.5
         }, {
-                id = "stacks",
-                size = 0.34
-            }, {
-                id = "watches",
-                size = 0.15
-            }, {
-                id = "breakpoints",
-                size = 0.01
-            } },
+            id = "stacks",
+            size = 0.34
+        }, {
+            id = "watches",
+            size = 0.15
+        }, {
+            id = "breakpoints",
+            size = 0.01
+        } },
         position = "left",
         size = 50
     }, {
-            elements = { {
-                id = "console",
-                size = 0.75
-            }, {
-                    id = "repl",
-                    size = 0.25
-                } },
-            position = "bottom",
-            size = 10
+        elements = { {
+            id = "console",
+            size = 0.75
+        }, {
+            id = "repl",
+            size = 0.25
         } },
+        position = "bottom",
+        size = 10
+    } },
     mappings = {
         edit = "e",
         expand = { "<CR>", "<2-LeftMouse>" },
@@ -79,7 +81,7 @@ M.opts = {
     }
 }
 
-M.config = function (_, opts)
+M.config = function(_, opts)
     local dap = require("dap")
     local dapui = require("dapui")
 
@@ -89,11 +91,11 @@ M.config = function (_, opts)
         dapui.open()
     end
 
-    dap.listeners.before.event_terminated["dapui_config"] = function ()
+    dap.listeners.before.event_terminated["dapui_config"] = function()
         dapui.close()
     end
 
-    dap.listeners.before.event_exited["dapui_config"] = function ()
+    dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
     end
 end

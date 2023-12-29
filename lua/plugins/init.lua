@@ -5,11 +5,10 @@
 
 local plugins = {
     require('plugins.mini_starter'),
+    require("plugins.mini_animate"),
     require("plugins.colorizer"),
-    require("plugins.andromeda"),
     require('plugins.nvim_lsp'),
     require('plugins.nvim_cmp'),
-    require('plugins.tokyonight'),
     require('plugins.telescope'),
     require('plugins.treesitter'),
     require('plugins.nvimtree'),
@@ -18,19 +17,18 @@ local plugins = {
     require('plugins.comment'),
     require('plugins.indent_blankline'),
     require('plugins.lualine'),
-    -- require('plugins.mini'),
     require('plugins.nvim_web_devicons'),
     require('plugins.neotree'),
     require('plugins.oil'),
-    require('plugins.fluoromachine'),
-    require('plugins.synthwave84'),
+    require("plugins.flash"),
     require('plugins.themery'),
     require('plugins.treesj'),
     require('plugins.noice'),
+    require("plugins.lspsaga"),
     require('plugins.bufferline'),
     require('plugins.inc_rename'),
     require('plugins.mason'),
-    require('plugins.trouble'),
+    require('plugins.trouble_nvim'),
     require("plugins.flutter_tools"),
     require("plugins.nvim_dap"),
     require("plugins.nvim_dap_ui"),
@@ -42,14 +40,32 @@ local plugins = {
     require("plugins.none_ls"),
     require("plugins.conform"),
     require("plugins.nvim_lint"),
+    require("plugins.vim_illuminate"),
+    require("plugins.zen_mode"),
+    require("plugins.todo_comments"),
+    require("plugins.refactoring"),
+    require("plugins.duplicate"),
+    require("plugins.legendary_nvim"),
+    require("plugins.nvim_project"),
+
+    -- colorschemes
+    require("plugins.catppuccin"),
+    require('plugins.fluoromachine'),
+    require('plugins.synthwave84'),
+    require('plugins.tokyonight'),
+    require("plugins.andromeda"),
+    require("plugins.rose_pine"),
+    require("plugins.nightfox"),
 
     -- experimental
-    -- require('plugins.themes'),
+
 }
 
 require("lazy").setup(
     plugins,
     {
-        'configs.lazy_nvim'
+        'configs.lazy_nvim',
     }
+
+
 )

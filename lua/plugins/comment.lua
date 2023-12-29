@@ -1,8 +1,8 @@
 local M = { "numToStr/Comment.nvim" }
 
--- M.lazy = true
+M.lazy = true
 
-M.event = { "BufReadPre", "BufNewFile" }
+-- M.event = { "BufReadPre", "BufNewFile" }
 
 M.dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring"
@@ -21,12 +21,12 @@ M.config = function()
 end
 
 M.keys = {
-    { "gcc", mode = "n", desc = "Comment toggle current line" },
-    { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
-    { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
-    { "gbc", mode = "n", desc = "Comment toggle current block" },
-    { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-    { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+    { "gcc", mode = "n",          desc = "Comment toggle current line" },
+    { "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
+    { "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
+    { "gbc", mode = "n",          desc = "Comment toggle current block" },
+    { "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+    { "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
 }
 
 return M
