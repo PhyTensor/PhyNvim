@@ -45,10 +45,11 @@ local plugins = {
     require("plugins.todo_comments"),
     require("plugins.refactoring"),
     require("plugins.duplicate"),
-    require("plugins.legendary"),
+    require("plugins.legendary_nvim"),
     require("plugins.nvim_project"),
 
     -- colorschemes
+    require("plugins.catppuccin"),
     require('plugins.fluoromachine'),
     require('plugins.synthwave84'),
     require('plugins.tokyonight'),

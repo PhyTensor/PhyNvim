@@ -32,6 +32,7 @@ map.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', opts)
 
 opts.desc = "Enter normal mode"
 map.set('i', 'jk', '<Esc>', opts)
+map.set('i', 'kj', '<Esc>', opts)
 
 
 -- Buffers
@@ -214,7 +215,7 @@ map.set('n', 'gR', function() require('trouble').toggle("lsp_references") end, o
 -- map.set({ 'n', 'v' }, '<leader>go', '<cmd>Lspsaga outline<cr>', opts)
 
 opts.desc = "Show LSP references"
--- map.set( 'n', '<leader>gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts )
+-- map.set('n', '<leader>gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
 map.set('n', '<leader>gr', '<Cmd>Telescope lsp_references<CR>', opts)
 
 opts.desc = "Go to declaration"

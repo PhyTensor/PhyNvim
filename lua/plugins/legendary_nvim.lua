@@ -6,7 +6,9 @@ local M = { 'mrjones2014/legendary.nvim' }
 -- since legendary.nvim handles all your keymaps/commands,
 -- its recommended to load legendary.nvim before other plugins
 M.priority = 10000
-M.lazy = false
+-- M.lazy = false
+
+M.event = "VeryLazy"
 
 M.version = "*"
 

@@ -24,7 +24,7 @@ M.opts = function()
             run_via_dap = false,
             exception_breakpoints = {},
         },
-        outline = { auto_open = true },
+        outline = { auto_open = false },
         decorations = {
             statusline = {
                 device = true,

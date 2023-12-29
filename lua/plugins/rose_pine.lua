@@ -1,6 +1,8 @@
 local M = { 'rose-pine/neovim' }
 
-M.enable = true
+M.lazy = true
+
+M.enable = false
 
 M.name = 'rose-pine'
 

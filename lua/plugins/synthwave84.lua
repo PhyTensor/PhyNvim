@@ -1,6 +1,8 @@
 local M = { "lunarvim/synthwave84.nvim" }
 
-M.enabled = true
+M.lazy = true
+
+M.enabled = false
 
 -- M.config = function()
 --     -- vim.cmd.colorscheme 'synthwave84'

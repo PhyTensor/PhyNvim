@@ -1,6 +1,6 @@
 local M = { "RRethy/vim-illuminate" }
 
-M.event = "VeryLazy"
+M.event = { "BufRead" } -- "VeryLazy"
 
 M.opts = {
     -- providers: provider used to get references in the buffer, ordered by priority

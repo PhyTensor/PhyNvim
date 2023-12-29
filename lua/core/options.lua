@@ -48,7 +48,8 @@ opt.shiftwidth = indent -- width of a TAB autoindent
 opt.number = true         -- show absolute number
 opt.relativenumber = true -- add numbers to each line on left side
 opt.wrap = false          -- wrap lines
-opt.scrolloff = 8         -- min number of lines around cursor (n above, n below)
+opt.scrolloff = 12        -- min number of lines around cursor (n above, n below)
+opt.sidescrolloff = 12    -- scroll page when cursror is # spaces from left/right
 opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.splitbelow = true     -- open new vertical split botton
 opt.splitright = true     -- open new horizontal splits right
@@ -60,7 +61,7 @@ opt.cursorcolumn = false  -- vertical column on through the cursor
 
 opt.fillchars = { vert = '|' }
 -- opt.shortmess:append { 'c' }
-opt.laststatus = 3
+opt.laststatus = 3 -- always show statusline
 
 -- Searching
 opt.incsearch = true  -- search as characters are entered
@@ -75,11 +76,12 @@ opt.grepprg = 'rg --vimgrep'
 
 -- BACKUP
 opt.backup = false                                 -- no backup of current file is made
-opt.swapfile = false                               --default backup behaviour
+opt.swapfile = false                               -- default backup behaviour
 opt.undofile = true                                -- undo file behaviour
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- use the directory of undotree plugin for managing the history
 
 -- CONTEXTUAL
-opt.title = true         --set title of window automatically, useful for tabs plugin
-opt.path:append { '**' } -- search (gf or :find) files down into subfolders
-opt.titlestring = "Neovim - %t"
+opt.title = true                --set title of window automatically, useful for tabs plugin
+opt.path:append { '**' }        -- search (gf or :find) files down into subfolders
+opt.titlestring = "Neovim - %t" -- title string
+opt.fileencoding = "utf-8"      -- encoding set to utf-8

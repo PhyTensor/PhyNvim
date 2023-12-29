@@ -1,6 +1,6 @@
 local M  = { "lukas-reineke/indent-blankline.nvim" }
 
-M.event  = "VeryLazy"
+M.event  = { "BufRead" } --"VeryLazy"}
 
 M.main   = "ibl"
 

@@ -29,15 +29,15 @@ require("core.mappings")
 require("autocmds.autocmds")
 
 -- plugins practice
-function Todo() print("Hello, Karoki Tphy") end
+-- function Todo() print("Hello, Karoki Tphy") end
 
 -- :lua Todo()
 
 -- manually invoking the function
-vim.api.nvim_create_user_command("Todo", Todo, {})
+-- vim.api.nvim_create_user_command("Todo", Todo, {})
 
 -- use autocommands as response to actions/events
 -- vim.api.nvim_create_autocmd("CursorHold", { callback = Todo })
 
 -- using keymaps
-vim.keymap.set('n', '<leader>u', Todo, {})
+-- vim.keymap.set('n', '<leader>u', Todo, {})

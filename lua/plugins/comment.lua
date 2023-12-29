@@ -1,8 +1,8 @@
 local M = { "numToStr/Comment.nvim" }
 
--- M.lazy = true
+M.lazy = true
 
-M.event = { "BufReadPre", "BufNewFile" }
+-- M.event = { "BufReadPre", "BufNewFile" }
 
 M.dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring"

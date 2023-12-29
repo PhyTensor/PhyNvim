@@ -9,11 +9,10 @@ M.dependencies = {
     'nvim-tree/nvim-web-devicons',     -- optional
 }
 
-M.opts = {
-    ui = {
-        border = "rounded"
-    },
-}
+-- https://github.com/nvimdev/lspsaga.nvim/blob/main/lua/lspsaga/init.lua
+M.opts = function()
+    return require("configs.lspsaga_options")
+end
 
 M.config = function(_, opts)
     require("lspsaga").setup(opts)

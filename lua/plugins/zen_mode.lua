@@ -1,6 +1,8 @@
 local M = { "folke/zen-mode.nvim" }
 
-M.event = "VeryLazy"
+M.lazy = true
+
+-- M.event = "VeryLazy"
 
 M.opts = {
     window = {
