@@ -7,7 +7,7 @@ M.dependencies = {
 }
 
 M.opts = {
-    check_ts = true,        -- enable treesitter
+    check_ts = true, -- enable treesitter
     fast_wrap = {},
     disable_filetype = { "TelescopePrompt", "vim" }
 }

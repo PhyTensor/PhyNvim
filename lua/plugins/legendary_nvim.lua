@@ -6,9 +6,13 @@ local M = { 'mrjones2014/legendary.nvim' }
 -- since legendary.nvim handles all your keymaps/commands,
 -- its recommended to load legendary.nvim before other plugins
 M.priority = 10000
--- M.lazy = false
 
-M.event = "VeryLazy"
+-- M.lazy = true
+
+M.event = {
+    "BufReadPre", -- load whenever we opoen new buffer or pres existing file
+    "BufNewFile"  -- load whenever we open new file or new buffer
+}
 
 M.version = "*"
 

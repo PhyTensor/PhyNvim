@@ -1,6 +1,6 @@
 local M = { "nvim-lualine/lualine.nvim" }
 
-M.event = "VimEnter" -- "VeryLazy"
+M.event = { "BufReadPre", "BufNewFile" } -- "VimEnter" -- "VeryLazy"
 
 M.dependencies = {
     "nvim-tree/nvim-web-devicons",

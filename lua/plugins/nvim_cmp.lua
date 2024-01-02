@@ -6,7 +6,7 @@ M.dependencies = {
     "hrsh7th/cmp-emoji",
 
     -- snippet engine
-    "L3MON4D3/LuaSnip",
+    "L3MON4D3/LuaSnip",         -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion i.e. completion engine for luasnip
 
     -- adds LSP completion capabilities
@@ -14,7 +14,7 @@ M.dependencies = {
 
     -- for autocompletion
     "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-path",   -- source for file system paths in commands
     "hrsh7th/cmp-cmdline",
 
     -- adds user friendly snippets
@@ -31,6 +31,7 @@ M.config = function()
     require('luasnip.loaders.from_vscode').lazy_load()
 
     local cmp = require('cmp')
+
     local luasnip = require('luasnip')
 
     local select_opts = { behavior = cmp.SelectBehavior.Select }
@@ -44,7 +45,8 @@ M.config = function()
 
         -- control apprearance and settings for documentation window
         window = {
-            documentation = cmp.config.window.bordered()
+            documentation = cmp.config.window.bordered(),
+            completion = cmp.config.window.bordered(),
         },
 
         completion = {
@@ -195,7 +197,7 @@ M.config = function()
 
 
             -- jump to the next/prev placeholder in the snippet
-            ['<C-f>'] = cmp.mapping(function(fallback)
+            ['<C-a>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then
                     luasnip.jump(1)
                 else

@@ -2,7 +2,7 @@ local M = { "nvim-treesitter/nvim-treesitter" }
 
 M.enabled = true
 
-M.event = { 'BufRead', 'BufNewFile' } -- "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
     "nvim-treesitter/playground",

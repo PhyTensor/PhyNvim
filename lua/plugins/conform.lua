@@ -1,7 +1,9 @@
 -- formmatting
 local M = { "stevearc/conform.nvim" }
 
-M.lazy = true
+M.enabled = true
+
+-- M.lazy = true
 
 M.event = { "BufReadPre", "BufNewFile" }
 
@@ -14,9 +16,9 @@ M.opts = {
         -- svelte = { "prettier" },
         -- css = { "prettier" },
         -- html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
+        json = { "prettier", "prettierd" },
+        yaml = { "prettier", "yamlfix" },
+        markdown = { "prettier", "prettierd" },
         -- graphql = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
@@ -28,7 +30,7 @@ M.opts = {
     },
 }
 
-M.config = function (_, opts)
+M.config = function(_, opts)
     local conform = require("conform")
 
     vim.keymap.set({ "n", "v" }, "<leader>fm", function()

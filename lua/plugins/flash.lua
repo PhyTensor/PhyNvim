@@ -2,7 +2,7 @@ local M = { "folke/flash.nvim" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.opts = {}
 

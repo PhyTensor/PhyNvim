@@ -9,7 +9,7 @@ M.dependencies = {
 
 M.opts = {}
 
-M.config = function ()
+M.config = function()
     local mason_null_ls = require("mason-null-ls")
 
     local null_ls = require("null-ls")
@@ -19,14 +19,14 @@ M.config = function ()
     mason_null_ls.setup({
         ensure_installed = {
             "prettier", -- prettier formatter
-            "stylua", -- lua formatter
-            "black", -- python formatter
-            "pylint", -- python linter
+            "stylua",   -- lua formatter
+            "black",    -- python formatter
+            "pylint",   -- python linter
         },
     })
 
     -- for conciseness
-    local formatting = null_ls.builtins.formatting -- to setup formatters
+    local formatting = null_ls.builtins.formatting   -- to setup formatters
     local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
     -- to setup format on save
@@ -35,7 +35,7 @@ M.config = function ()
     -- configure null_ls
     null_ls.setup({
         -- add package.json as identifier for root (for typescript monorepos)
-        root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json", "pubspec.yaml" ),
+        root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json", "pubspec.yaml"),
         -- setup formatters & linters
         sources = {
             --  to disable file types use
@@ -44,7 +44,7 @@ M.config = function ()
                 extra_filetypes = {
                     -- "svelte",
                 },
-            }), -- js/ts formatter
+            }),                -- js/ts formatter
             formatting.stylua, -- lua formatter
             formatting.isort,
             formatting.black,

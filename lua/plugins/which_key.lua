@@ -1,8 +1,8 @@
 local M = { "folke/which-key.nvim" }
 
-M.lazy = true
+-- M.lazy = false
 
--- M.event = "VeryLazy"
+M.event = "VeryLazy"
 
 function M.config()
     require("which-key")

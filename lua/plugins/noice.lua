@@ -1,6 +1,6 @@
 local M = { "folke/noice.nvim" }
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.opts = function()
     return require("configs.noice_options")
