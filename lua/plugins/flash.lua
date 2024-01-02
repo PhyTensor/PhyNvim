@@ -4,7 +4,6 @@ M.enabled = true
 
 M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
-
 M.opts = {}
 
 -- M.keys = {

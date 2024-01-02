@@ -27,7 +27,11 @@ M.opts = {
     -- Path to store history and sessions
     datapath = vim.fn.stdpath("data"), -- ~/.local/share/nvim/
     -- Load the most recent session on startup if not in the project directory
+<<<<<<< HEAD
     last_session_on_startup = false,
+=======
+    last_session_on_startup = true,
+>>>>>>> main
     -- Overwrite some of Session Manager options
     session_manager_opts = {
         autosave_ignore_dirs = {

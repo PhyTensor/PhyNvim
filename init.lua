@@ -33,7 +33,7 @@ require("autocmds.autocmds")
 
 -- :lua Todo()
 
--- falsemanually invoking the function
+-- manually invoking the function
 -- vim.api.nvim_create_user_command("Todo", Todo, {})
 
 -- use autocommands as response to actions/events

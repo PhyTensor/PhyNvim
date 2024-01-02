@@ -16,4 +16,3 @@ neovide
 - InsertEnter: triggered when entering insert mode e.g. cmp, luasnip, autopairs
 - LspAttach: triggered after LSP is active e.g. lspsaga, lsp-lines
 - VeryLazy: loaded at end of lazy life cycle e.g. which-key, notify, tmux
-
