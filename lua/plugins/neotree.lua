@@ -2,7 +2,7 @@ local M = { "nvim-neo-tree/neo-tree.nvim" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.branch = "v3.x"
 

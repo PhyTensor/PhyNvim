@@ -8,7 +8,7 @@ local lazy_opts = {
         notify = false, -- turn off notificatiosn whenever plugin changes are made
     },
     defaults = { lazy = true },
-    install = { colorscheme = { "nvchad" } },
+    -- install = { colorscheme = { "nvchad" } },
 
     ui = {
         icons = {

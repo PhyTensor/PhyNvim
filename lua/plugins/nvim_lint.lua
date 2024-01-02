@@ -18,6 +18,9 @@ M.config = function()
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
+    -- autocommand - check linters when on save file, leave insert mode
+    -- If you want even more aggressive linting, add "TextChanged" to the table, meaning the linter will run every time you change text.
+    -- https://www.reddit.com/r/neovim/comments/15pj1oi/using_nvimlint_as_a_nullls_alternative_for_linters/
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
         callback = function()

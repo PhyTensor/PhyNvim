@@ -1,6 +1,8 @@
 local M = { "hinell/duplicate.nvim" }
 
-M.event = { "BufRead", "BufNewFile" }
+-- M.lazy = true
+
+M.event = { "BufReadPre", "BufNewFile" }
 
 M.dependencies = {}
 

@@ -2,7 +2,7 @@ local M = { "folke/trouble.nvim" }
 
 -- M.lazy = true
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
     "nvim-tree/nvim-web-devicons",

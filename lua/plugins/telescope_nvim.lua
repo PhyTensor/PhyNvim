@@ -8,7 +8,8 @@ end
 
 M.cmd = "Telescope"
 
-M.event = "VimEnter" -- "VeryLazy"
+-- M.event = "VimEnter" -- "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
     'nvim-lua/plenary.nvim',

@@ -2,7 +2,10 @@ local M = { 'akinsho/bufferline.nvim' }
 
 M.lazy = true
 
-M.event = "VeryLazy"
+M.event = {
+    "BufReadPre", -- load whenever we opoen new buffer or pres existing file
+    "BufNewFile"  -- load whenever we open new file or new buffer
+}
 
 M.version = "*"
 
@@ -11,7 +14,7 @@ M.dependencies = {
 }
 
 M.keys = {
-    { '<Tab>', '<Cmd>BufferLineCycleNext<CR>', desc = "Next buffer tab" },
+    { '<Tab>',   '<Cmd>BufferLineCycleNext<CR>', desc = "Next buffer tab" },
     { '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', desc = "Prev buffer tab" },
 }
 

@@ -2,7 +2,9 @@ local M = { "akinsho/flutter-tools.nvim" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+M.lazy = true
+
+-- M.event = "VeryLazy"
 
 M.dependencies = {
     'nvim-lua/plenary.nvim',

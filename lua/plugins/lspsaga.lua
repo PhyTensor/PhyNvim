@@ -2,7 +2,7 @@ local M = { 'nvimdev/lspsaga.nvim' }
 
 M.enabled = false
 
-M.event = "VeryLazy"
+M.event = "LspAttach" -- "VeryLazy"
 
 M.dependencies = {
     'nvim-treesitter/nvim-treesitter', -- optional
