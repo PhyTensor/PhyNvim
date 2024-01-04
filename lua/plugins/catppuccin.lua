@@ -1,8 +1,8 @@
 local M    = { "catppuccin/nvim" }
 
-M.lazy     = true
+-- M.lazy     = true
 
-M.enabled  = false
+M.enabled  = true
 
 M.event    = "VimEnter"
 

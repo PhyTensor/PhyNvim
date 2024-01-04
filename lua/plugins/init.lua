@@ -49,6 +49,9 @@ local plugins = {
     require("plugins.duplicate"),
     require("plugins.legendary_nvim"),
     require("plugins.nvim_project"),
+    require("plugins.hlchunk"),
+    require("plugins.diffview"),
+    require("plugins.hawtkeys"),
 
     -- colorschemes
     require("plugins.catppuccin"),
@@ -58,6 +61,8 @@ local plugins = {
     require("plugins.andromeda"),
     require("plugins.rose_pine"),
     require("plugins.nightfox"),
+    require("plugins.kanagawa"),
+    require("plugins.cyberdream"),
 
     -- experimental
 

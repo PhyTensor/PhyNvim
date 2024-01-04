@@ -1,6 +1,6 @@
 local M = { "folke/tokyonight.nvim" }
 
-M.enabled = true
+M.enabled = false
 
 -- M.event = "VimEnter"
 
@@ -13,7 +13,7 @@ function M.config()
         style = "night"
     })
 
-    vim.cmd.colorscheme("tokyonight")
+    -- vim.cmd.colorscheme("tokyonight")
 end
 
 return M

@@ -1,6 +1,10 @@
 local M = { "mfussenegger/nvim-dap" }
 
+M.enabled = true
+
 M.lazy = true
+
+M.opts = {}
 
 -- M.event = "VeryLazy"
 

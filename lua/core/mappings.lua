@@ -12,7 +12,7 @@ M.dap_python = {
     plugin = true,
 
     n = {
-        ["<leader>dpr"] = { function ()
+        ["<leader>dpr"] = { function()
             require("dap-python").test_method()
         end }
     }

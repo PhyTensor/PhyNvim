@@ -46,7 +46,7 @@ M.config = function()
             -- "gdscript",
             -- "dartls",
             "jsonls",
-            "csharp_ls",
+            -- "csharp_ls",
             "pyright",
             -- "debugpy",
             -- "cssls", # requires npm to be installed
@@ -146,6 +146,15 @@ M.config = function()
         -- on_attach = on_attach,
         capabilities = lsp_capabilities,
         filetypes = { "python" },
+    })
+
+    -- C#
+    local pid = vim.fn.getpid();
+    local omnisharp_bin = "/usr/local/bin/omnisharp/OmniSharp"
+    lspconfig.omnisharp.setup({
+        capabilities = lsp_capabilities,
+        cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+        filetypes = { "cs" },
     })
 end
 

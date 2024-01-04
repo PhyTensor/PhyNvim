@@ -1,8 +1,11 @@
 local M = { "rcarriga/nvim-dap-ui" }
 
-M.lazy = true
+M.enabled = true
+
+-- M.lazy = true
 
 -- M.event = "VeryLazy"
+M.event = { "BufReadPre", "BufNewFile" }
 
 M.dependencies = {
     "mfussenegger/nvim-dap",
@@ -98,6 +101,24 @@ M.config = function(_, opts)
     dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
     end
+
+    -- csharp
+    dap.adapters.coreclr = {
+        type = 'executable',
+        command = '/usr/local/bin/netcoredbg/netcoredbg',
+        args = { '--interpreter=vscode' }
+    }
+
+    dap.configurations.cs = {
+        {
+            type = "coreclr",
+            name = "launch - netcoredbg",
+            request = "launch",
+            program = function()
+                return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            end,
+        },
+    }
 end
 
 return M

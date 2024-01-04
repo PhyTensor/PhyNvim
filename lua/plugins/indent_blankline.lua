@@ -1,13 +1,15 @@
-local M  = { "lukas-reineke/indent-blankline.nvim" }
+local M   = { "lukas-reineke/indent-blankline.nvim" }
 
-M.event  = { "BufRead" } --"VeryLazy"}
+M.enabled = false
 
-M.main   = "ibl"
+M.event   = { "BufReadPre" } --"VeryLazy"}
 
-M.opts   = {
+M.main    = "ibl"
+
+M.opts    = {
     enabled = true,
     indent = {
-        char = '|',
+        -- char = '|',
     },
     whitespace = {
         remove_blankline_trail = true,
@@ -37,7 +39,7 @@ M.opts   = {
     -- space_char_blankline = " ",
 }
 
-M.config = function(_, opts)
+M.config  = function(_, opts)
     -- require("core.utils").load_mappings "blankline"
     -- dofile(vim.g.base46_cache .. "blankline")
     require("ibl").setup(opts)
