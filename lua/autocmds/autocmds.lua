@@ -32,6 +32,14 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
+-- Removes any trailing whitespace when saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "remove trailing whitespace on save",
+    group = augroup("remove trailing trailing whitespace"),
+    patter = { "*" },
+    command = [[%s/\s\+$//e]],
+})
+
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("wrap_spell"),

@@ -18,13 +18,13 @@ opt.mouse = 'a'
 
 opt.autowrite = true -- Enable auto write
 opt.list = true      -- Show some invisible whitespace characters (tabs...
-opt.listchars:append("space:·")
-opt.listchars:append("nbsp:⎵")
-opt.listchars:append("eol:⏎")
-opt.listchars:append("tab:␉·")
-opt.listchars:append("trail:␠")
-opt.listchars:append("extends:>")
-opt.listchars:append("precedes:<")
+-- opt.listchars:append("space:·")
+-- opt.listchars:append("nbsp:⎵")
+-- opt.listchars:append("eol:⏎")
+-- opt.listchars:append("tab:␉·")
+-- opt.listchars:append("trail:␠")
+-- opt.listchars:append("extends:>")
+-- opt.listchars:append("precedes:<")
 
 -- use system clipboard
 opt.clipboard = 'unnamedplus'

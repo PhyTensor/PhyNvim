@@ -27,6 +27,8 @@ M.opts = {
         'luacheck',
         -- Formatter
         'clang-format',
+        -- debug (DAP)
+        'debugpy',
     },
 }
 
