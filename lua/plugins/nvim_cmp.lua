@@ -197,7 +197,7 @@ M.config = function()
 
 
             -- jump to the next/prev placeholder in the snippet
-            ['<C-a>'] = cmp.mapping(function(fallback)
+            ['<Space>'] = cmp.mapping(function(fallback)
                 if luasnip.jumpable(1) then
                     luasnip.jump(1)
                 else

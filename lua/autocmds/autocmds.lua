@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "remove trailing whitespace on save",
     group = augroup("remove trailing trailing whitespace"),
-    patter = { "*" },
+    pattern = { "*" },
     command = [[%s/\s\+$//e]],
 })
 
