@@ -132,10 +132,10 @@ M.config = function()
                 completeFunctionCalls = true,
                 showTodos = true,
                 analysisExcludedFolders = {
-                    vim.fn.expand("$HOME/flutter/bin/cache"),
+                    vim.fn.expand("$HOME/Android/flutter/bin/cache/"),
                     vim.fn.expand("$HOME/.pub-cache/"),
                     vim.fn.expand("/use/bin/fish"),
-                    vim.fn.expand("$HOME/flutter/"),
+                    vim.fn.expand("$HOME/Android/flutter/"),
                 },
             },
         },
