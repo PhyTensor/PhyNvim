@@ -1,6 +1,5 @@
 local M = { "neovim/nvim-lspconfig" }
 
--- M.event = "VeryLazy"
 M.event = {
     "BufReadPre", -- load whenever we opoen new buffer or pres existing file
     "BufNewFile"  -- load whenever we open new file or new buffer
@@ -21,22 +20,6 @@ M.dependencies = {
     -- Additional lua configuration, makes nvim stuff amazing!
     { 'folke/neodev.nvim' },
 }
-
--- M.opts = {
---     servers = {
---         dartls = {
---             -- add the dart language server setup here
---             cmd = { "dart", "language-server", "--protocol=lsp" },
---         },
---     },
--- }
-
--- M.opts = function()
---     require("lspconfig").dartls.setup({
---         cmd = { "dart", "language-server", "--protocol=lsp" },
---     })
--- end
-
 
 M.config = function()
     require('mason-lspconfig').setup({
@@ -148,7 +131,7 @@ M.config = function()
         filetypes = { "python" },
     })
 
-    -- C#
+    -- C# and dotnet
     local pid = vim.fn.getpid();
     local omnisharp_bin = "/usr/local/bin/omnisharp/OmniSharp"
     lspconfig.omnisharp.setup({

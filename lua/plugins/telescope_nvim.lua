@@ -43,6 +43,7 @@ M.keys = {
     { "<Leader>fc",      find("commands"),                  desc = "Commands" },
     { '<leader>ff',      find("find_files"),                desc = "Find Files" },
     { '<leader>fg',      find("live_grep"),                 desc = "Live Grep - find string in cwd" },
+    { '<leader>fs',      find("git_status"),                desc = "Show git status" },
     { "<Leader>fh",      find("help_tags"),                 desc = "Help" },
     { "<Leader>fl",      find("loclist"),                   desc = "Location list" },
     { "<Leader>fq",      find("quickfix"),                  desc = "Quickfix list" },

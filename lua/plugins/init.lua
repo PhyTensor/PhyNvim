@@ -22,6 +22,7 @@ local plugins = {
     require('plugins.neotree'),
     require('plugins.oil'),
     require("plugins.flash"),
+    require("plugins.hardtime"),
     require('plugins.themery'),
     require('plugins.treesj'),
     require('plugins.noice'),

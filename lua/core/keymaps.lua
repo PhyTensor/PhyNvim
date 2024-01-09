@@ -67,10 +67,10 @@ map.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', opts)
 
 
 -- Navigation
--- map.set('i', '<C-h>', '<C-w>h', opts)
--- map.set('i', '<C-j>', '<C-w>j', opts)
--- map.set('i', '<C-k>', '<C-w>k', opts)
--- map.set('i', '<C-l>', '<C-w>l', opts)
+-- map.set('i', '<C-S-H>', '<Left>', opts)
+-- map.set('i', '<C-S-J>', '<Down>', opts)
+-- map.set('i', '<C-S-K>', '<Up>', opts)
+-- map.set('i', '<C-S-L>', '<Right>', opts)
 
 
 -- map.set('v', '<leader>p', '\"_dp', { desc = "paste" })
@@ -118,6 +118,19 @@ map.set('n', '<C-d>', '<C-d>zz', opts)
 opts.desc = "up - middle half page jumps"
 map.set('n', '<C-u>', '<C-u>zz', opts)
 
+
+-- keep cursor in middle during empty line jumps
+opts.desc = "up - empy line jump"
+map.set('n', '{', '{zzzv', opts)
+opts.desc = "down - empty line jump"
+map.set('n', '}', '}zzzv', opts)
+
+
+-- keep cursor in middle when moving about search results
+opts.desc = "next search result"
+map.set('n', 'n', 'nzzzv', opts)
+opts.desc = "prev search result"
+map.set('n', 'N', 'Nzzzv', opts)
 
 -- moving lines of code
 -- map.set( 'n', 'J', ":m '>+<CR>gv=gv", opts )

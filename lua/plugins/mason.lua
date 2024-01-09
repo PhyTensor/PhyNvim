@@ -1,6 +1,9 @@
 local M = { "williamboman/mason.nvim" }
 
-M.event = "VeryLazy"
+M.event = {
+    "BufReadPre",
+    "BufNewFile"
+}
 
 M.dependencies = {
     "williamboman/mason-lspconfig.nvim",
