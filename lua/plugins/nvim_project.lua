@@ -23,6 +23,7 @@ M.opts = {
     projects = {
         -- define project roots
         "~/Documents/*/*",
+        "~/.config/*",
     },
     -- Path to store history and sessions
     datapath = vim.fn.stdpath("data"), -- ~/.local/share/nvim/

@@ -54,6 +54,11 @@ opts.desc = "Launch Oil"
 map.set('n', '<leader>pv', '<Cmd>Oil<CR>', opts)
 
 
+-- Undotree
+opts.desc = "UndoTree Toggle"
+map.set('n', '<leader>u', '<Cmd>UndotreeToggle<CR>', opts)
+
+
 -- Neovim Project
 opts.desc = "Find project based on patterns"
 map.set('n', '<leader>pp', '<Cmd>Telescope neovim-project discover<CR>', opts)
@@ -78,14 +83,14 @@ opts.desc = "Paste without yanking"
 map.set('v', 'P', '\"_dP', opts)
 
 -- Better window navigation
-opts.desc = "Move to left window pane"
-map.set('n', '<C-h>', '<C-w>h', opts)
-opts.desc = "Move to down window pane"
-map.set('n', '<C-j>', '<C-w>j', opts)
-opts.desc = "Move to up window pane"
-map.set('n', '<C-k>', '<C-w>k', opts)
-opts.desc = "Move to right window pane"
-map.set('n', '<C-l>', '<C-w>l', opts)
+-- opts.desc = "Move to left window pane"
+-- map.set('n', '<C-h>', '<C-w>h', opts)
+-- opts.desc = "Move to down window pane"
+-- map.set('n', '<C-j>', '<C-w>j', opts)
+-- opts.desc = "Move to up window pane"
+-- map.set('n', '<C-k>', '<C-w>k', opts)
+-- opts.desc = "Move to right window pane"
+-- map.set('n', '<C-l>', '<C-w>l', opts)
 
 
 -- Split Window
@@ -289,23 +294,23 @@ map.set('i', '<C-Space>', '<Cmd>lua vim.lsp.buf.completion()<CR>', opts)
 
 
 -- Nvim-dap
-map.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
-map.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
-map.set("n", "<leader>bl", "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
-map.set("n", '<leader>br', "<cmd>lua require'dap'.clear_breakpoints()<cr>")
+map.set("n", "<leader>bb", "<cmd>lua require('dap').toggle_breakpoint()<cr>")
+map.set("n", "<leader>bc", "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+map.set("n", "<leader>bl", "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
+map.set("n", '<leader>br', "<cmd>lua require('dap').clear_breakpoints()<cr>")
 map.set("n", '<leader>ba', '<cmd>Telescope dap list_breakpoints<cr>')
-map.set("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>")
-map.set("n", "<leader>dj", "<cmd>lua require'dap'.step_over()<cr>")
-map.set("n", "<leader>dk", "<cmd>lua require'dap'.step_into()<cr>")
-map.set("n", "<leader>do", "<cmd>lua require'dap'.step_out()<cr>")
+map.set("n", "<F5>", "<cmd>lua require('dap').continue()<cr>")
+map.set("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>")
+map.set("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>")
+map.set("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>")
 map.set("n", '<leader>dd', function()
     require('dap').disconnect(); require('dapui').close();
 end)
 map.set("n", '<leader>dt', function()
     require('dap').terminate(); require('dapui').close();
 end)
-map.set("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>")
-map.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>")
+map.set("n", "<leader>dr", "<cmd>lua require('dap').repl.toggle()<cr>")
+map.set("n", "<leader>dl", "<cmd>lua require('dap').run_last()<cr>")
 map.set("n", '<leader>di', function() require "dap.ui.widgets".hover() end)
 map.set("n", '<leader>d?',
     function()
