@@ -15,4 +15,10 @@ M.dependencies = {
     "rcarriga/nvim-notify",
 }
 
+-- M.config = function()
+--     require("notify").setup({
+--         background_color = "#000000",
+--     })
+-- end
+
 return M

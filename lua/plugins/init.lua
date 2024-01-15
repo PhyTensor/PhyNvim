@@ -22,6 +22,7 @@ local plugins = {
     require('plugins.neotree'),
     require('plugins.oil'),
     require("plugins.flash"),
+    require("plugins.hardtime"),
     require('plugins.themery'),
     require('plugins.treesj'),
     require('plugins.noice'),
@@ -51,6 +52,8 @@ local plugins = {
     require("plugins.hlchunk"),
     require("plugins.diffview"),
     require("plugins.hawtkeys"),
+    require("plugins.undotree"),
+    require("plugins.vim_tmux_navigator"),
 
     -- colorschemes
     require("plugins.catppuccin"),
