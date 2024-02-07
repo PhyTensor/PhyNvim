@@ -4,7 +4,7 @@ M.enabled = true
 
 -- M.lazy = true
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.opts = {}
 

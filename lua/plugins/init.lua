@@ -1,7 +1,4 @@
--- All plugins have lazy=true. To load plugin on startup lazy=false
 -- Listing of all default plusings and their definitions
-
--- THIRD-PARTY PLUGINS
 
 local plugins = {
     require('plugins.mini_starter'),
@@ -75,6 +72,4 @@ require("lazy").setup(
     {
         'configs.lazy_nvim',
     }
-
-
 )

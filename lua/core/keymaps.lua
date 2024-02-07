@@ -71,6 +71,11 @@ opts.desc = "Launch LazyGit"
 map.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', opts)
 
 
+-- Noice
+opts.desc = "Dismiss noice message"
+map.set('n', '<leader>nd', "<Cmd>NoiceDismiss<CR>", opts)
+
+
 -- Navigation
 -- map.set('i', '<C-S-H>', '<Left>', opts)
 -- map.set('i', '<C-S-J>', '<Down>', opts)

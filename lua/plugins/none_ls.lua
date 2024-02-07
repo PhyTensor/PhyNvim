@@ -18,10 +18,11 @@ M.config = function()
 
     mason_null_ls.setup({
         ensure_installed = {
-            "prettier", -- prettier formatter
-            "stylua",   -- lua formatter
-            "black",    -- python formatter
-            "pylint",   -- python linter
+            "prettier",  -- prettier formatter
+            "stylua",    -- lua formatter
+            "black",     -- python formatter
+            "pylint",    -- python linter
+            "csharpier", -- csharp formatter
         },
     })
 
@@ -48,6 +49,7 @@ M.config = function()
             formatting.stylua, -- lua formatter
             formatting.isort,
             formatting.black,
+            formatting.csharpier,
             diagnostics.pylint,
             -- diagnostics.eslint_d.with({ -- js/ts linter
             --     condition = function(utils)

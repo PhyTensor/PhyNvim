@@ -22,6 +22,13 @@ M.opts = {
         -- graphql = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        cs = { "csharpier" },
+    },
+    formatters = {
+        csharpier = {
+            command = "dotnet-csharpier",
+            args = { "--write-stdout" },
+        },
     },
     format_on_save = {
         lsp_fallback = true,

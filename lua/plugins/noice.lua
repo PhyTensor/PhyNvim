@@ -21,4 +21,8 @@ M.dependencies = {
 --     })
 -- end
 
+M.config = function(_, opts)
+    require("noice").setup(opts)
+end
+
 return M

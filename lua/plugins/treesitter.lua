@@ -28,7 +28,7 @@ function M.config()
             enable = true,
             disable = { "dart" },
         },
-        auto_install = false, -- automatically install syntax support when entering a new file type buffer
+        auto_install = true, -- automatically install syntax support when entering a new file type buffer
         ensure_installed = {
             "lua",
             "bash",
@@ -42,6 +42,7 @@ function M.config()
             "yaml",
             "sql",
             "dart",
+            "c_sharp",
         },
     })
 end
