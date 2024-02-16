@@ -8,7 +8,6 @@ end
 
 M.cmd = "Telescope"
 
--- M.event = "VimEnter" -- "VeryLazy"
 M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
@@ -18,8 +17,6 @@ M.dependencies = {
     "nvim-tree/nvim-web-devicons",
     -- "nvim-telescope/telescope-ui-select.nvim",
 }
-
--- M.tag = '0.1.5'
 
 M.opts = function()
     return require("configs.telescope_options")
