@@ -1,8 +1,10 @@
 local M = { "nobbmaestro/nvim-andromeda" }
 
-M.lazy = true
+-- M.lazy = true
 
-M.enabled = false
+M.enabled = true
+
+M.priority = 1000
 
 M.dependencies = {
     { "tjdevries/colorbuddy.nvim", branch = "dev" },

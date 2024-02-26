@@ -1,3 +1,3 @@
--- THEME
+-- THEME/COLORSCHEME
 
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('sonokai')
