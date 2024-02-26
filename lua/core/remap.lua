@@ -8,4 +8,6 @@ vim.g.autoformat = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.scriptencoding = "utf-8"
+
 vim.loader.enable()
