@@ -1,6 +1,6 @@
 local M = { "folke/tokyonight.nvim" }
 
-M.enabled = false
+M.enabled = true
 
 -- M.event = "VimEnter"
 

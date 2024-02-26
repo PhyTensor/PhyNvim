@@ -55,6 +55,8 @@ opt.splitbelow = true     -- open new vertical split botton
 opt.splitright = true     -- open new horizontal splits right
 opt.termguicolors = true  -- enable 24-bit RGB color in the TUI
 opt.showmode = true       -- showing the mode ``-- INSERT --``
+opt.showcmd = true        -- show last command
+opt.cmdheight = 0
 opt.signcolumn = 'yes'    -- always draw the sign column
 opt.cursorcolumn = false  -- vertical column on through the cursor
 -- opt.colorcolumn = '88'      -- colorized the 88th column
@@ -62,6 +64,7 @@ opt.cursorcolumn = false  -- vertical column on through the cursor
 opt.fillchars = { vert = '|' }
 -- opt.shortmess:append { 'c' }
 opt.laststatus = 3 -- always show statusline
+opt.backspace = { "start", "eol", "indent" }
 
 -- Searching
 opt.incsearch = true  -- search as characters are entered
@@ -84,4 +87,5 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- use the directory of undot
 opt.title = true                --set title of window automatically, useful for tabs plugin
 opt.path:append { '**' }        -- search (gf or :find) files down into subfolders
 opt.titlestring = "Neovim - %t" -- title string
+opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"      -- encoding set to utf-8

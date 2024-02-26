@@ -1,8 +1,8 @@
 local M = { "scottmckendry/cyberdream.nvim" }
 
-M.enabled = false
+M.enabled = true
 
-M.lazy = false
+-- M.lazy = false
 
 M.priority = 1000
 
@@ -16,7 +16,7 @@ M.opts = {
 M.config = function(_, opts)
     require("cyberdream").setup(opts)
 
-    vim.cmd("colorscheme cyberdream")
+    -- vim.cmd("colorscheme cyberdream")
 end
 
 return M

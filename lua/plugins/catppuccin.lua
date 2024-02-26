@@ -4,7 +4,7 @@ local M    = { "catppuccin/nvim" }
 
 M.enabled  = true
 
-M.event    = "VimEnter"
+-- M.event    = "VimEnter"
 
 M.name     = "catppuccin"
 

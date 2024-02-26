@@ -99,10 +99,10 @@ map.set('v', 'P', '\"_dP', opts)
 
 
 -- Split Window
-opts.desc = "Horizontal Split Window RIGHT"
-map.set('n', '<C-s>s', '<C-w>v', opts)
-opts.desc = "Vertical Split window BELOW"
-map.set('n', '<C-s>v', '<C-w>s', opts)
+opts.desc = "Vertical Split Window RIGHT"
+map.set('n', '<C-s>v', '<C-w>v', opts)
+opts.desc = "Horizontal Split window BELOW"
+map.set('n', '<C-s>s', '<C-w>s', opts)
 opts.desc = "Close current split window"
 map.set('n', '<C-s>x', '<Cmd>close<CR>', opts)
 opts.desc = "Make split windows equal width and height"
@@ -156,13 +156,6 @@ map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Select all
 opts.desc = "Select All"
 map.set('n', '<leader>a', 'gg<S-v>G', opts)
-
-
--- Nvim Tree
--- opts.desc = "NvimTree Toggle"
--- map.set('n', '<leader>ee', '<Cmd> NvimTreeToggle <CR>', opts)
--- opts.desc = "NvimTree Focus"
--- map.set('n', '<leader>ef', '<Cmd> NvimTreeFocus <CR>', opts)
 
 
 -- -- Move to window using the <ctrl> hjkl keys
