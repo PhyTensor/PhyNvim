@@ -30,6 +30,7 @@ M.opts = {
         'luacheck',
         -- Formatter
         'clang-format',
+        'csharpier',
         -- debug (DAP)
         'debugpy',
     },

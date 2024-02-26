@@ -1,4 +1,5 @@
 local options = {
+    background_colour = "#000000",
     cmdline = {
         enabled = true,         -- enables the Noice cmdline UI
         view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
@@ -219,7 +220,12 @@ local options = {
     -- @type NoiceConfigViews
     views = {}, ---@see section on views
     -- @type NoiceRouteConfig[]
-    routes = {}, --- @see section on routes
+    routes = {
+        {
+            filter = { event = "notify", find = "No information available" },
+            opts = { skip = true },
+        },
+    },           --- @see section on routes
     -- @type table<string, NoiceFilter>
     status = {}, --- @see section on statusline components
     -- @type NoiceFormatOptions

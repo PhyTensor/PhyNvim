@@ -2,15 +2,17 @@ local lazy_opts = {
     spec = {
         { import = "lazyvim.plugins.extras.lang.json" },
         { import = "lazyvim.plugins.extras.lang.flutter" },
+        -- { import = "plugins" },
     },
     change_detection = {
         enabled = true, -- automatically check for config file changes and reload the ui
         notify = false, -- turn off notificatiosn whenever plugin changes are made
     },
     defaults = { lazy = true },
-    -- install = { colorscheme = { "nvchad" } },
-
+    install = { colorscheme = { "tokyonight", "catppuccin", "nvchad" } },
+    checker = { enabled = false }, -- automatically check for plugin updates
     ui = {
+        border = "rounded",
         icons = {
             ft = "",
             lazy = "󰂠 ",
