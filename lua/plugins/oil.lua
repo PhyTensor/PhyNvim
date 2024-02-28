@@ -4,6 +4,8 @@ M.enabled = true
 
 M.event = "VeryLazy"
 
+M.priority = 100
+
 M.dependencies = {
     "nvim-tree/nvim-web-devicons",
 }

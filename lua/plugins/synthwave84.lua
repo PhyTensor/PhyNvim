@@ -6,6 +6,8 @@ M.enabled = true
 
 M.priority = 1000
 
+-- M.event = "VimEnter"
+
 -- M.config = function()
 --     -- vim.cmd.colorscheme 'synthwave84'
 -- end

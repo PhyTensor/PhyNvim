@@ -1,7 +1,6 @@
 -- Load core configs
 require('core.remap')
 
-
 require("configs.lazy")
 
 require("core.colorscheme")

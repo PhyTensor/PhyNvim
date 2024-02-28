@@ -14,7 +14,7 @@ M.dependencies = {
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",
 }
-
+--
 -- M.config = function()
 --     require("notify").setup({
 --         background_color = "#000000",

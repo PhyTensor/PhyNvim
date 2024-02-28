@@ -6,6 +6,8 @@ M.enabled = true
 
 M.priority = 1000 -- load the colorscheme before other non-lazy-loaded plugins
 
+-- M.event = "VimEnter"
+
 M.config = function()
     local fm = require('fluoromachine')
 

@@ -1,8 +1,10 @@
 local M = { "echasnovski/mini.animate" }
 
-M.enabled = false
+M.enabled = true
 
-M.lazy = { "BufRead", "BufNewFile" }
+-- M.event = "VimEnter"
+
+-- M.lazy = "VeryLazy" -- { "BufRead", "BufNewFile" }
 
 M.version = '*'
 

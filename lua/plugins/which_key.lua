@@ -1,8 +1,10 @@
 local M = { "folke/which-key.nvim" }
 
--- M.lazy = false
+M.enabled = true
 
-M.event = "VeryLazy"
+M.lazy = true
+
+M.event = { 'BufReadPre', 'BufNewFile' }
 
 function M.config()
     require("which-key")

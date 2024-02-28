@@ -2,7 +2,7 @@ local M = { "coffebar/neovim-project" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+-- M.event = "VeryLazy"
 
 -- M.lazy = false
 
