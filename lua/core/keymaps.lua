@@ -88,14 +88,14 @@ opts.desc = "Paste without yanking"
 map.set('v', 'P', '\"_dP', opts)
 
 -- Better window navigation
--- opts.desc = "Move to left window pane"
--- map.set('n', '<C-h>', '<C-w>h', opts)
--- opts.desc = "Move to down window pane"
--- map.set('n', '<C-j>', '<C-w>j', opts)
--- opts.desc = "Move to up window pane"
--- map.set('n', '<C-k>', '<C-w>k', opts)
--- opts.desc = "Move to right window pane"
--- map.set('n', '<C-l>', '<C-w>l', opts)
+opts.desc = "Move focus to the left window pane"
+map.set('n', '<C-h>', '<C-w><C-h>', opts)
+opts.desc = "Move focus to the down window pane"
+map.set('n', '<C-j>', '<C-w><C-j>', opts)
+opts.desc = "Move focus to the up window pane"
+map.set('n', '<C-k>', '<C-w><C-k>', opts)
+opts.desc = "Move focus to the right window pane"
+map.set('n', '<C-l>', '<C-w><C-l>', opts)
 
 
 -- Split Window
@@ -158,7 +158,7 @@ opts.desc = "Select All"
 map.set('n', '<leader>a', 'gg<S-v>G', opts)
 
 
--- -- Move to window using the <ctrl> hjkl keys
+-- -- Move focus to the window using the <ctrl> hjkl keys
 --        ["<C-h>"] = { ":TmuxNavigateLeft<CR>", "Goto left window pane" },
 --        ["<C-j>"] = { ":TmuxNavigateDown<CR>", "Goto lower window pane" },
 --        ["<C-k>"] = { ":TmuxNavigateUp<CR>", "Goto upper window pane" },
@@ -261,13 +261,16 @@ map.set('n', '<leader>gb', '<Cmd> Telescope diagnostics bufnr=0 <CR>', opts)
 opts.desc = "Show diagnostics for line"
 map.set('n', '<leader>gl', '<Cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
-opts.desc = "Go to prev diagnostic in buffer"
+opts.desc = "Go to prev diagnostic message in buffer"
 map.set('n', '<leader>gp', '<Cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 -- map.set('n', '<leader>gp', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
 
-opts.desc = "Go to next diagnostic in buffer"
+opts.desc = "Go to next diagnostic message in buffer"
 map.set('n', '<leader>gn', '<Cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 -- map.set('n', '<leader>gn', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+
+opts.desc = "Open diagnostic Quickfix list"
+map.set('n', '<leader>gq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
 opts.desc = "Show hover documentation"
 map.set('n', '<leader>gh', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)

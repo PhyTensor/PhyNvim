@@ -18,6 +18,7 @@ opt.mouse = 'a'
 
 opt.autowrite = true -- Enable auto write
 opt.list = true      -- Show some invisible whitespace characters (tabs...
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- opt.listchars:append("space:·")
 -- opt.listchars:append("nbsp:⎵")
 -- opt.listchars:append("eol:⏎")
@@ -28,7 +29,6 @@ opt.list = true      -- Show some invisible whitespace characters (tabs...
 
 -- use system clipboard
 opt.clipboard = 'unnamedplus'
-opt.clipboard:append { 'unnamedplus' }
 
 -- COMPLETION
 opt.completeopt = { 'menu', 'menuone', 'preview', 'noselect' }
@@ -41,6 +41,7 @@ opt.expandtab = true     -- tabs are spaces, mainly for python
 
 -- INDENT
 opt.smartindent = true  -- smart with indent
+opt.breakindent = true  -- enable break indent
 opt.autoindent = true   -- indent new line same amount of previous line
 opt.shiftwidth = indent -- width of a TAB autoindent
 
@@ -48,7 +49,7 @@ opt.shiftwidth = indent -- width of a TAB autoindent
 opt.number = true         -- show absolute number
 opt.relativenumber = true -- add numbers to each line on left side
 opt.wrap = false          -- wrap lines
-opt.scrolloff = 12        -- min number of lines around cursor (n above, n below)
+opt.scrolloff = 12        -- min number of lines around cursor (n above, n below) Minimal number of screen lines to keep above and below the cursor.
 opt.sidescrolloff = 12    -- scroll page when cursror is # spaces from left/right
 opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.splitbelow = true     -- open new vertical split botton
@@ -67,20 +68,21 @@ opt.laststatus = 3 -- always show statusline
 opt.backspace = { "start", "eol", "indent" }
 
 -- Searching
-opt.incsearch = true  -- search as characters are entered
-opt.hlsearch = true   -- whether to highlight matches
-opt.ignorecase = true -- ignore case in searches by default
-opt.smartcase = true  -- whether to make case sensitive if an uppercase is entered
-opt.inccommand = 'split'
-opt.syntax = 'ON'     -- syntax highlighting
-opt.grepprg = 'rg --vimgrep'
+opt.incsearch = true         -- search as characters are entered
+opt.hlsearch = true          -- whether to highlight matches
+opt.ignorecase = true        -- ignore case in searches by default
+opt.smartcase = true         -- whether to make case sensitive if an uppercase is entered
+opt.inccommand = 'split'     -- preview substitutions live, as you type!
+opt.syntax = 'ON'            -- syntax highlighting
+opt.grepprg = 'rg --vimgrep' -- ?
 
--- opt.updatetime = 50         -- update time for the swap file and for the cursor Hold event
+-- opt.updatetime = 250         -- update time for the swap file and for the cursor Hold event
+-- opt.timeoutlen = 300
 
 -- BACKUP
 opt.backup = false                                 -- no backup of current file is made
 opt.swapfile = false                               -- default backup behaviour
-opt.undofile = true                                -- undo file behaviour
+opt.undofile = true                                -- undo file behaviour/save undo history
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- use the directory of undotree plugin for managing the history
 
 -- CONTEXTUAL
