@@ -26,7 +26,7 @@ local opts = {
         enabled = true, -- automatically check for config file changes and reload the ui
         notify = false, -- turn off notificatiosn whenever plugin changes are made
     },
-    defaults = { lazy = true },
+    defaults = { lazy = false },
     -- install = { colorscheme = { "tokyonight", "catppuccin", "nvchad", "sonokai" } },
     checker = { enabled = false }, -- automatically check for plugin updates
     ui = {
