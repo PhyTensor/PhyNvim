@@ -29,6 +29,7 @@ opt.list = true      -- Show some invisible whitespace characters (tabs...
 
 -- use system clipboard
 opt.clipboard = 'unnamedplus'
+opt.clipboard:append { 'unnamedplus' }
 
 -- COMPLETION
 opt.completeopt = { 'menu', 'menuone', 'preview', 'noselect' }

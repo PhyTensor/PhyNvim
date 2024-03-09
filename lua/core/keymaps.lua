@@ -158,11 +158,15 @@ opts.desc = "Select All"
 map.set('n', '<leader>a', 'gg<S-v>G', opts)
 
 
--- -- Move focus to the window using the <ctrl> hjkl keys
---        ["<C-h>"] = { ":TmuxNavigateLeft<CR>", "Goto left window pane" },
---        ["<C-j>"] = { ":TmuxNavigateDown<CR>", "Goto lower window pane" },
---        ["<C-k>"] = { ":TmuxNavigateUp<CR>", "Goto upper window pane" },
---        ["<C-l>"] = { ":TmuxNavigateRight<CR>", "Goto right window pane" },
+-- -- Move focus to the window using the <ctrl> hjkl keys in Tmux/Neovim Collab
+opts.desc = "Goto right window pane"
+map.set("n", "<C-l>", "<Cmd>:TmuxNavigateRight<CR>", opts)
+opts.desc = "Goto left window pane"
+map.set("n", "<C-h>", "<Cmd>:TmuxNavigateLeft<CR>", opts)
+opts.desc = "Goto upper window pane"
+map.set("n", "<C-k>", "<Cmd>:TmuxNavigateUp<CR>", opts)
+opts.desc = "Goto lower window page"
+map.set("n", "<C-j>", "<Cmd>:TmuxNavigateDown<CR>", opts)
 
 
 -- NeoTree
