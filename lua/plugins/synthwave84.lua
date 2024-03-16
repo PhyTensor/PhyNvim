@@ -1,6 +1,6 @@
 local M = { "lunarvim/synthwave84.nvim" }
 
--- M.lazy = true
+M.lazy = true
 
 M.enabled = true
 

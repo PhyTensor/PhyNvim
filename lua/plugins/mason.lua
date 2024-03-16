@@ -19,6 +19,7 @@ M.opts = {
     },
     ensure_installed = {
         -- LSP
+        'ruff-lsp',
         'clangd',
         'csharp-language-server',
         'json-lsp',

@@ -1,6 +1,6 @@
 local M = { 'rose-pine/neovim' }
 
--- M.lazy = true
+M.lazy = true
 
 M.enabled = true
 

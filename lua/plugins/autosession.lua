@@ -2,6 +2,8 @@ local M = { "rmagatti/auto-session" }
 
 M.enabled = false
 
+M.lazy = true
+
 M.opts = {
     log_level = "error",
     auto_restore_enabled = true,

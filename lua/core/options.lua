@@ -49,7 +49,7 @@ opt.shiftwidth = indent -- width of a TAB autoindent
 -- UI config
 opt.number = true         -- show absolute number
 opt.relativenumber = true -- add numbers to each line on left side
-opt.wrap = false          -- wrap lines
+opt.wrap = true           -- wrap lines
 opt.scrolloff = 12        -- min number of lines around cursor (n above, n below) Minimal number of screen lines to keep above and below the cursor.
 opt.sidescrolloff = 12    -- scroll page when cursror is # spaces from left/right
 opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally

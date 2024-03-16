@@ -5,7 +5,7 @@ local M = { "folke/trouble.nvim" }
 M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"
 
 M.dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
 }
 
 M.opts = function()

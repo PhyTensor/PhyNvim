@@ -2,7 +2,7 @@ local M = { "scottmckendry/cyberdream.nvim" }
 
 M.enabled = true
 
--- M.lazy = false
+M.lazy = true
 
 M.priority = 1000
 

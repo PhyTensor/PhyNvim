@@ -2,9 +2,7 @@ local M = { "folke/tokyonight.nvim" }
 
 M.enabled = true
 
--- M.event = "VimEnter"
-
--- M.lazy = false
+M.lazy = true
 
 M.priority = 1000
 

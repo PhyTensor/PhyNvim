@@ -1,5 +1,7 @@
 local M = { "rebelot/kanagawa.nvim" }
 
+M.lazy = true
+
 M.enabled = true
 
 M.priority = 1000

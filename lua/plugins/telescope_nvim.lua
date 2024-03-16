@@ -6,6 +6,8 @@ local function find(source)
     end
 end
 
+M.lazy = true
+
 M.cmd = "Telescope"
 
 M.event = { 'BufReadPre', 'BufNewFile' } -- "VeryLazy"

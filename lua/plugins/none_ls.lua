@@ -21,6 +21,7 @@ M.config = function()
             "prettier",  -- prettier formatter
             "stylua",    -- lua formatter
             "black",     -- python formatter
+            "ruff",      -- Python Linter, Formatter
             "pylint",    -- python linter
             "csharpier", -- csharp formatter
         },
@@ -54,6 +55,7 @@ M.config = function()
             }),                -- js/ts formatter
             formatting.stylua, -- lua formatter
             formatting.isort,
+            formatting.ruff,
             formatting.black,
             formatting.csharpier,
             diagnostics.pylint,
