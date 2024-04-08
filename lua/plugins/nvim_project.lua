@@ -2,9 +2,9 @@ local M = { "coffebar/neovim-project" }
 
 M.enabled = true
 
-M.event = "VeryLazy"
+M.event = { 'BufReadPre', 'BufNewFile' }
 
--- M.lazy = false
+M.lazy = true
 
 M.priority = 100
 

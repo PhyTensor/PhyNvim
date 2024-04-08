@@ -2,10 +2,14 @@ local M = { "stevearc/oil.nvim" }
 
 M.enabled = true
 
+M.lazy = true
+
 M.event = "VeryLazy"
 
+M.priority = 100
+
 M.dependencies = {
-    "nvim-tree/nvim-web-devicons",
+    -- "nvim-tree/nvim-web-devicons",
 }
 
 M.opts = function()

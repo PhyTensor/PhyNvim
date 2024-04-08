@@ -1,12 +1,10 @@
 local M = { 'rose-pine/neovim' }
 
--- M.lazy = true
+M.lazy = true
 
-M.enable = true
+M.enabled = true
 
 M.name = 'rose-pine'
-
-M.as = 'rose-pine'
 
 M.priority = 1000
 

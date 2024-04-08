@@ -1,6 +1,6 @@
 local M = { "nobbmaestro/nvim-andromeda" }
 
--- M.lazy = true
+M.lazy = true
 
 M.enabled = true
 

@@ -1,6 +1,7 @@
 -- Load core configs
 require('core.remap')
-
+require("autocmds.autocmds")
+require('core.options')
 
 require("configs.lazy")
 
@@ -8,8 +9,6 @@ require("core.colorscheme")
 
 -- modules not loaded by lazy
 require('core.keymaps')
-require('core.options')
-require("autocmds.autocmds")
 
 -- plugins practice
 -- function Todo() print("Hello, Karoki Tphy") end

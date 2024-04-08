@@ -26,8 +26,12 @@ local opts = {
         enabled = true, -- automatically check for config file changes and reload the ui
         notify = false, -- turn off notificatiosn whenever plugin changes are made
     },
-    defaults = { lazy = true },
-    -- install = { colorscheme = { "tokyonight", "catppuccin", "nvchad", "sonokai" } },
+    defaults = {
+        -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+        lazy = false,
+        version = false, -- always use the latest git commit
+    },
+    -- install = { colorscheme = { "tokyonight", "catppuccin", "sonokai" } },
     checker = { enabled = false }, -- automatically check for plugin updates
     ui = {
         border = "rounded",
@@ -77,8 +81,5 @@ local opts = {
         },
     },
 }
-
--- return opts
-
 
 require("lazy").setup(opts)

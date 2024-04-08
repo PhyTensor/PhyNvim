@@ -21,6 +21,7 @@ M.config = function()
             "prettier",  -- prettier formatter
             "stylua",    -- lua formatter
             "black",     -- python formatter
+            "ruff",      -- Python Linter, Formatter
             "pylint",    -- python linter
             "csharpier", -- csharp formatter
         },
@@ -36,7 +37,13 @@ M.config = function()
     -- configure null_ls
     null_ls.setup({
         -- add package.json as identifier for root (for typescript monorepos)
-        root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json", "pubspec.yaml"),
+        root_dir = null_ls_utils.root_pattern(
+            ".null-ls-root",
+            "Makefile",
+            ".git",
+            "package.json",
+            "pubspec.yaml"
+        ),
         -- setup formatters & linters
         sources = {
             --  to disable file types use
@@ -48,6 +55,7 @@ M.config = function()
             }),                -- js/ts formatter
             formatting.stylua, -- lua formatter
             formatting.isort,
+            formatting.ruff,
             formatting.black,
             formatting.csharpier,
             diagnostics.pylint,

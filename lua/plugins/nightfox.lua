@@ -1,10 +1,12 @@
 local M = { "EdenEast/nightfox.nvim" }
 
--- M.lazy = true
+M.lazy = true
 
 M.enabled = true
 
 M.priority = 1000
+
+-- M.event = "VimEnter"
 
 M.opts = {
     options = {

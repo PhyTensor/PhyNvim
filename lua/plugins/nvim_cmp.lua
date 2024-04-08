@@ -166,7 +166,7 @@ M.config = function()
             ["<C-[>"] = cmp.mapping.scroll_docs(-4),            -- scroll backward
             ["<C-]>"] = cmp.mapping.scroll_docs(4),             -- scroll forward
 
-            ["<C-Space>"] = cmp.mapping.complete(),             -- show completion suggestions
+            ["<C-f>"] = cmp.mapping.complete(),                 -- show completion suggestions
 
             ["<C-e>"] = cmp.mapping.abort(),                    -- clear/cancel completion window
 
