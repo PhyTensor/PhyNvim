@@ -32,6 +32,7 @@ map.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", opts)
 opts.desc = "Enter normal mode"
 map.set("i", "jk", "<Esc>", opts)
 map.set("i", "jj", "<Esc>", opts)
+map.set("i", "kk", "<Esc>", opts)
 
 -- Buffers
 opts.desc = "Delete current buffer"
@@ -136,12 +137,12 @@ map.set("n", "N", "Nzzzv", opts)
 -- map.set( 'n', 'J', ":m '>+<CR>gv=gv", opts )
 -- map.set( 'n', 'K', ":m '<-<CR>gv=gv", opts )
 -- Move Lines up and down
-map.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+map.set("n", "<C-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map.set("n", "<C-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map.set("i", "<C-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map.set("i", "<C-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map.set("v", "<C-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Select all
 opts.desc = "Select All"

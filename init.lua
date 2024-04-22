@@ -8,7 +8,10 @@ vim.g.autoformat = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- vim.g.zoxide_use_select = true
+-- Set to true if you have a Nerd Font installed
+vim.g.have_nerd_font = true
+
+vim.g.zoxide_use_select = true
 
 vim.scriptencoding = "utf-8"
 
