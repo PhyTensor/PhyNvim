@@ -24,6 +24,7 @@ return {
 				"mypy",
 				"ktlint",
 				"eslint_d",
+				"eslint-lsp",
 				"ruff",
 				"prettier",
 				"prettierd",
@@ -33,6 +34,7 @@ return {
 				"yamlfix",
 				"debugpy",
 				"css-lsp",
+				"typescript-language-server",
 			},
 		})
 

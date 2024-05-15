@@ -1,7 +1,7 @@
 vim.cmd.colorscheme(
-	"sonokai"
+	-- "sonokai"
 	-- "dracula"
-	-- 'tokyonight'
+	"tokyonight"
 	-- "catppuccin"
 	-- 'fluoromachine'
 	-- 'nightfox'

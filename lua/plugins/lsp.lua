@@ -26,6 +26,8 @@ return {
 		local util = require("lspconfig.util")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+		lspconfig.intelephense.setup({})
+
 		-- for  creating custom keybindings
 		local keymap = vim.keymap
 		local opts = { noremap = true, silent = true }
@@ -191,6 +193,12 @@ return {
 					format = { eanble = true },
 				},
 			},
+		})
+
+		-- godot and gdscript
+		lspconfig.gdscript.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }
