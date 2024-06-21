@@ -13,6 +13,9 @@ end
 
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- Fixes Notify opacity issues
+vim.o.termguicolors = true
+
 require("lazy").setup({
     spec = {
         -- add LazyVim and import its plugins

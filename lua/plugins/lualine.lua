@@ -1,11 +1,14 @@
 local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+-- local noice_status = require("noice")
 
 return {
     "nvim-lualine/lualine.nvim",
+    enabled = true,
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-tree/nvim-web-devicons",
+        -- "folke/noice.nvim",
         {
             "linrongbin16/lsp-progress.nvim", -- LSP loading progress
             lazy = true,
@@ -17,8 +20,14 @@ return {
             -- component_separators = "|",
             -- section_separators = "",
             theme = "auto", -- 'fluoromachine', -- 'auto',
-            component_separators = { left = "", right = "" },
-            section_separators = { left = "", right = "" },
+            component_separators = {
+                left = "",
+                right = "",
+            },
+            section_separators = {
+                left = "",
+                right = "",
+            },
             disabled_filetypes = {
                 statusline = {},
                 winbar = {},
@@ -33,8 +42,14 @@ return {
             },
         },
         sections = {
-            lualine_a = { "mode" },
-            lualine_b = { "branch", "diff", "diagnostics" },
+            lualine_a = {
+                "mode",
+            },
+            lualine_b = {
+                "branch",
+                "diff",
+                "diagnostics",
+            },
             lualine_c = {
                 {
                     "filename",
@@ -57,8 +72,15 @@ return {
                 {
                     lazy_status.updates,
                     cond = lazy_status.has_updates,
+                    -- require("noice").api.statusline.mode.get,
+                    -- cond = require("noice").api.statusline.mode.has,
                     color = { fg = "#ff9e64" },
                 },
+                -- {
+                --     require("noice").api.status.command.get,
+                --     cond = require("noice").api.status.command.has,
+                --     color = { fg = "#ff9e64" },
+                -- },
                 "encoding",
                 "fileformat",
                 "filetype",
