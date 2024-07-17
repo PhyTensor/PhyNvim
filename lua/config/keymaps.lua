@@ -10,7 +10,7 @@
 -- define common options
 local opts = {
     noremap = true, -- non-recursive
-    silent = true, -- do not show message
+    silent = true,  -- do not show message
 }
 
 local map = vim.keymap
@@ -49,6 +49,10 @@ map.set("n", "<leader>l", "<Cmd>Lazy<CR>", opts)
 -- Oil
 opts.desc = "Launch Oil"
 map.set("n", "<leader>pv", "<Cmd>Oil<CR>", opts)
+opts.desc = "Oil open parent directory in current window"
+map.set("n", "-", "<CMD>Oil<CR>", opts)
+opts.desc = "Oil open parent directory in floating window"
+map.set("n", "<space>-", require("oil").toggle_float)
 
 -- Undotree
 opts.desc = "UndoTree Toggle"
@@ -161,35 +165,38 @@ map.set("n", "<C-j>", "<Cmd>:TmuxNavigateDown<CR>", opts)
 -- NeoTree
 -- -----------------------------------------------------------------------------------
 opts.desc = "Neotree toggle filesystem"
-map.set("n", "<leader>ee", "<Cmd> Neotree filesystem toggle reveal left <CR>", opts)
+map.set("n", "<leader>e", "<Cmd> Neotree filesystem toggle reveal left <CR>", opts)
 
-opts.desc = "Neotree toggle show list of currently open buffers"
-map.set("n", "<leader>eb", "<Cmd> Neotree buffers toggle reveal left <CR>", opts)
-
-opts.desc = "Neotree toggle show output of git status in tree layout"
-map.set("n", "<leader>eg", "<Cmd> Neotree git_status toggle left <CR>", opts)
-
-opts.desc = "Neotree toggle float filesystem"
-map.set("n", "<leader>efe", "<Cmd> Neotree filesystem toggle reveal float <CR>", opts)
-
-opts.desc = "Neotree toggle float show list of currently open buffers"
-map.set("n", "<leader>efb", "<Cmd> Neotree buffers toggle reveal float <CR>", opts)
-
-opts.desc = "Neotree toggle float show output of git status in tree layout"
-map.set("n", "<leader>efg", "<Cmd> Neotree git_status toggle float <CR>", opts)
-
-opts.desc = "NeoTree open file browser to the right"
-map.set("n", "<leader>err", "<Cmd> Neotree filesystem reveal right <CR>", opts)
-
-opts.desc = "NeoTree open file browser to the left"
-map.set("n", "<leader>erl", "<Cmd> Neotree filesystem reveal left <CR>", opts)
-
-opts.desc =
-"Neotree show file browser window but f-- rename files through file exploerer and update affected import statements for LSPs that support itocus on current window"
-map.set("n", "<leader>es", "<Cmd> Neotree filesystem toggle reveal left show <CR>", opts)
-
-opts.desc = "Neotree close file browser window"
-map.set("n", "<leader>ec", "<Cmd> Neotree close <CR>", opts)
+-- opts.desc = "Neotree toggle filesystem"
+-- map.set("n", "<leader>ee", "<Cmd> Neotree filesystem toggle reveal left <CR>", opts)
+--
+-- opts.desc = "Neotree toggle show list of currently open buffers"
+-- map.set("n", "<leader>eb", "<Cmd> Neotree buffers toggle reveal left <CR>", opts)
+--
+-- opts.desc = "Neotree toggle show output of git status in tree layout"
+-- map.set("n", "<leader>eg", "<Cmd> Neotree git_status toggle left <CR>", opts)
+--
+-- opts.desc = "Neotree toggle float filesystem"
+-- map.set("n", "<leader>efe", "<Cmd> Neotree filesystem toggle reveal float <CR>", opts)
+--
+-- opts.desc = "Neotree toggle float show list of currently open buffers"
+-- map.set("n", "<leader>efb", "<Cmd> Neotree buffers toggle reveal float <CR>", opts)
+--
+-- opts.desc = "Neotree toggle float show output of git status in tree layout"
+-- map.set("n", "<leader>efg", "<Cmd> Neotree git_status toggle float <CR>", opts)
+--
+-- opts.desc = "NeoTree open file browser to the right"
+-- map.set("n", "<leader>err", "<Cmd> Neotree filesystem reveal right <CR>", opts)
+--
+-- opts.desc = "NeoTree open file browser to the left"
+-- map.set("n", "<leader>erl", "<Cmd> Neotree filesystem reveal left <CR>", opts)
+--
+-- opts.desc =
+-- "Neotree show file browser window but f-- rename files through file exploerer and update affected import statements for LSPs that support itocus on current window"
+-- map.set("n", "<leader>es", "<Cmd> Neotree filesystem toggle reveal left show <CR>", opts)
+--
+-- opts.desc = "Neotree close file browser window"
+-- map.set("n", "<leader>ec", "<Cmd> Neotree close <CR>", opts)
 ---------------------------------------------------------------------------------------
 
 -- Auto-Session

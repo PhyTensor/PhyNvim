@@ -42,7 +42,7 @@ require("lazy").setup({
             "habamax",
         }
     },
-    checker = { enabled = true }, -- automatically check for plugin updates
+    checker = { enabled = false }, -- automatically check for plugin updates
     ui = {
         border = "rounded",
         icons = {

@@ -27,6 +27,7 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- COMPLETION
 opt.completeopt = { "menu", "menuone", "preview", "noselect" }
+opt.shortmess:append "c"
 opt.pumheight = 10
 
 -- Tab

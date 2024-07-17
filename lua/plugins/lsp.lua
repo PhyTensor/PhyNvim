@@ -6,6 +6,7 @@ return {
     },
     dependencies = {
         -- LSP Manager plugins
+        -- Automatically install LSPs and related tools to stdpath for neovim
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
 
@@ -29,66 +30,66 @@ return {
         lspconfig.intelephense.setup({})
 
         -- for  creating custom keybindings
-        local keymap = vim.keymap
-        local opts = { noremap = true, silent = true }
-        local on_attach = function(bufnr, client)
-            opts.buffer = bufnr
+        -- local keymap = vim.keymap
+        -- local opts = { noremap = true, silent = true }
+        -- local on_attach = function(bufnr, client)
+        -- opts.buffer = bufnr
 
-            -- set keybindings
-            -- opts.desc = "Show LSP references"
-            -- keymap.set("n", "<leader>gr", "<Cmd>Telescope lsp_references<CR>", opts)
-            --
-            -- opts.desc = "Go to declaration"
-            -- keymap.set("n", "<leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-            --
-            -- opts.desc = "Go to lsp definitions"
-            -- keymap.set("n", "<leader>gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
-            --
-            -- opts.desc = "Show LSP implementations"
-            -- keymap.set("n", "<leader>gi", "<Cmd>Telescope lsp_implementations<CR>", opts)
-            --
-            -- opts.desc = "Show LSP type definitions"
-            -- keymap.set("n", "<leader>gt", "<Cmd> Telescope lsp_type_definitions <CR>", opts)
-            --
-            -- opts.desc = "See available code actions"
-            -- keymap.set({ "n", "v" }, "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-            --
-            -- opts.desc = "Smart Rename"
-            -- keymap.set("n", "<leader>rr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-            --
-            -- opts.desc = "Show buffer diagnostics for file"
-            -- keymap.set("n", "<leader>gb", "<Cmd> Telescope diagnostics bufnr=0 <CR>", opts)
-            --
-            -- opts.desc = "Show diagnostics for line"
-            -- keymap.set("n", "<leader>gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
-            --
-            -- opts.desc = "Go to prev diagnostic message in buffer"
-            -- keymap.set("n", "<leader>gp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-            --
-            -- opts.desc = "Go to next diagnostic message in buffer"
-            -- keymap.set("n", "<leader>gn", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-            --
-            -- opts.desc = "Open diagnostic Quickfix list"
-            -- keymap.set("n", "<leader>gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-            --
-            -- opts.desc = "Show hover documentation"
-            -- keymap.set("n", "<leader>gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-            --
-            -- opts.desc = "Restart the LSP"
-            -- keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
-            --
-            -- opts.desc = "Signature help"
-            -- keymap.set("n", "<leader>gs", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-            --
-            -- opts.desc = "format"
-            -- keymap.set({ "n", "v" }, "<leader>gf", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
-            --
-            -- opts.desc = "Document symbol"
-            -- keymap.set("n", "<leader>tr", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
-            --
-            -- opts.desc = "Bring up completion window"
-            -- keymap.set("i", "<C-Space>", "<Cmd>lua vim.lsp.buf.completion()<CR>", opts)
-        end
+        -- set keybindings
+        -- opts.desc = "Show LSP references"
+        -- keymap.set("n", "<leader>gr", "<Cmd>Telescope lsp_references<CR>", opts)
+        --
+        -- opts.desc = "Go to declaration"
+        -- keymap.set("n", "<leader>gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+        --
+        -- opts.desc = "Go to lsp definitions"
+        -- keymap.set("n", "<leader>gd", "<Cmd>Telescope lsp_definitions<CR>", opts)
+        --
+        -- opts.desc = "Show LSP implementations"
+        -- keymap.set("n", "<leader>gi", "<Cmd>Telescope lsp_implementations<CR>", opts)
+        --
+        -- opts.desc = "Show LSP type definitions"
+        -- keymap.set("n", "<leader>gt", "<Cmd> Telescope lsp_type_definitions <CR>", opts)
+        --
+        -- opts.desc = "See available code actions"
+        -- keymap.set({ "n", "v" }, "<leader>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+        --
+        -- opts.desc = "Smart Rename"
+        -- keymap.set("n", "<leader>rr", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
+        --
+        -- opts.desc = "Show buffer diagnostics for file"
+        -- keymap.set("n", "<leader>gb", "<Cmd> Telescope diagnostics bufnr=0 <CR>", opts)
+        --
+        -- opts.desc = "Show diagnostics for line"
+        -- keymap.set("n", "<leader>gl", "<Cmd>lua vim.diagnostic.open_float()<CR>", opts)
+        --
+        -- opts.desc = "Go to prev diagnostic message in buffer"
+        -- keymap.set("n", "<leader>gp", "<Cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+        --
+        -- opts.desc = "Go to next diagnostic message in buffer"
+        -- keymap.set("n", "<leader>gn", "<Cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+        --
+        -- opts.desc = "Open diagnostic Quickfix list"
+        -- keymap.set("n", "<leader>gq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+        --
+        -- opts.desc = "Show hover documentation"
+        -- keymap.set("n", "<leader>gh", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+        --
+        -- opts.desc = "Restart the LSP"
+        -- keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
+        --
+        -- opts.desc = "Signature help"
+        -- keymap.set("n", "<leader>gs", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+        --
+        -- opts.desc = "format"
+        -- keymap.set({ "n", "v" }, "<leader>gf", "<Cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
+        --
+        -- opts.desc = "Document symbol"
+        -- keymap.set("n", "<leader>tr", "<Cmd>lua vim.lsp.buf.document_symbol()<CR>", opts)
+        --
+        -- opts.desc = "Bring up completion window"
+        -- keymap.set("i", "<C-Space>", "<Cmd>lua vim.lsp.buf.completion()<CR>", opts)
+        -- end
 
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -103,7 +104,7 @@ return {
         -- Lua LSP settings
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             settings = {
                 Lua = {
                     diagnostics = {
@@ -124,12 +125,12 @@ return {
         -- configure html server
         lspconfig["html"].setup({
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
         })
 
         -- dartls
         lspconfig.dartls.setup({
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             capabilities = capabilities,
             cmd = { "dart", "language-server", "--protocol=lsp" },
             filetypes = { "dart" },
@@ -157,7 +158,7 @@ return {
 
         -- pyright
         lspconfig.pyright.setup({
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             capabilities = capabilities,
             filetypes = { "python" },
         })
@@ -166,7 +167,7 @@ return {
         local pid = vim.fn.getpid()
         local omnisharp_bin = "/usr/local/bin/omnisharp/OmniSharp"
         lspconfig.omnisharp.setup({
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             capabilities = capabilities,
             cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
             filetypes = { "cs" },
@@ -174,7 +175,7 @@ return {
 
         -- Typescript and javascript
         lspconfig.tsserver.setup({
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             capabilities = capabilities,
             init_options = {
                 preferences = {
@@ -186,7 +187,7 @@ return {
         -- json
         lspconfig.jsonls.setup({
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             settings = {
                 json = {
                     validate = { enable = true },
@@ -198,7 +199,7 @@ return {
         -- godot and gdscript
         lspconfig.gdscript.setup({
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
         })
     end,
 }
