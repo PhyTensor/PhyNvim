@@ -96,7 +96,9 @@ return {
             lualine_y = {},
             lualine_z = {},
         },
-        tabline = {},
+        tabline = {
+            -- lualine_a = { 'buffers' },
+        },
         winbar = {},
         inactive_winbar = {},
         extensions = {},

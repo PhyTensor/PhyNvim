@@ -30,20 +30,14 @@ return {
     -- Completion Configuration
     config = function()
         local cmp = require("cmp")
-
         local luasnip = require("luasnip")
 
         -- configure snippet engine. load snippets we have installed. .lazy_load loads any snippet in our runtime path i.e. friendly-snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 
         -- local select_opts = { behavior = cmp.SelectBehavior.Select }
-        local select_opts = {
-            behavior = cmp.SelectBehavior.Insert,
-        }
-        local confirm_ops = {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        }
+        local select_opts = { behavior = cmp.SelectBehavior.Insert }
+        local confirm_ops = { behavior = cmp.ConfirmBehavior.Insert, select = true }
 
         -- luasnip.config.set_config {
         --     history = false,
