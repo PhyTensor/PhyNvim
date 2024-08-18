@@ -58,7 +58,7 @@ opt.showcmd = true        -- show last command
 opt.cmdheight = 1         -- more space in the neovim command line for displaying messages
 opt.signcolumn = "yes"    -- always draw the sign column
 opt.cursorcolumn = false  -- vertical column on through the cursor
-opt.colorcolumn = "88"    -- colorized the 88th column
+opt.colorcolumn = "80"    -- colorized the 88th column
 
 opt.fillchars = { vert = "|" }
 -- opt.shortmess:append { 'c' }

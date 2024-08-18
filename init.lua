@@ -19,7 +19,7 @@ vim.loader.enable()
 
 -- enable logging for Neovim's LSP client
 -- check logs in '~/.local/share/nvim/lsp.log'
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 
 require("config.options")
 
