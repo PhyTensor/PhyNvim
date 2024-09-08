@@ -105,6 +105,7 @@ return {
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
             -- on_attach = on_attach,
+            filetypes = { "lua" },
             settings = {
                 Lua = {
                     diagnostics = {
@@ -126,6 +127,7 @@ return {
         lspconfig["html"].setup({
             capabilities = capabilities,
             -- on_attach = on_attach,
+            filetypes = { "html" },
         })
 
         -- dartls
@@ -174,7 +176,7 @@ return {
         })
 
         -- Typescript and javascript
-        lspconfig.tsserver.setup({
+        lspconfig.ts_ls.setup({
             -- on_attach = on_attach,
             capabilities = capabilities,
             init_options = {
@@ -182,6 +184,7 @@ return {
                     disableSuggestions = true,
                 },
             },
+            filetypes = { "javascript", "typescript" },
         })
 
         -- json
@@ -194,12 +197,14 @@ return {
                     format = { eanble = true },
                 },
             },
+            filetypes = { "json" },
         })
 
         -- godot and gdscript
         lspconfig.gdscript.setup({
             capabilities = capabilities,
             -- on_attach = on_attach,
+            filetypes = { "gdscript" },
         })
     end,
 }
