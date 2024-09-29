@@ -204,7 +204,7 @@ return {
         lspconfig.gdscript.setup({
             capabilities = capabilities,
             -- on_attach = on_attach,
-            filetypes = { "gdscript" },
+            filetypes = { "gdscript", "godot" },
         })
     end,
 }
