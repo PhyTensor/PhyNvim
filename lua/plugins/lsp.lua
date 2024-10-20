@@ -127,7 +127,18 @@ return {
         lspconfig["html"].setup({
             capabilities = capabilities,
             -- on_attach = on_attach,
-            filetypes = { "html" },
+            filetypes = {
+                "html",
+                "css",
+                "templ",
+                "razor",
+                "javascript",
+                "typescript",
+                "jsx",
+                "tsx",
+                "javascriptreact",
+                "typescriptrreact",
+            },
         })
 
         -- dartls

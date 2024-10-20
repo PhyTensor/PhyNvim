@@ -7,6 +7,10 @@ local indent = 4
 -- cursor
 -- opt.guicursor =  -- "" = fat cursor
 
+
+opt.conceallevel = 0
+
+
 -- allow use of mouse in Nvim
 opt.mouse = "a"
 
@@ -55,7 +59,7 @@ opt.background = "dark"   -- colorschemes that can be light or dark will be made
 opt.showmode = true       -- showing the mode ``-- INSERT --``
 opt.showtabline = 0       -- always show tabs
 opt.showcmd = true        -- show last command
-opt.cmdheight = 1         -- more space in the neovim command line for displaying messages
+opt.cmdheight = 0         -- more space in the neovim command line for displaying messages
 opt.signcolumn = "yes"    -- always draw the sign column
 opt.cursorcolumn = false  -- vertical column on through the cursor
 opt.colorcolumn = "80"    -- colorized the 88th column

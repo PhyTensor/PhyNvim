@@ -1,5 +1,6 @@
 return {
     "coffebar/neovim-project",
+    enabled = true,
     lazy = true,
     event = "VeryLazy", -- { "BufReadPre", "BufNewFile" },
     priority = 100,
