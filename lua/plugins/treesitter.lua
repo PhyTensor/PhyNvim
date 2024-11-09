@@ -7,7 +7,7 @@ return {
     },
     build = ":TSUpdate",
     opts = {
-        sync_install = false,
+        sync_install = true,
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
@@ -23,7 +23,7 @@ return {
             enable = true,
             disable = { "dart", "gdscript", "python" },
         },
-        auto_install = false, -- automatically install syntax support when entering a new file type buffer
+        auto_install = true, -- automatically install syntax support when entering a new file type buffer
         ensure_installed = {
             "lua",
             "bash",

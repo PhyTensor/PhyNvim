@@ -17,8 +17,8 @@ return {
             -- define project roots
             "~/Documents/*/*/*",
             "~/Documents/*/*",
-            "~/.config/*/*",
-            "~/.dotfiles"
+            "~/.config/*",
+            "~/.dotfiles/*/*"
         },
         -- Path to store history and sessions
         datapath = vim.fn.stdpath("data"), -- ~/.local/share/nvim/
