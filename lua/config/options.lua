@@ -8,7 +8,7 @@ local indent = 4
 -- opt.guicursor =  -- "" = fat cursor
 
 
-opt.conceallevel = 0
+opt.conceallevel = 2
 
 
 -- allow use of mouse in Nvim

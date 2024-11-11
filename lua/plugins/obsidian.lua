@@ -1,5 +1,6 @@
 return {
     "epwalsh/obsidian.nvim",
+    enabled = true,
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
     ft = "markdown",
@@ -14,7 +15,6 @@ return {
         -- Required.
         "nvim-lua/plenary.nvim",
 
-        -- see below for full list of optional dependencies 👇
     },
     opts = {
         workspaces = {
@@ -32,9 +32,6 @@ return {
             -- },
         },
 
-        -- see below for full list of options 👇
-
-
         -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
         completion = {
             -- Set to false to disable completion.
@@ -42,5 +39,15 @@ return {
             -- Trigger completion at 2 chars.
             min_chars = 2,
         },
+
+        -- Optional, configure additional syntax highlighting / extmarks.
+        -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
+        ui = {
+            enable = false, -- set to false to disable all additional syntax features
+        },
     },
+
+    config = function(_, opts)
+        require("obsidian").setup(opts)
+    end,
 }
