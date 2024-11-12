@@ -19,11 +19,12 @@ return {
         dependencies = {
             { "tjdevries/colorbuddy.nvim", branch = "dev" },
         },
-        config = function()
-            require("andromeda").setup({
-                preset = "andromeda",
-                transparent_bg = false,
-            })
+        opts = {
+            preset = "andromeda",
+            transparent_bg = false,
+        },
+        config = function(_, opts)
+            require("andromeda").setup(opts)
         end
     },
     {
@@ -48,15 +49,13 @@ return {
         enabled = true,
         lazy = true,     -- load immediately when starting neovim
         priority = 1000, -- load the colorscheme before other non-lazy-loaded plugins
-        config = function()
-            local fm = require("fluoromachine")
-
-            fm.setup({
-                glow = false,
-                theme = "auto",      -- 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
-                transparent = false, -- 'full',-- true,
-            })
-
+        opts = {
+            glow = false,
+            theme = "auto",      -- 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
+            transparent = false, -- 'full',-- true,
+        },
+        config = function(_, opts)
+            require("fluoromachine").setup(opts)
             -- vim.cmd.colorscheme('fluoromachine')
         end,
     },

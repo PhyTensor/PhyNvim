@@ -4,7 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-treesitter/playground",
-        "latex-lsp/tree-sitter-latex"
+        -- "latex-lsp/tree-sitter-latex"
     },
     build = ":TSUpdate",
     opts = {

@@ -1,43 +1,42 @@
 return {
     "williamboman/mason.nvim",
+    enabled = true,
     event = {
         "BufReadPre",
         "BufNewFile",
     },
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    opts = {
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗",
+            },
+        },
+        ensure_installed = {
+            "mypy",
+            "black",
+            "pyright",
+            "ktlint",
+            "eslint_d",
+            "eslint-lsp",
+            "ruff",
+            "prettier",
+            "prettierd",
+            "stylua",
+            "csharpier",
+            "isort",
+            "yamlfix",
+            "debugpy",
+            "css-lsp",
+            "typescript-language-server",
+        },
     },
-    config = function()
-        local mason = require("mason")
+    config = function(_, opts)
+        require("mason").setup(opts)
+
         local mason_lspconfig = require("mason-lspconfig")
-
-        -- enable mason and configure icons
-        mason.setup({
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗",
-                },
-            },
-            ensure_installed = {
-                "mypy",
-                "ktlint",
-                "eslint_d",
-                "eslint-lsp",
-                "ruff",
-                "prettier",
-                "prettierd",
-                "stylua",
-                "csharpier",
-                "isort",
-                "yamlfix",
-                "debugpy",
-                "css-lsp",
-                "typescript-language-server",
-            },
-        })
-
         mason_lspconfig.setup({
             ensure_installed = {
                 "lua_ls",
@@ -48,5 +47,5 @@ return {
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
         })
-    end,
+    end
 }

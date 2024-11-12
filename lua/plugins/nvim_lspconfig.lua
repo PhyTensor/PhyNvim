@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+    enabled = true,
     event = {
         "BufReadPre", -- load whenever we opoen new buffer or pres existing file
         "BufNewFile", -- load whenever we open new file or new buffer
@@ -7,8 +8,8 @@ return {
     dependencies = {
         -- LSP Manager plugins
         -- Automatically install LSPs and related tools to stdpath for neovim
-        { "williamboman/mason.nvim" },
-        { "williamboman/mason-lspconfig.nvim" },
+        -- { "williamboman/mason.nvim" },
+        -- { "williamboman/mason-lspconfig.nvim" },
 
         "hrsh7th/cmp-nvim-lsp",
 
@@ -100,6 +101,14 @@ return {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
+
+        vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            underline = true,
+            update_in_insert = true,
+            severity_sort = false,
+        })
 
         -- Lua LSP settings
         lspconfig.lua_ls.setup({

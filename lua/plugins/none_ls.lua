@@ -2,7 +2,7 @@ return {
     "nvimtools/none-ls.nvim",
     enabled = false,
     lazy = true,
-    -- ft = { "python" },
+    ft = { "python" },
     dependencies = {
         "jay-babu/mason-null-ls.nvim",
     },
