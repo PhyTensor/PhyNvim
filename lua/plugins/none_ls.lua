@@ -1,6 +1,6 @@
 return {
     "nvimtools/none-ls.nvim",
-    enabled = true,
+    enabled = false,
     lazy = true,
     ft = { "python" },
     dependencies = {

@@ -70,41 +70,12 @@ return {
                 fields = { "abbr", "kind", "menu" },
                 format = function(entry, item)
                     local menu_icon = {
+                        supermaven = " SUPERMAVEN",
                         nvim_lsp = "λ LSP",
                         luasnip = "⋗ LUASNIP",
                         buffer = "Ω BUFFER",
                         path = "🖫 PATH",
                     }
-
-                    --   פּ ﯟ   some other good icons
-                    --     local kind_icons = {
-                    --         Text = "",
-                    --         Method = "m",
-                    --         Function = "",
-                    --         Constructor = "",
-                    --         Field = "",
-                    --         Variable = "",
-                    --         Class = "",
-                    --         Interface = "",
-                    --         Module = "",
-                    --         Property = "",
-                    --         Unit = "",
-                    --         Value = "",
-                    --         Enum = "",
-                    --         Keyword = "",
-                    --         Snippet = "",
-                    --         Color = "",
-                    --         File = "",
-                    --         Reference = "",
-                    --         Folder = "",
-                    --         EnumMember = "",
-                    --         Constant = "",
-                    --         Struct = "",
-                    --         Event = "",
-                    --         Operator = "",
-                    --         TypeParameter = "",
-                    --     }
-                    --     -- find more here: https://www.nerdfonts.com/cheat-sheet
 
                     local kind_icons = {
                         Text = "󰉿 Text",
@@ -132,35 +103,8 @@ return {
                         Event = " Event",
                         Operator = "󰆕 Operator",
                         TypeParameter = " TypeParameter",
+                        Supermaven = " Supermaven",
                     }
-
-                    -- local code_icons = {
-                    --     Text = "",
-                    --     Method = "",
-                    --     Function = "",
-                    --     Constructor = "",
-                    --     Field = "",
-                    --     Variable = "",
-                    --     Class = "",
-                    --     Interface = "",
-                    --     Module = "",
-                    --     Property = "",
-                    --     Unit = "",
-                    --     Value = "",
-                    --     Enum = "",
-                    --     Keyword = "",
-                    --     Snippet = "",
-                    --     Color = "",
-                    --     File = "",
-                    --     Reference = "",
-                    --     Folder = "",
-                    --     EnumMember = "",
-                    --     Constant = "",
-                    --     Struct = "",
-                    --     Event = "",
-                    --     Operator = "",
-                    --     TypeParameter = "",
-                    -- }
 
                     -- kind icons
                     item.kind = string.format("%s", kind_icons[item.kind])
@@ -227,10 +171,11 @@ return {
             -- priority = allows nvim-cmp to sort out completion list. If not set, then order of set determines order of priority
             -- keyword_length = how many characters necessary to begin querying the source
             sources = cmp.config.sources({
-                { name = "nvim_lsp", keyword_length = 1 }, -- show suggestions based on response of an lsp
-                { name = "luasnip",  keyword_length = 1 }, -- shows available snippets and expands them if they are chosen
-                { name = "buffer",   keyword_length = 3 }, -- suggest words/text found within current buffer
-                { name = "path" },                         -- autocomplete file system paths
+                { name = "supermaven" },
+                { name = "nvim_lsp",  keyword_length = 1 }, -- show suggestions based on response of an lsp
+                { name = "luasnip",   keyword_length = 1 }, -- shows available snippets and expands them if they are chosen
+                { name = "buffer",    keyword_length = 3 }, -- suggest words/text found within current buffer
+                { name = "path" },                          -- autocomplete file system paths
             }),
         })
 
