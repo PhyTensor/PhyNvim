@@ -1,10 +1,12 @@
 return {
     "stevearc/conform.nvim",
     enabled = true,
-    lazy = false,
+    lazy = true,
     event = {
         "LspAttach",
         "BufWritePre",
+        "BufReadPre",
+        "BufNewFile",
     },
     opts = {
         notify_on_error = true,

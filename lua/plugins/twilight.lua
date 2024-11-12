@@ -1,5 +1,11 @@
 return {
     "folke/twilight.nvim",
+    enabled = true,
+    lazy = true,
+    event = {
+        "BufReadPre",
+        "BufNewFile",
+    },
     opts = {
         dimming = {
             alpha = 0.33, -- amount of dimming

@@ -1,6 +1,12 @@
 return {
     "karb94/neoscroll.nvim",
     enabled = true,
+    lazy = true,
+    event = {
+        "BufWritePre",
+        "BufReadPre",
+        "BufNewFile",
+    },
     opts = {
         -- Keys to be mapped to their corresponding default scrolling animation
         mappings = {

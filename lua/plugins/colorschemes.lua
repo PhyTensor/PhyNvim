@@ -1,17 +1,23 @@
 return {
-    -- {
-    --     "catppuccin/nvim",
-    --     lazy = true,
-    --     name = "catppuccin",
-    --     priority = 1000,
-    --     opts = {
-    --         transparent_background = true,
-    --     },
-    --     config = function(_, opts)
-    --         require("catppuccin").setup(opts)
-    --     end,
-    -- },
-
+    {
+        "catppuccin/nvim",
+        lazy = true,
+        name = "catppuccin",
+        priority = 1000,
+        opts = {
+            transparent_background = true,
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+        end,
+    },
+    {
+        "ntk148v/habamax.nvim",
+        enabled = true,
+        lazy = true,
+        priority = 1000,
+        dependencies = { "rktjmp/lush.nvim" },
+    },
     {
         "nobbmaestro/nvim-andromeda",
         lazy = true,
@@ -43,6 +49,9 @@ return {
     },
     {
         "Mofiqul/dracula.nvim",
+        enabled = true,
+        lazy = true,
+        priority = 1000,
     },
     {
         "maxmx03/fluoromachine.nvim",
@@ -100,6 +109,7 @@ return {
     },
     {
         "navarasu/onedark.nvim",
+        lazy = true,
         opts = {
             style = 'deep',       -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
             transparent = false,  -- Show/hide background
@@ -127,6 +137,7 @@ return {
     },
     {
         "folke/tokyonight.nvim",
+        enabled = true,
         lazy = true,
         priority = 1000,
         opts = {

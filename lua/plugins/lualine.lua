@@ -8,7 +8,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        -- "folke/noice.nvim",
+        "folke/noice.nvim",
         {
             "linrongbin16/lsp-progress.nvim", -- LSP loading progress
             lazy = true,

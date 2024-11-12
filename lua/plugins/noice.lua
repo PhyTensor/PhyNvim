@@ -1,5 +1,6 @@
 return {
     "folke/noice.nvim",
+    enabled = true,
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
