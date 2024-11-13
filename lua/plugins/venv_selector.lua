@@ -1,6 +1,6 @@
 return {
     'linux-cultist/venv-selector.nvim',
-    enabled = true,
+    enabled = false,
     lazy = true,
     ft = { "python" },
     -- event = 'VeryLazy', -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
