@@ -71,7 +71,7 @@ return {
             lualine_x = {
                 {
                     function()
-                        local clients = vim.lsp.get_active_clients()
+                        local clients = vim.lsp.get_clients()
                         if next(clients) == nil then
                             return ""
                         end
@@ -79,7 +79,6 @@ return {
                         for _, client in pairs(clients) do
                             table.insert(client_names, client.name)
                         end
-                        -- return "LSP: " .. table.concat(client_names, ", ")
                         return "" .. table.concat(client_names, ", ")
                     end,
                     icon = "",
@@ -89,9 +88,9 @@ return {
                     function()
                         local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_DEFAULT_ENV") -- or "NO ENV"
                         if venv ~= "" then
-                            return "" .. venv
+                            -- return "" .. venv
+                            return os.getenv("VIRTUAL_ENV") and "" .. vim.fn.fnamemodify(venv, ":t") or ""
                         end
-                        -- return os.getenv("VIRTUAL_ENV") and "" .. vim.fn.fnamemodify(os.getenv("VIRTUAL_ENV"), ":t") or ""
                     end,
                     icon = "",
                     color = { fg = "#98c379" },
