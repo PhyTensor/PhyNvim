@@ -47,6 +47,16 @@ return {
 
 
         cmp.setup({
+
+            --[[
+                No item is preselected by default.
+                It is needed for a better interaction with Copilot.
+                Unless one item is explicitly selected, Tab button will complete Copilot suggestion and not CMP suggestion.
+                If you want to automatically select the first item in the completion menu:
+                    preselect = cmp.PreselectMode.Item,
+            ]]
+            preselect = cmp.PreselectMode.None,
+
             -- configure how nvim-cmp interacts with the snippet engine
             -- Enable LuaSnip to handle snippet expansion for nvim-cmp
             snippet = {
@@ -62,7 +72,22 @@ return {
             },
 
             completion = {
-                completeopt = "menu,menuone,preview,noselect",
+                -- completeopt = { autocomplete = false },
+                completeopt = "menu,menuone,preview,noselect,noinsert",
+            },
+
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.recently_used,
+                    cmp.config.compare.score,
+                    cmp.config.compare.locality,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
             },
 
             -- customizing the apprearance of the completion menu

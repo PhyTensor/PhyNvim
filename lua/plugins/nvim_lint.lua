@@ -16,12 +16,12 @@ return {
             -- typescriptreact = { "eslint_d" },
             kotlin = { "ktlint" },
             -- svelte = { "eslint_d" },
-            python = { "ruff", "pylint" },
+            -- python = { "ruff", "pylint" },
         }
 
         -- Set pylint to work in virtualenv
-        lint.linters.pylint.cmd = 'python'
-        lint.linters.pylint.args = { '-m', 'pylint', '-f', 'json' }
+        -- lint.linters.pylint.cmd = 'python'
+        -- lint.linters.pylint.args = { '-m', 'pylint', '-f', 'json' }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

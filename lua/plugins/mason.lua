@@ -1,6 +1,7 @@
 return {
     "williamboman/mason.nvim",
     enabled = true,
+    lazy = true,
     event = {
         "BufReadPre",
         "BufNewFile",
@@ -16,7 +17,7 @@ return {
         },
         ensure_installed = {
             "mypy",
-            "black",
+            -- "black",
             "pyright",
             "ktlint",
             "eslint_d",
@@ -41,7 +42,10 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "pyright",
-                "ruff_lsp",
+                -- "ruff_lsp",
+            },
+
+            handlers = {
             },
 
             -- auto-install configured servers (with lspconfig)

@@ -100,7 +100,7 @@ return {
             n = { ["q"] = require("telescope.actions").close },
             i = {
                 ["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
-                ["<C-j>"] = require("telescope.actions").move_selection_next, -- move to next result
+                ["<C-j>"] = require("telescope.actions").move_selection_next,     -- move to next result
                 ["<C-q>"] = require("telescope.actions").send_selected_to_qflist
                     + require("telescope.actions").open_qflist,
             },
@@ -111,7 +111,10 @@ return {
         "fzf",
         "noice",
         "ui-select", -- sets vim.ui.select to telescope
-    },         --{ "themes", "terms", "fzf" },
+        -- "zoxide",
+        "dap",
+        "frecency",
+    }, --{ "themes", "terms", "fzf" },
     extensions = {
         fzf = {
             fuzzy = true,

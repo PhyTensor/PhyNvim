@@ -1,6 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     enabled = true,
+    lazy = true,
     event = {
         "BufReadPre", -- load whenever we opoen new buffer or pres existing file
         "BufNewFile", -- load whenever we open new file or new buffer
@@ -8,8 +9,8 @@ return {
     dependencies = {
         -- LSP Manager plugins
         -- Automatically install LSPs and related tools to stdpath for neovim
-        -- { "williamboman/mason.nvim" },
-        -- { "williamboman/mason-lspconfig.nvim" },
+        { "williamboman/mason.nvim" },
+        { "williamboman/mason-lspconfig.nvim" },
 
         "hrsh7th/cmp-nvim-lsp",
 
@@ -28,7 +29,13 @@ return {
         local util = require("lspconfig.util")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+        -- used to enable autocompletion (assign to every lsp server config)
+        local capabilities = cmp_nvim_lsp.default_capabilities()
+        -- local on_attach = lspconfig.on_attach
+
         lspconfig.intelephense.setup({})
+
+        -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }
 
         -- for  creating custom keybindings
         -- local keymap = vim.keymap
@@ -92,9 +99,6 @@ return {
         -- keymap.set("i", "<C-Space>", "<Cmd>lua vim.lsp.buf.completion()<CR>", opts)
         -- end
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
         -- Change the Diagnostic symbols in the sign column (gutter)
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
@@ -120,6 +124,9 @@ return {
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global
                         globals = { "vim" },
+                    },
+                    hint = {
+                        enable = true,
                     },
                     workspace = {
                         -- make language server aware of runtime files
@@ -178,11 +185,17 @@ return {
             },
         })
 
+        -- Python Environment
+        local path = util.path
         -- pyright
         lspconfig.pyright.setup({
             -- on_attach = on_attach,
             capabilities = capabilities,
             filetypes = { "python" },
+            before_init = function(_, config)
+                local default_venv_path = path.join(vim.env.HOME, "~/Documents/pydev/venv/bin/python")
+                config.settings.python.pythonPath = default_venv_path
+            end,
         })
 
         -- C# and dotnet

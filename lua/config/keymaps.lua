@@ -87,14 +87,14 @@ opts.desc = "Paste without yanking"
 map.set("v", "P", '"_dP', opts)
 
 -- Better window navigation
-opts.desc = "Move focus to the left window pane"
-map.set("n", "<C-h>", "<C-w><C-h>", opts)
-opts.desc = "Move focus to the down window pane"
-map.set("n", "<C-j>", "<C-w><C-j>", opts)
-opts.desc = "Move focus to the up window pane"
-map.set("n", "<C-k>", "<C-w><C-k>", opts)
-opts.desc = "Move focus to the right window pane"
-map.set("n", "<C-l>", "<C-w><C-l>", opts)
+-- opts.desc = "Move focus to the left window pane"
+-- map.set("n", "<C-h>", "<C-w><C-h>", opts)
+-- opts.desc = "Move focus to the down window pane"
+-- map.set("n", "<C-j>", "<C-w><C-j>", opts)
+-- opts.desc = "Move focus to the up window pane"
+-- map.set("n", "<C-k>", "<C-w><C-k>", opts)
+-- opts.desc = "Move focus to the right window pane"
+-- map.set("n", "<C-l>", "<C-w><C-l>", opts)
 
 -- Split Window
 opts.desc = "Vertical Split Window RIGHT"
@@ -153,14 +153,14 @@ opts.desc = "Select All"
 map.set("n", "<leader>a", "gg<S-v>G", opts)
 
 -- -- Move focus to the window using the <ctrl> hjkl keys in Tmux/Neovim Collab
-opts.desc = "Goto right window pane"
-map.set("n", "<C-l>", "<Cmd>:TmuxNavigateRight<CR>", opts)
-opts.desc = "Goto left window pane"
-map.set("n", "<C-h>", "<Cmd>:TmuxNavigateLeft<CR>", opts)
-opts.desc = "Goto upper window pane"
-map.set("n", "<C-k>", "<Cmd>:TmuxNavigateUp<CR>", opts)
-opts.desc = "Goto lower window page"
-map.set("n", "<C-j>", "<Cmd>:TmuxNavigateDown<CR>", opts)
+-- opts.desc = "Goto right window pane"
+-- map.set("n", "<C-l>", "<Cmd>:TmuxNavigateRight<CR>", opts)
+-- opts.desc = "Goto left window pane"
+-- map.set("n", "<C-h>", "<Cmd>:TmuxNavigateLeft<CR>", opts)
+-- opts.desc = "Goto upper window pane"
+-- map.set("n", "<C-k>", "<Cmd>:TmuxNavigateUp<CR>", opts)
+-- opts.desc = "Goto lower window page"
+-- map.set("n", "<C-j>", "<Cmd>:TmuxNavigateDown<CR>", opts)
 
 -- NeoTree
 -- -----------------------------------------------------------------------------------

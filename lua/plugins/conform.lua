@@ -24,7 +24,7 @@ return {
             -- graphql = { "prettier" },
             lua = { "stylua" },
             -- kotlin = { "ktlint" },
-            -- python = { "isort", "ruff" },
+            python = { "isort" }, -- "ruff" },
             cs = { "csharpier" },
         },
         formatters = {

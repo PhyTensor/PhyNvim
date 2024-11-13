@@ -8,14 +8,9 @@ return {
     },
     dependencies = {
         "nvim-tree/nvim-web-devicons",
+        "famiu/bufdelete.nvim",
     },
-    opts = {
-        options = {
-            -- mode "tabs",
-            show_buffer_close_icons = true,
-            show_close_icons = true,
-        },
-    },
+    opts = require("plugins_options.bufferline_options"),
     keys = {
         { "<Tab>",   "<Cmd>BufferLineCycleNext<CR>", desc = "Next buffer tab" },
         { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev buffer tab" },

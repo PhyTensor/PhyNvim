@@ -28,12 +28,12 @@ return {
                     },
                 }),                                 -- js/ts formatter
                 null_ls.builtins.formatting.stylua, -- lua formatter
-                null_ls.builtins.formatting.isort,
+                -- null_ls.builtins.formatting.isort,
                 null_ls.builtins.diagnostics.mypy,
                 null_ls.builtins.diagnostics.ruff,
-                null_ls.builtins.formatting.black,
+                -- null_ls.builtins.formatting.black,
                 null_ls.builtins.formatting.csharpier,
-                null_ls.builtins.diagnostics.pylint,
+                -- null_ls.builtins.diagnostics.pylint,
                 -- diagnostics.eslint_d.with({ -- js/ts linter
                 --     condition = function(utils)
                 --         return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
