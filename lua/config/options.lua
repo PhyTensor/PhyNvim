@@ -54,7 +54,7 @@ opt.sidescrolloff = 12    -- scroll page when cursror is # spaces from left/righ
 opt.splitbelow = true     -- open new vertical split botton
 opt.splitright = true     -- open new horizontal splits right
 opt.termguicolors = true  -- enable 24-bit RGB color in the TUI
-opt.background = "dark"   -- colorschemes that can be light or dark will be made dart
+opt.background = "dark"   -- colorschemes that can be light or dark will be made dark
 opt.showmode = true       -- showing the mode ``-- INSERT --``
 opt.showtabline = 0       -- always show tabs
 opt.showcmd = true        -- show last command
@@ -62,7 +62,7 @@ opt.cmdheight = 0         -- more space in the neovim command line for displayin
 opt.signcolumn = "yes"    -- always draw the sign column
 opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.cursorcolumn = false  -- vertical column on through the cursor
-opt.colorcolumn = "80"    -- colorized the 88th column
+opt.colorcolumn = "88"    -- colorized the 88th column
 
 opt.fillchars = { vert = "|" }
 -- opt.shortmess:append { 'c' }

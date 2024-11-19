@@ -4,10 +4,11 @@ vim.cmd.colorscheme(
 -- "kanagawa"
 -- "habamax"
 -- "dracula"
-    "tokyonight"
+-- "rose-pine"
+-- "tokyonight"
 -- "onedark"
 -- "catppuccin"
 -- 'fluoromachine'
--- 'nightfox'
+    'nightfox'
 -- 'cyberdream'
 )

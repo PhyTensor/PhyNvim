@@ -1,5 +1,20 @@
 return {
     {
+        "rose-pine/neovim",
+        lazy = true,
+        enabled = true,
+        priority = 1000,
+        name = "rose-pine",
+        opts = {
+            variant = "moon",      -- "auto", -- auto, main, moon, or dawn
+            dark_variant = "moon", -- "main", -- main, moon, or dawn
+            dim_inactive_windows = true,
+        },
+        config = function(_, opts)
+            require("rose-pine").setup(opts)
+        end,
+    },
+    {
         "catppuccin/nvim",
         lazy = true,
         name = "catppuccin",
@@ -65,7 +80,7 @@ return {
         },
         config = function(_, opts)
             require("fluoromachine").setup(opts)
-            -- vim.cmd.colorscheme('fluoromachine')
+            vim.cmd.colorscheme('fluoromachine')
         end,
     },
     {
