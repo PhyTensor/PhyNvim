@@ -17,8 +17,6 @@ return {
     opts = {
         options = {
             icons_enabled = true,
-            -- component_separators = "|",
-            -- section_separators = "",
             theme = "auto", -- 'fluoromachine', -- 'auto',
             component_separators = {
                 left = "",

@@ -51,7 +51,6 @@ opt.relativenumber = true -- add numbers to each line on left side
 opt.wrap = true           -- wrap lines
 opt.scrolloff = 12        -- min number of lines around cursor (n above, n below) Minimal number of screen lines to keep above and below the cursor.
 opt.sidescrolloff = 12    -- scroll page when cursror is # spaces from left/right
-opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.splitbelow = true     -- open new vertical split botton
 opt.splitright = true     -- open new horizontal splits right
 opt.termguicolors = true  -- enable 24-bit RGB color in the TUI
@@ -61,6 +60,7 @@ opt.showtabline = 0       -- always show tabs
 opt.showcmd = true        -- show last command
 opt.cmdheight = 0         -- more space in the neovim command line for displaying messages
 opt.signcolumn = "yes"    -- always draw the sign column
+opt.cursorline = true     -- highlight cursor line underneath the cursor horizontally
 opt.cursorcolumn = false  -- vertical column on through the cursor
 opt.colorcolumn = "80"    -- colorized the 88th column
 
