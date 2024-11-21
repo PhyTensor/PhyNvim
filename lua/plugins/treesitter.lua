@@ -1,10 +1,12 @@
+-- install tree-sitter-cli for latex to work
+
 return {
     "nvim-treesitter/nvim-treesitter",
     enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-treesitter/playground",
-        -- "latex-lsp/tree-sitter-latex"
+        "latex-lsp/tree-sitter-latex"
     },
     build = ":TSUpdate",
     opts = {
@@ -35,7 +37,7 @@ return {
             "css",
             "json",
             "javascript",
-            -- "latex",
+            "latex",
             "markdown",
             "markdown_inline",
             "yaml",

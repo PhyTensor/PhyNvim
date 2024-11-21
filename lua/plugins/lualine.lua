@@ -109,8 +109,17 @@ return {
                 "fileformat",
                 "filetype",
             },
-            lualine_y = { "progress" },
-            lualine_z = { "location" },
+            lualine_y = {
+                "progress",
+                -- function()
+                --     -- displace word count
+                --     local words = vim.fn.wordcount()['words']
+                --     return 'Words: ' .. words
+                -- end
+            },
+            lualine_z = {
+                "location",
+            },
         },
         inactive_sections = {
             lualine_a = {},

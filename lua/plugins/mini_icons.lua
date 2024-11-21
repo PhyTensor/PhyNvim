@@ -1,8 +1,8 @@
 return {
     "echasnovski/mini.icons",
     enabled = true,
-    opts = {},
     lazy = true,
+    opts = {},
     specs = {
         { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
     },
