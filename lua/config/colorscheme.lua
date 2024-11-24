@@ -9,6 +9,14 @@ vim.cmd.colorscheme(
 -- "onedark"
 -- "catppuccin"
 -- 'fluoromachine'
-    'nightfox'
 -- 'cyberdream'
+-- "night-owl"
+-- "vscode"
+-- "moonfly"
+
+-- Cold, Darker Tones Colorschemes That I Like
+-- "nord"
+-- "substrata"
+    'nightfox'
+-- "everforest"
 )

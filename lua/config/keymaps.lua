@@ -73,8 +73,12 @@ opts.desc = "Dismiss noice message"
 map.set("n", "<leader>nd", "<Cmd>NoiceDismiss<CR>", opts)
 
 -- ToggleTerm
-opts.desc = "Toggle ToggleTerm"
-map.set("n", "<leader>tt", "<Cmd>ToggleTerm<CR>", opts)
+opts.desc = "Toggle Neoterm"
+map.set("n", "<leader>tt", "<cmd>NeotermToggle<CR>", opts)
+map.set("t", "<leader>tt", "<cmd>NeotermToggle<CR>", opts)
+opts.desc = "Exit Neoterm"
+map.set("n", "<leader>tx", "<cmd>NeotermExit<CR>", opts)
+map.set("t", "<leader>tx", "<cmd>NeotermExit<CR>", opts)
 
 -- Navigation
 -- map.set('i', '<C-S-H>', '<Left>', opts)

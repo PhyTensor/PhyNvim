@@ -193,7 +193,7 @@ return {
             capabilities = capabilities,
             filetypes = { "python" },
             before_init = function(_, config)
-                local default_venv_path = path.join(vim.env.HOME, "~/Documents/pydev/venv/bin/python")
+                local default_venv_path = path.join(vim.env.HOME, "venv/bin/python")
                 config.settings.python.pythonPath = default_venv_path
             end,
         })

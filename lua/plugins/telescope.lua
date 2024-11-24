@@ -6,7 +6,9 @@ end
 
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = true,
     lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     cmd = "Telescope",
     dependencies = {
         "nvim-lua/plenary.nvim",

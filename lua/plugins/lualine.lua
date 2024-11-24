@@ -111,11 +111,11 @@ return {
             },
             lualine_y = {
                 "progress",
-                -- function()
-                --     -- displace word count
-                --     local words = vim.fn.wordcount()['words']
-                --     return 'Words: ' .. words
-                -- end
+                function()
+                    -- displace word count
+                    local words = vim.fn.wordcount()['words']
+                    return '📖 ' .. words
+                end
             },
             lualine_z = {
                 "location",
