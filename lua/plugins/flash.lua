@@ -1,6 +1,7 @@
 return {
     "folke/flash.nvim",
     enabled = true,
+    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     ---@type Flash.Config
     opts = {},
@@ -29,6 +30,14 @@ return {
                 require("flash").remote()
             end,
             desc = "Remote Flash",
+        },
+        {
+            "R",
+            mode = { "o", "x" },
+            function()
+                require("flash").treesitter_search()
+            end,
+            desc = "Treesitter Search",
         },
     },
 }

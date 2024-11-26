@@ -13,15 +13,19 @@ return {
     ---@type ibl.config
     opts = {
         exclude = { filetypes = { "dashboard" } },
-        indent = { highlight = highlight, char = "│" },
+        indent = {
+            highlight = highlight,
+            -- char = "│",
+            char = "┊",
+        },
         whitespace = {
             highlight = highlight,
             remove_blankline_trail = false,
         },
         scope = {
-            enabled = false,
-            show_start = false,
-            show_end = false,
+            enabled = true,
+            show_start = true,
+            show_end = true,
         },
     },
     config = function(_, opts)
