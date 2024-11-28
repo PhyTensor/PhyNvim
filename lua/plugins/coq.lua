@@ -2,6 +2,7 @@
 return {
     "ms-jpq/coq_nvim",
     branch = "coq",
+    enabled = true,
     lazy = true,
     dependencies = {
         {

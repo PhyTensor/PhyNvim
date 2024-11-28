@@ -7,16 +7,16 @@ vim.cmd.colorscheme(
 -- "rose-pine"
 -- "tokyonight"
 -- "onedark"
--- "catppuccin"
+    "catppuccin"
 -- 'fluoromachine'
 -- 'cyberdream'
 -- "night-owl"
--- "vscode"
 -- "moonfly"
 
 -- Cold, Darker Tones Colorschemes That I Like
+-- "vscode"
 -- "nord"
 -- "substrata"
-    'nightfox'
+-- 'nightfox'
 -- "everforest"
 )

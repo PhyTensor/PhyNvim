@@ -15,7 +15,10 @@ opt.conceallevel = 2
 opt.mouse = "a"
 
 opt.autowrite = true -- Enable auto write
-opt.list = true      -- Show some invisible whitespace characters (tabs...
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+opt.list = true -- Show some invisible whitespace characters (tabs...
 -- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- opt.listchars:append("space:·")
 -- opt.listchars:append("nbsp:⎵")
@@ -27,7 +30,8 @@ opt.list = true      -- Show some invisible whitespace characters (tabs...
 
 -- use system clipboard
 opt.clipboard = "unnamedplus"
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- use system clipboard as default register
+-- opt.clipboard:append("unnamedplus")
 
 -- COMPLETION
 opt.completeopt = { "menu", "menuone", "preview", "noselect" }

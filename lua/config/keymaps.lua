@@ -25,6 +25,14 @@ local map = vim.keymap
 -- opts.desc = "Show Netrw directory listing"
 -- map.set('n', '<leader>pv', vim.cmd.Ex, opts)
 
+
+-- Quickly edit and source configuration
+opts.desc = "Source Vim config"
+map.set("n", "<leader>sv", ":source $MYVIMRC<CR>", opts)
+opts.desc = "Edit Vim config"
+map.set("n", "<leader>ev", ":e $MYVIMRC<CR>", opts)
+
+
 -- ESC
 opts.desc = "Clear search highlights"
 map.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", opts)

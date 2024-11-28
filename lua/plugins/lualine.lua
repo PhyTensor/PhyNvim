@@ -79,7 +79,7 @@ return {
                         end
                         return "" .. table.concat(client_names, ", ")
                     end,
-                    icon = "",
+                    icon = " ",
                     color = { fg = "#56b6c2" },
                 },
                 {
