@@ -1,5 +1,6 @@
 return {
     "Wansmer/treesj",
+    enabled = true,
     lazy = true,
     dependencies = {
         'nvim-treesitter/nvim-treesitter'

@@ -3,8 +3,7 @@ return {
     enabled = true,
     lazy = true,
     dependencies = { "neovim/nvim-lspconfig" },
-    event = "VeryLazy",
+    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
-        -- your options here
     }
 }

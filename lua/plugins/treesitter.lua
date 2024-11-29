@@ -3,6 +3,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     enabled = true,
+    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-treesitter/playground",
@@ -47,6 +48,7 @@ return {
             "gdscript",
             "godot_resource",
             "gdshader",
+            "dockerfile",
         },
     },
     config = function(_, opts)

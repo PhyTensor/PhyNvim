@@ -2,7 +2,6 @@ return {
     "mfussenegger/nvim-dap-python",
     enabled = true,
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
     ft = "python",
     dependencies = {
         "mfussenegger/nvim-dap",

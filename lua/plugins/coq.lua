@@ -4,6 +4,7 @@ return {
     branch = "coq",
     enabled = true,
     lazy = true,
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
             "ms-jpq/coq.artifacts",

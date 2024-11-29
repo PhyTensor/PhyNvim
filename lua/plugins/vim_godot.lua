@@ -2,5 +2,6 @@ return {
     "habamax/vim-godot",
     enabled = true,
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
+    ft = { "gdscript", "gd", "godot" },
+    -- event = { "BufReadPre", "BufNewFile" },
 }
