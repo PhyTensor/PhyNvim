@@ -5,8 +5,7 @@ local opt = vim.opt
 local indent = 4
 
 -- cursor
--- opt.guicursor =  -- "" = fat cursor
-
+-- opt.guicursor = "" -- = fat cursor
 
 opt.conceallevel = 2
 
@@ -19,8 +18,9 @@ opt.autowrite = true -- Enable auto write
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 opt.list = true -- Show some invisible whitespace characters (tabs...
+-- opt.listchars = { tab = "␉·" }
 -- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
--- opt.listchars:append("space:·")
+opt.listchars:append("space:·")
 -- opt.listchars:append("nbsp:⎵")
 -- opt.listchars:append("eol:⏎")
 -- opt.listchars:append("tab:␉·")
@@ -41,13 +41,13 @@ opt.pumheight = 10
 -- Tab
 opt.tabstop = indent     -- number of visual spaces per TAB
 opt.softtabstop = indent -- number of spacesin tab when editing
-opt.expandtab = true     -- tabs are spaces, mainly for python
+opt.expandtab = false    -- use spaces instead of tabs. Tabs are spaces, mainly for python
 
 -- INDENT
 opt.smartindent = true  -- smart with indent
 opt.breakindent = true  -- enable break indent
 opt.autoindent = true   -- indent new line same amount of previous line
-opt.shiftwidth = indent -- width of a TAB autoindent
+opt.shiftwidth = indent -- set indentation width to 4 spaces. width of a TAB autoindent
 
 -- UI config
 opt.number = true         -- show absolute number

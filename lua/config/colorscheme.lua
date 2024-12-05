@@ -17,6 +17,6 @@ vim.cmd.colorscheme(
 -- "vscode"
 -- "nord"
 -- "substrata"
-    'nightfox'
+	'nightfox'
 -- "everforest"
 )

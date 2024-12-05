@@ -9,8 +9,8 @@
 
 -- define common options
 local opts = {
-    noremap = true, -- non-recursive
-    silent = true,  -- do not show message
+	noremap = true, -- non-recursive
+	silent = true, -- do not show message
 }
 
 local map = vim.keymap
@@ -43,12 +43,8 @@ map.set("i", "jj", "<Esc>", opts)
 map.set("i", "kk", "<Esc>", opts)
 
 -- Buffers
-opts.desc = "Delete current buffer"
-map.set("n", "<C-x>", "<cmd>bd<CR>", opts)
-
--- Window
-opts.desc = "Close down neovim"
-map.set("n", "<C-q>", "<C-w>q", opts)
+opts.desc = "Close current buffer"
+map.set("n", "<leader>bd", "<cmd>bd<CR>", opts)
 
 -- Lazy
 opts.desc = "Launch lazy"
@@ -60,7 +56,7 @@ map.set("n", "<leader>pv", "<Cmd>Oil<CR>", opts)
 opts.desc = "Oil open parent directory in current window"
 map.set("n", "-", "<CMD>Oil<CR>", opts)
 opts.desc = "Oil open parent directory in floating window"
-map.set("n", "<space>-", require("oil").toggle_float)
+map.set("n", "<space>-", require("oil").toggle_float, opts)
 
 -- Undotree
 opts.desc = "UndoTree Toggle"
@@ -88,48 +84,39 @@ opts.desc = "Exit Neoterm"
 map.set("n", "<leader>tx", "<cmd>NeotermExit<CR>", opts)
 map.set("t", "<leader>tx", "<cmd>NeotermExit<CR>", opts)
 
--- Navigation
--- map.set('i', '<C-S-H>', '<Left>', opts)
--- map.set('i', '<C-S-J>', '<Down>', opts)
--- map.set('i', '<C-S-K>', '<Up>', opts)
--- map.set('i', '<C-S-L>', '<Right>', opts)
-
 -- map.set('v', '<leader>p', '\"_dp', { desc = "paste" })
 opts.desc = "Paste without yanking"
 map.set("v", "P", '"_dP', opts)
 
--- Better window navigation
--- opts.desc = "Move focus to the left window pane"
--- map.set("n", "<C-h>", "<C-w><C-h>", opts)
--- opts.desc = "Move focus to the down window pane"
--- map.set("n", "<C-j>", "<C-w><C-j>", opts)
--- opts.desc = "Move focus to the up window pane"
--- map.set("n", "<C-k>", "<C-w><C-k>", opts)
--- opts.desc = "Move focus to the right window pane"
--- map.set("n", "<C-l>", "<C-w><C-l>", opts)
+vim.keymap.set("n", "<leader>sr", ":%s//g<Left><Left>", { desc = "Global search and replace" })
+
+--------------------------------------------------------------------------------
+-- Splitting and Navigating Windows
 
 -- Split Window
-opts.desc = "Vertical Split Window RIGHT"
-map.set("n", "<C-s>v", "<C-w>v", opts)
-opts.desc = "Horizontal Split window BELOW"
-map.set("n", "<C-s>s", "<C-w>s", opts)
-opts.desc = "Close current split window"
-map.set("n", "<C-s>x", "<Cmd>close<CR>", opts)
-opts.desc = "Make split windows equal width and height"
-map.set("n", "<C-s>=", "<C-w>=", opts)
-opts.desc = "Delete window"
-map.set("n", "<C-s>c", "<C-w>c", opts)
+opts.desc = "Horizontal split. :sp or :split"
+map.set("n", "<C-s>", "<C-w>s", opts)
+opts.desc = "Vertical split. :vs or :vsplit"
+map.set("n", "<C-v>", "<C-w>v", opts)
+
+-- Close current split
+opts.desc = "Close current split"
+map.set("n", "<C-c>", "<C-w>c", opts)
 
 -- Resize with arrows
 -- delta: 2 lines
-opts.desc = "Resize Up"
+opts.desc = "Make split windows equal width and height"
+map.set("n", "<leader>=", "<C-w>=", opts)
+opts.desc = "Increase height Ctrl-w +"
 map.set("n", "<C-Up>", ":resize -2<CR>", opts)
-opts.desc = "Resize Down"
+opts.desc = "Decrease height Ctrl-w -"
 map.set("n", "<C-Down>", ":resize +2<CR>", opts)
-opts.desc = "Resize Left"
-map.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-opts.desc = "Resize Right"
-map.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+opts.desc = "Inrease current split width Ctrl-w >"
+map.set("n", "<leader><", ":vertical resize -2<CR>", opts)
+opts.desc = "Decrease current split width Ctrl-w <"
+map.set("n", "<leader>>", ":vertical resize +2<CR>", opts)
+
+--------------------------------------------------------------------------------
 
 -- keep cursor in the middle during half page jumps
 opts.desc = "down - middle half page jumps"
@@ -164,18 +151,9 @@ map.set("v", "<C-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 opts.desc = "Select All"
 map.set("n", "<leader>a", "gg<S-v>G", opts)
 
--- -- Move focus to the window using the <ctrl> hjkl keys in Tmux/Neovim Collab
--- opts.desc = "Goto right window pane"
--- map.set("n", "<C-l>", "<Cmd>:TmuxNavigateRight<CR>", opts)
--- opts.desc = "Goto left window pane"
--- map.set("n", "<C-h>", "<Cmd>:TmuxNavigateLeft<CR>", opts)
--- opts.desc = "Goto upper window pane"
--- map.set("n", "<C-k>", "<Cmd>:TmuxNavigateUp<CR>", opts)
--- opts.desc = "Goto lower window page"
--- map.set("n", "<C-j>", "<Cmd>:TmuxNavigateDown<CR>", opts)
-
+---------------------------------------------------------------------------------------
 -- NeoTree
--- -----------------------------------------------------------------------------------
+
 opts.desc = "Neotree toggle filesystem"
 map.set("n", "<leader>e", "<Cmd> Neotree filesystem toggle reveal left <CR>", opts)
 
@@ -209,6 +187,7 @@ map.set("n", "<leader>e", "<Cmd> Neotree filesystem toggle reveal left <CR>", op
 --
 -- opts.desc = "Neotree close file browser window"
 -- map.set("n", "<leader>ec", "<Cmd> Neotree close <CR>", opts)
+
 ---------------------------------------------------------------------------------------
 
 -- Auto-Session
@@ -220,35 +199,35 @@ map.set("n", "<leader>ws", "<Cmd>SessionSave<CR>", opts)
 -- Trouble
 opts.desc = "Toggle Trouble"
 map.set("n", "<leader>xx", function()
-    require("trouble").toggle()
+	require("trouble").toggle()
 end, opts)
 opts.desc = "Trouble show lsp definitions from within builtin LSP client"
 map.set("n", "gD", function()
-    require("trouble").toggle("lsp_definitions")
+	require("trouble").toggle("lsp_definitions")
 end, opts) -- definitions of the word under the cursor from the builtin LSP client
 opts.desc = "Trouble show lsp type definitions from within builtin LSP client"
 map.set("n", "gd", function()
-    require("trouble").toggle("lsp_type_definitions")
+	require("trouble").toggle("lsp_type_definitions")
 end, opts) -- type definitions of the word under the cursor from the builtin LSP client
 opts.desc = "Trouble workspace diagnostics from within builtin LSP client"
 map.set("n", "<leader>xw", function()
-    require("trouble").toggle("workspace_diagnostics")
+	require("trouble").toggle("workspace_diagnostics")
 end, opts) -- workspace diagnostics from builtin LSP client
 opts.desc = "Trouble document diagnostics from within LSP client"
 map.set("n", "<leader>xd", function()
-    require("trouble").toggle("document_diagnostics")
+	require("trouble").toggle("document_diagnostics")
 end, opts) -- document diagnostics from builtin LSP client
 opts.desc = "Trouble Quickfix"
 map.set("n", "<leader>xq", function()
-    require("trouble").toggle("quickfix")
+	require("trouble").toggle("quickfix")
 end, opts) -- quickfix items
 opts.desc = "Trouble show items from window's location list"
 map.set("n", "<leader>xl", function()
-    require("trouble").toggle("loclist")
+	require("trouble").toggle("loclist")
 end, opts) -- items from the window's location list
 opts.desc = "Trouble LSP References"
 map.set("n", "gR", function()
-    require("trouble").toggle("lsp_references")
+	require("trouble").toggle("lsp_references")
 end, opts)
 
 -- LSP
@@ -330,26 +309,26 @@ map.set("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>")
 map.set("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>")
 map.set("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>")
 map.set("n", "<leader>dd", function()
-    require("dap").disconnect()
-    require("dapui").close()
+	require("dap").disconnect()
+	require("dapui").close()
 end)
 map.set("n", "<leader>dt", function()
-    require("dap").terminate()
-    require("dapui").close()
+	require("dap").terminate()
+	require("dapui").close()
 end)
 map.set("n", "<leader>dr", "<cmd>lua require('dap').repl.toggle()<cr>")
 map.set("n", "<leader>dl", "<cmd>lua require('dap').run_last()<cr>")
 map.set("n", "<leader>di", function()
-    require("dap.ui.widgets").hover()
+	require("dap.ui.widgets").hover()
 end)
 map.set("n", "<leader>d?", function()
-    local widgets = require("dap.ui.widgets")
-    widgets.centered_float(widgets.scopes)
+	local widgets = require("dap.ui.widgets")
+	widgets.centered_float(widgets.scopes)
 end)
 map.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>")
 map.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>")
 map.set("n", "<leader>de", function()
-    require("telescope.builtin").diagnostics({ default_text = ":E:" })
+	require("telescope.builtin").diagnostics({ default_text = ":E:" })
 end)
 
 -----------------
