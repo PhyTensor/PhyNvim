@@ -34,6 +34,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end,
 })
 
+-- when opening terminal in neovim
+vim.api.nvim_create_autocmd("TermOpen", {
+    group = augroup("custom-neovim_terminal-open"),
+    callback = function()
+        vim.opt.number = false
+        vim.opt.relativenumber = false
+    end,
+})
+
 -- Removes any trailing whitespace when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
     desc = "remove trailing whitespace on save",
