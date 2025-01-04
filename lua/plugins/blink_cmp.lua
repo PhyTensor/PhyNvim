@@ -1,7 +1,9 @@
 return {
     'saghen/blink.cmp',
     enabled = false,
-    lazy = false, -- lazy loading handled internally
+    priority = 100,
+    event = "InsertEnter",
+    lazy = true, -- lazy loading handled internally
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
 
@@ -22,42 +24,28 @@ return {
         -- your own keymap.
         keymap = { preset = 'default' },
 
-        highlight = {
-            -- sets the fallback highlight groups to nvim-cmp's highlight groups
-            -- useful for when your theme doesn't support blink.cmp
-            -- will be removed in a future release, assuming themes add support
+        appearance = {
+            -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+            -- Useful for when your theme doesn't support blink.cmp
+            -- will be removed in a future release
             use_nvim_cmp_as_default = true,
+            -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+            -- Adjusts spacing to ensure icons are aligned
+            nerd_font_variant = 'mono'
         },
-        -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- adjusts spacing to ensure icons are aligned
-        nerd_font_variant = 'mono',
 
-        -- experimental auto-brackets support
-        -- accept = { auto_brackets = { enabled = true } }
+        -- default list of enabled providers defined so that you can extend it
+        -- elsewhere in your config, without redefining it, via `opts_extend`
+        sources = {
+            default = { 'lsp', 'path', 'snippets', 'buffer' },
+            -- optionally disable cmdline completions
+            cmdline = {},
+        },
 
         -- experimental signature help support
-        -- trigger = { signature_help = { enabled = true } }
+        signature = { enabled = true }
     },
-    -- allows extending the enabled_providers array elsewhere in your config
-    -- without having to redefining it
-    opts_extend = { "sources.completion.enabled_providers" }
+    -- allows extending the providers array elsewhere in your config
+    -- without having to redefine it
+    opts_extend = { "sources.default" }
 }
-
--- LSP servers and clients communicate what features they support through "capabilities".
---  By default, Neovim support a subset of the LSP specification.
---  With blink.cmp, Neovim has *more* capabilities which are communicated to the LSP servers.
---  Explanation from TJ: https://youtu.be/m8C0Cq9Uv9o?t=1275
---
--- This can vary by config, but in-general for nvim-lspconfig:
---
--- {
---   'neovim/nvim-lspconfig',
---   dependencies = { 'saghen/blink.cmp' },
---   config = function(_, opts)
---     local lspconfig = require('lspconfig')
---     for server, config in pairs(opts.servers or {}) do
---       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
---       lspconfig[server].setup(config)
---     end
---   end
--- }

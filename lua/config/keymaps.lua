@@ -1,6 +1,5 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 
--- KEY MAPPINGS
 --
 -- Hint: use `:h vim.keymap.set`
 --
@@ -9,18 +8,12 @@
 
 -- define common options
 local opts = {
-	noremap = true, -- non-recursive
-	silent = true, -- do not show message
+    noremap = true, -- non-recursive
+    silent = true,  -- do not show message
 }
 
 local map = vim.keymap
 
------------------
--- NORMAL MODE --
------------------
-
--- Hint: use `:h vim.map.set()`
---
 -- Netrw Directory listing
 -- opts.desc = "Show Netrw directory listing"
 -- map.set('n', '<leader>pv', vim.cmd.Ex, opts)
@@ -32,6 +25,14 @@ map.set("n", "<leader>sv", ":source $MYVIMRC<CR>", opts)
 opts.desc = "Edit Vim config"
 map.set("n", "<leader>ev", ":e $MYVIMRC<CR>", opts)
 
+-- Saving
+-- Save All
+opts.desc = "Save all"
+map.set("n", "<leader>sa", ":wall<CR>", opts)
+
+-- Save all and quit
+opts.desc = "Save all and quit"
+map.set("n", "<leader>sq", ":wqall<CR>", opts)
 
 -- ESC
 opts.desc = "Clear search highlights"
@@ -199,35 +200,35 @@ map.set("n", "<leader>ws", "<Cmd>SessionSave<CR>", opts)
 -- Trouble
 opts.desc = "Toggle Trouble"
 map.set("n", "<leader>xx", function()
-	require("trouble").toggle()
+    require("trouble").toggle()
 end, opts)
 opts.desc = "Trouble show lsp definitions from within builtin LSP client"
 map.set("n", "gD", function()
-	require("trouble").toggle("lsp_definitions")
+    require("trouble").toggle("lsp_definitions")
 end, opts) -- definitions of the word under the cursor from the builtin LSP client
 opts.desc = "Trouble show lsp type definitions from within builtin LSP client"
 map.set("n", "gd", function()
-	require("trouble").toggle("lsp_type_definitions")
+    require("trouble").toggle("lsp_type_definitions")
 end, opts) -- type definitions of the word under the cursor from the builtin LSP client
 opts.desc = "Trouble workspace diagnostics from within builtin LSP client"
 map.set("n", "<leader>xw", function()
-	require("trouble").toggle("workspace_diagnostics")
+    require("trouble").toggle("workspace_diagnostics")
 end, opts) -- workspace diagnostics from builtin LSP client
 opts.desc = "Trouble document diagnostics from within LSP client"
 map.set("n", "<leader>xd", function()
-	require("trouble").toggle("document_diagnostics")
+    require("trouble").toggle("document_diagnostics")
 end, opts) -- document diagnostics from builtin LSP client
 opts.desc = "Trouble Quickfix"
 map.set("n", "<leader>xq", function()
-	require("trouble").toggle("quickfix")
+    require("trouble").toggle("quickfix")
 end, opts) -- quickfix items
 opts.desc = "Trouble show items from window's location list"
 map.set("n", "<leader>xl", function()
-	require("trouble").toggle("loclist")
+    require("trouble").toggle("loclist")
 end, opts) -- items from the window's location list
 opts.desc = "Trouble LSP References"
 map.set("n", "gR", function()
-	require("trouble").toggle("lsp_references")
+    require("trouble").toggle("lsp_references")
 end, opts)
 
 -- LSP
@@ -309,26 +310,26 @@ map.set("n", "<F10>", "<cmd>lua require('dap').step_over()<cr>")
 map.set("n", "<F11>", "<cmd>lua require('dap').step_into()<cr>")
 map.set("n", "<F12>", "<cmd>lua require('dap').step_out()<cr>")
 map.set("n", "<leader>dd", function()
-	require("dap").disconnect()
-	require("dapui").close()
+    require("dap").disconnect()
+    require("dapui").close()
 end)
 map.set("n", "<leader>dt", function()
-	require("dap").terminate()
-	require("dapui").close()
+    require("dap").terminate()
+    require("dapui").close()
 end)
 map.set("n", "<leader>dr", "<cmd>lua require('dap').repl.toggle()<cr>")
 map.set("n", "<leader>dl", "<cmd>lua require('dap').run_last()<cr>")
 map.set("n", "<leader>di", function()
-	require("dap.ui.widgets").hover()
+    require("dap.ui.widgets").hover()
 end)
 map.set("n", "<leader>d?", function()
-	local widgets = require("dap.ui.widgets")
-	widgets.centered_float(widgets.scopes)
+    local widgets = require("dap.ui.widgets")
+    widgets.centered_float(widgets.scopes)
 end)
 map.set("n", "<leader>df", "<cmd>Telescope dap frames<cr>")
 map.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>")
 map.set("n", "<leader>de", function()
-	require("telescope.builtin").diagnostics({ default_text = ":E:" })
+    require("telescope.builtin").diagnostics({ default_text = ":E:" })
 end)
 
 -----------------
