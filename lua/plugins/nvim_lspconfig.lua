@@ -31,6 +31,8 @@ return {
         -- used to enable autocompletion (assign to every lsp server config)
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local capabilities = cmp_nvim_lsp.default_capabilities()
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
         -- local on_attach = lspconfig.on_attach
 
         lspconfig.intelephense.setup({})
@@ -193,10 +195,27 @@ return {
             capabilities = capabilities,
             filetypes = { "python" },
             before_init = function(_, config)
-                local default_venv_path = path.join(vim.env.HOME, "venv/bin/python")
+                local default_venv_path = path.join(vim.env.HOME, ".venv/bin/python")
                 config.settings.python.pythonPath = default_venv_path
             end,
         })
+        -- -- ruff-lsp
+        -- lspconfig.ruff.setup({
+        --     -- on_attach = on_attach,
+        --     capabilities = capabilities,
+        --     filetypes = { "python" },
+        --     -- before_init = function(_, config)
+        --     --     local default_venv_path = path.join(vim.env.HOME, ".venv/bin/python")
+        --     --     config.settings.python.pythonPath = default_venv_path
+        --     -- end,
+        --     init_options = {
+        --         settings = {
+        --             logLevel = 'debug',
+        --             args = {
+        --             },
+        --         }
+        --     },
+        -- })
 
         -- C# and dotnet
         local pid = vim.fn.getpid()
