@@ -77,6 +77,10 @@ map.set("n", "<leader>gg", "<Cmd>LazyGit<CR>", opts)
 opts.desc = "Dismiss noice message"
 map.set("n", "<leader>nd", "<Cmd>NoiceDismiss<CR>", opts)
 
+-- Neogen - Annotations Toolkit
+opts.desc = "Generate annotations"
+vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
+
 -- ToggleTerm
 opts.desc = "Toggle Neoterm"
 map.set("n", "<leader>tt", "<cmd>NeotermToggle<CR>", opts)

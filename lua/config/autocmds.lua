@@ -5,6 +5,19 @@ local function augroup(name)
     return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+-- Built-in Autocompletion for LSP sources
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
+-- vim.keymap.set("i", "<C-Space>", function()
+--     vim.lsp.completion.get()
+-- end)
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
