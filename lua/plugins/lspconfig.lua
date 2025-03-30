@@ -179,6 +179,8 @@ return {
             --   end,
             -- },
             virtual_lines = {
+                source = 'if_many',
+                spacing = 2,
                 format = function(diagnostic)
                     local diagnostic_message = {
                         [vim.diagnostic.severity.ERROR] = diagnostic.message,
@@ -200,10 +202,14 @@ return {
         --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
         --  - settings (table): Override the default settings passed when initializing the server.
         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+        --
+        -- C# and dotnet
+        local pid = vim.fn.getpid()
+        local omnisharp_bin = '/usr/local/bin/omnisharp/OmniSharp'
+
         local servers = {
             -- clangd = {},
             -- gopls = {},
-            -- pyright = {},
             -- rust_analyzer = {},
             -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
             --
@@ -211,13 +217,26 @@ return {
             --    https://github.com/pmizio/typescript-tools.nvim
             --
             -- But for many setups, the LSP (`ts_ls`) will work just fine
-            -- ts_ls = {},
-            --
+            ts_ls = {
+                capabilities = capabilities,
+                filetypes = { 'javascript', 'typescript' },
+                init_options = {
+                    preferences = {
+                        disableSuggestions = true,
+                    },
+                },
+            },
+
+            omnisharp = {
+                capabilities = capabilities,
+                cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) },
+                filetypes = { 'cs' },
+            },
 
             lua_ls = {
                 -- cmd = { ... },
                 filetypes = { 'lua' },
-                capabilities = {},
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         diagnostics = {
@@ -235,16 +254,82 @@ return {
                     },
                 },
             },
+
+            -- pyright = {
+            --     filetypes = { 'python' },
+            --     capabilities = capabilities,
+            --     before_init = function(_, config)
+            --         local default_venv_path = util.path.join(vim.env.HOME, '.venv/bin/python')
+            --         config.settings.python.pythonPath = default_venv_path
+            --     end,
+            -- },
+
+            ruff = {
+                filetypes = { 'python' },
+                capabilities = capabilities,
+                -- before_init = function(_, config)
+                --     local default_venv_path = util.path.join(vim.env.HOME, '.venv/bin/python')
+                --     config.settings.python.pythonPath = default_venv_path
+                -- end,
+                init_options = {
+                    settings = {
+                        logLevel = 'debug',
+                        args = {},
+                    },
+                },
+            },
+
+            -- dartls = {
+            --     capabilities = capabilities,
+            --     cmd = { 'dart', 'language-server', '--protocol=lsp' },
+            --     filetypes = { 'dart' },
+            --     root_dir = util.root_pattern 'pubspec.yaml',
+            --     init_options = {
+            --         onlyAnalyzeProjectsWithOpenFiles = true,
+            --         suggestFromUnimportedLibraries = true,
+            --         closingLabels = true,
+            --         outline = true,
+            --         flutterOutline = true,
+            --     },
+            --     settings = {
+            --         dart = {
+            --             completeFunctionCalls = true,
+            --             showTodos = true,
+            --             analysisExcludedFolders = {
+            --                 -- vim.fn.expand("$HOME/Android/flutter/bin/cache/"),
+            --                 vim.fn.expand '$HOME/.pub-cache/',
+            --                 vim.fn.expand '/usr/bin/fish',
+            --                 -- vim.fn.expand("$HOME/Android/flutter/"),
+            --             },
+            --         },
+            --     },
+            -- },
+
+            jsonls = {
+                capabilities = capabilities,
+                filetypes = { 'json' },
+                settings = {
+                    json = {
+                        validate = { enable = true },
+                        format = { eanble = true },
+                    },
+                },
+            },
+
+            -- gdscript = {
+            --     capabilities = capabilities,
+            --     filetypes = { 'gdscript', 'godot' },
+            -- },
         }
 
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {
             'stylua', -- Used to format Lua code
-            'mypy',
-            'black',
-            'pyright',
+            -- 'mypy',
+            -- 'black',
+            -- 'pyright',
             'ktlint',
-            'ruff',
+            -- 'ruff',
             'ruff-lsp',
             'prettier',
             'prettierd',
