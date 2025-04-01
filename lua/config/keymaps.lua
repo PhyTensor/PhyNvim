@@ -16,13 +16,21 @@ vim.keymap.set('n', '<leader>sa', ':wall<CR>', { desc = '[S]ave [A]ll' })
 vim.keymap.set('n', '<leader>sq', ':wqall<CR>', { desc = '[S]ave all and [Q]uit' })
 
 -- Launch Lazy
--- vim.keymap.set('n', '<leader>l', '<CMD>Lazy<CR>', { desc = 'Launch Lazy' })
+vim.keymap.set('n', '<leader>l', '<CMD>Lazy<CR>', { desc = 'Launch Lazy' })
 
 -- Oil - parent directory navigation
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- Splitting windows
+vim.keymap.set('n', '<C-s>', '<C-w>s', { desc = '[S]plit window horizontally' })
+vim.keymap.set('n', '<C-v>', '<C-w>v', { desc = '[V]ertically split window' })
+vim.keymap.set('n', '<C-c>', '<C-w>c', { desc = '[C]lose window' })
+
+-- Resize windows
+vim.keymap.set('n', '<leader>=', '<C-w>=', { desc = 'Equal width and height of split windows' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
