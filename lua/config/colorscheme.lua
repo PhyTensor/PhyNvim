@@ -1,23 +1,17 @@
-vim.cmd.colorscheme(
--- "sonokai"
--- "andromeda"
--- "kanagawa"
+vim.cmd.colorscheme-- "kanagawa"
 -- "habamax"
 -- "dracula"
--- "rose-pine"
--- "tokyonight"
+-- 'rose-pine'
+-- 'tokyonight'
 -- "onedark"
 -- "catppuccin"
 -- 'fluoromachine'
 -- 'cyberdream'
--- "night-owl"
+-- 'night-owl'
 -- "moonfly"
 
 -- Cold, Darker Tones Colorschemes That I Like
 -- "vscode"
 -- "nord"
 -- "substrata"
-    'nightfox'
--- "americano"
--- "everforest"
-)
+ 'nightfox'
