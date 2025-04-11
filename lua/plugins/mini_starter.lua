@@ -1,9 +1,9 @@
 return {
-    "echasnovski/mini.starter",
+    'echasnovski/mini.starter',
     enabled = true,
     lazy = true,
-    event = "VimEnter",
-    version = "*",
+    event = 'VimEnter',
+    version = '*',
     opts = {
         -- Whether to open starter buffer on VimEnter. Not opened if Neovim was
         -- started with intent to show something else.
@@ -46,12 +46,12 @@ return {
         -- Characters to update query. Each character will have special buffer
         -- mapping overriding your global ones. Be careful to not add `:` as it
         -- allows you to go into command mode.
-        query_updaters = "abcdefghijklmnopqrstuvwxyz0123456789_-.",
+        query_updaters = 'abcdefghijklmnopqrstuvwxyz0123456789_-.',
 
         -- Whether to disable showing non-error feedback
         silent = false,
     },
     config = function(_, opts)
-        require("mini.starter").setup(opts)
+        require('mini.starter').setup(opts)
     end,
 }

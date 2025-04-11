@@ -1,15 +1,2 @@
-return {
-    "folke/todo-comments.nvim",
-    enabled = true,
-    lazy = true,
-    event = { "BufRead" },
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
-    opts = {
-        signs = false,
-    },
-    config = function(_, opts)
-        require("todo-comments").setup(opts)
-    end,
-}
+-- Highlight todo, notes, etc in comments
+return { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } }

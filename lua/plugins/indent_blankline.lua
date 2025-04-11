@@ -1,34 +1,31 @@
-local highlight = {
-    -- "CursorColumn",
-    "Whitespace",
-}
+-- local highlight = {
+-- 	-- "CursorColumn",
+-- 	'Whitespace',
+-- }
 
 return {
-    "lukas-reineke/indent-blankline.nvim",
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
     enabled = true,
-    lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
-    main = "ibl",
+    main = 'ibl',
     ---@module "ibl"
     ---@type ibl.config
-    opts = {
-        exclude = { filetypes = { "dashboard" } },
-        indent = {
-            highlight = highlight,
-            -- char = "│",
-            char = "┊",
-        },
-        whitespace = {
-            highlight = highlight,
-            remove_blankline_trail = false,
-        },
-        scope = {
-            enabled = true,
-            show_start = true,
-            show_end = true,
-        },
-    },
-    config = function(_, opts)
-        require("ibl").setup(opts)
-    end,
+    opts = {},
+    -- opts = {
+    -- 	exclude = { filetypes = { 'dashboard' } },
+    -- 	indent = {
+    -- 		highlight = highlight,
+    -- 		-- char = "│",
+    -- 		char = '┊',
+    -- 	},
+    -- 	whitespace = {
+    -- 		highlight = highlight,
+    -- 		remove_blankline_trail = false,
+    -- 	},
+    -- },
+    -- config = function(_, opts)
+    -- 	require('ibl').setup(opts)
+    -- end,
 }

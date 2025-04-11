@@ -1,14 +1,14 @@
 return {
-    "Wansmer/treesj",
+    'Wansmer/treesj',
     enabled = true,
     lazy = true,
-    dependencies = {
-        'nvim-treesitter/nvim-treesitter'
-    },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     keys = {
-        '<space>m', '<space>j', '<space>s'
+        '<leader>m',
+        '<leader>j',
+        '<leader>s',
     },
     config = function()
-        require("treesj").setup({})
-    end
+        require('treesj').setup {}
+    end,
 }
