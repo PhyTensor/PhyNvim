@@ -3,6 +3,13 @@ return {
 	'nvim-treesitter/nvim-treesitter',
 	build = ':TSUpdate',
 	main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+	enabled = true,
+	lazy = true,
+	event = {
+		'BufWritePre',
+		'BufReadPre',
+		'BufNewFile',
+	},
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 	opts = {
 		ensure_installed = {

@@ -1,8 +1,10 @@
 -- Fuzzy Finder (files, lsp, etc)
 return {
 	'nvim-telescope/telescope.nvim',
-	branch = '0.1.x',
-	event = 'VimEnter',
+	-- branch = '0.1.x',
+	enabled = true,
+	lazy = true,
+	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		'nvim-telescope/telescope-frecency.nvim',
@@ -31,7 +33,12 @@ return {
 		--
 		defaults = {
 			prompt_prefix = '   ',
+			selection_caret = '  ',
+			entry_prefix = '  ',
+			initial_mode = 'insert',
+			selection_strategy = 'reset',
 			sorting_strategy = 'ascending',
+			layout_strategy = 'horizontal',
 			layout_config = {
 				vertical = {
 					mirror = false,
@@ -40,6 +47,12 @@ return {
 					prompt_position = 'top',
 				},
 			},
+			file_sorter = require('telescope.sorters').get_fuzzy_file,
+			generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
+			path_display = { 'truncate' },
+			file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+			grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+			qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
 			mappings = {
 				n = { ['q'] = require('telescope.actions').close },
 				i = {
@@ -57,13 +70,19 @@ return {
 		},
 		extensions_list = {
 			'fzf',
-			-- "noice",
+			'noice',
 			'ui-select', -- sets vim.ui.select to telescope
 			'zoxide',
 			'dap',
 			'frecency',
 		}, --{ "themes", "terms", "fzf" },
 		extensions = {
+			fzf = {
+				fuzzy = true,
+				override_generic_sorter = true,
+				override_file_sorter = true,
+				case_mode = 'smart_case',
+			},
 			['ui-select'] = {
 				require('telescope.themes').get_dropdown(),
 			},
@@ -92,6 +111,8 @@ return {
 		vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 		vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 		vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+		vim.keymap.set('n', '<leader>sb', '<Cmd> Telescope diagnostics bufnr=0 <CR>', { desc = '[S]earch [B]uffer Diagnostics' })
+		vim.keymap.set('n', '<leader>sl', '<Cmd>lua vim.diagnostic.open_float()<CR>', { desc = '[S]how [L]ine Diagnostic' })
 		vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
 		vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })

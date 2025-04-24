@@ -1,5 +1,12 @@
 return {
 	'neovim/nvim-lspconfig',
+	enabled = true,
+	lazy = true,
+	event = {
+		'BufWritePre',
+		'BufReadPre',
+		'BufNewFile',
+	},
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		-- Mason must be loaded before its dependents so we need to set it up here.
@@ -167,7 +174,7 @@ return {
 					[vim.diagnostic.severity.ERROR] = '󰅚 ',
 					[vim.diagnostic.severity.WARN] = '󰀪 ',
 					[vim.diagnostic.severity.INFO] = '󰋽 ',
-					[vim.diagnostic.severity.HINT] = '󱐋 ',
+					[vim.diagnostic.severity.HINT] = ' ',
 				},
 			} or {},
 			virtual_text = {
@@ -235,7 +242,9 @@ return {
 			omnisharp = {
 				capabilities = capabilities,
 				cmd = { omnisharp_bin, '--languageserver', '--hostPID', tostring(pid) },
-				filetypes = { 'cs' },
+				enable_import_completion = true,
+				organize_imports_on_format = true,
+				filetypes = { 'cs', 'csproj', 'sln' },
 			},
 
 			lua_ls = {
@@ -262,17 +271,31 @@ return {
 
 			pyright = {
 				filetypes = { 'python' },
+				root_markers = { '.git', '.venv', '.env', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', 'pyrightconfig.json' },
 				capabilities = capabilities,
 				before_init = function(_, config)
-					local default_venv_path = util.path.join(vim.env.HOME, '.venv/bin/python')
+					-- local default_venv_path = util.path.join(vim.env.HOME, '.venv/bin/python')
+					local default_venv_path = util.path.join(vim.env.HOME, '.venv_strawberryfields/bin/python')
 					config.settings.python.pythonPath = default_venv_path
 				end,
 				disableOrganizeImports = false,
 				analysis = {
 					useLibraryCodeForTypes = true,
 					autoSearchPaths = true,
-					diagnosticMode = 'workspace',
+					diagnosticMode = 'workspace', -- 'openFilesOnly'
 					autoImportCompletions = true,
+				},
+			},
+
+			html = {
+				cmd = { 'vscode-html-language-server', '--stdio' },
+				filetypes = { 'html', 'templ' },
+				root_markers = { 'package.json', '.git' },
+				settings = {},
+				init_options = {
+					provideFormatter = true,
+					embeddedLanguages = { css = true, javascript = true },
+					configurationSection = { 'html', 'css', 'javascript' },
 				},
 			},
 

@@ -15,6 +15,9 @@ vim.keymap.set('n', '<leader>sa', ':wall<CR>', { desc = '[S]ave [A]ll' })
 -- Save all and Quit
 vim.keymap.set('n', '<leader>sq', ':wqall<CR>', { desc = '[S]ave all and [Q]uit' })
 
+-- Paste without yanking
+vim.keymap.set('v', 'P', '"_dP', { desc = 'Paste without yanking' })
+
 -- Launch Lazy
 vim.keymap.set('n', '<leader>l', '<CMD>Lazy<CR>', { desc = 'Launch Lazy' })
 

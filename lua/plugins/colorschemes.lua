@@ -140,7 +140,7 @@ return {
 		priority = 1000, -- load the colorscheme before other non-lazy-loaded plugins
 		opts = {
 			glow = false,
-			theme = 'auto', -- 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
+			theme = 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
 			transparent = false, -- 'full',-- true,
 		},
 		config = function(_, opts)

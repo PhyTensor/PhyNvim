@@ -1,9 +1,10 @@
-vim.cmd.colorscheme-- "kanagawa"
--- "habamax"
--- "dracula"
--- 'rose-pine'
--- 'tokyonight'
--- "onedark"
+vim
+	.cmd
+	.colorscheme -- "kanagawa"	-- "habamax"
+	-- "dracula"
+	-- 'rose-pine'
+	-- 'tokyonight'
+ 'onedark'
 -- "catppuccin"
 -- 'fluoromachine'
 -- 'cyberdream'
@@ -14,4 +15,4 @@ vim.cmd.colorscheme-- "kanagawa"
 -- "vscode"
 -- "nord"
 -- "substrata"
- 'nightfox'
+-- 'nightfox'

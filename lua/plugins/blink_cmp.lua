@@ -4,11 +4,22 @@ return {
 		version = '*',
 		enabled = true,
 		lazy = true,
+		event = {
+			'BufWritePre',
+			'BufReadPre',
+			'BufNewFile',
+		},
 		opts = {},
 	},
 	{
 		'saghen/blink.cmp',
 		enabled = true,
+		lazy = true,
+		event = {
+			'BufWritePre',
+			'BufReadPre',
+			'BufNewFile',
+		},
 		-- optional = true,
 		-- optional: provides snippets for the snippet source
 		dependencies = {
