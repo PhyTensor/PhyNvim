@@ -132,6 +132,9 @@ return {
 		enabled = true,
 		lazy = true,
 		priority = 1000,
+		opts = {
+			transparent = true,
+		},
 	},
 	{
 		'maxmx03/fluoromachine.nvim',
@@ -213,7 +216,7 @@ return {
 		lazy = true,
 		opts = {
 			style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-			transparent = false, -- Show/hide background
+			transparent = true, -- Show/hide background
 			ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
 			-- Plugins Config --
 			diagnostics = {

@@ -1,18 +1,17 @@
-vim
-	.cmd
-	.colorscheme -- "kanagawa"	-- "habamax"
-	-- "dracula"
-	-- 'rose-pine'
+vim.cmd.colorscheme {
+	-- "kanagawa"
+	-- "habamax"
+	-- 'dracula',
+	-- 'rose-pine',
 	-- 'tokyonight'
- 'onedark'
--- "catppuccin"
--- 'fluoromachine'
--- 'cyberdream'
--- 'night-owl'
--- "moonfly"
-
--- Cold, Darker Tones Colorschemes That I Like
--- "vscode"
--- "nord"
--- "substrata"
--- 'nightfox'
+	'onedark',
+	-- "catppuccin"
+	-- 'fluoromachine'
+	-- 'cyberdream'
+	-- 'night-owl'
+	-- "moonfly"
+	-- "vscode"
+	-- "nord"
+	-- "substrata"
+	-- 'nightfox'
+}

@@ -342,7 +342,7 @@ return {
 
 			jsonls = {
 				capabilities = capabilities,
-				filetypes = { 'json' },
+				filetypes = { 'json', 'jsonc' },
 				settings = {
 					json = {
 						validate = { enable = true },

@@ -79,19 +79,12 @@ return {
 			desc = 'Dismiss All Notifications',
 		},
 		{
-			'<C-/>',
+			'<C-t>',
 			-- '<leader>tt',
 			function()
 				Snacks.terminal()
 			end,
 			desc = 'Toggle Terminal',
-		},
-		{
-			'<leader>uC',
-			function()
-				Snacks.picker.colorschemes()
-			end,
-			desc = 'Colorschemes',
 		},
 	},
 }

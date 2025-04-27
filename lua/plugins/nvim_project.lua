@@ -3,27 +3,30 @@ return {
 	enabled = true,
 	lazy = false,
 	priority = 100,
-	init = function()
-		-- enable saving the state of plugins in the session
-		vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-	end,
+	-- init = function()
+	-- 	-- enable saving the state of plugins in the session
+	-- 	vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+	-- end,
 	dependencies = {
 		{ 'nvim-lua/plenary.nvim' },
 		-- optional picker
-		{ 'nvim-telescope/telescope.nvim', tag = '0.1.4' },
-		-- optional picker
 		{ 'ibhagwan/fzf-lua' },
+		-- optional picker
+		{
+			'nvim-telescope/telescope.nvim',
+			-- tag = '0.1.4',
+		},
 		{ 'Shatur/neovim-session-manager' },
 	},
 	opts = {
 		projects = { -- define project roots
 			'~/Documents/*/*/*',
-			'~/Documents/*/*',
+			-- -- '~/Documents/*/*',
 			'~/.config/*',
 			'~/.dotfiles/*/*',
 		},
 		picker = {
-			type = 'telescope', -- or "fzf-lua"
+			type = 'fzf-lua', -- 'telescope', -- or "fzf-lua"
 			-- preview = true, -- show directory structure preview in Telescope
 			preview = {
 				enabled = true, -- show directory structure in Telescope preview
@@ -34,9 +37,9 @@ return {
 		-- Path to store history and sessions
 		datapath = vim.fn.stdpath 'data', -- ~/.local/share/nvim/
 		-- Load the most recent session on startup if not in the project directory
-		last_session_on_startup = false,
+		last_session_on_startup = true,
 		-- Dashboard mode prevent session autoload on startup
-		dashboard_mode = false,
+		dashboard_mode = true,
 		-- Overwrite some of Session Manager options
 		session_manager_opts = {
 			autosave_ignore_dirs = {
