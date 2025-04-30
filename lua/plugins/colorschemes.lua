@@ -133,7 +133,7 @@ return {
 		lazy = true,
 		priority = 1000,
 		opts = {
-			transparent = true,
+			transparent_bg = false,
 		},
 	},
 	{
@@ -186,7 +186,7 @@ return {
 		priority = 1000,
 		opts = {
 			options = {
-				transparent = false,
+				transparent = true,
 				terminal_colors = true,
 				styles = {
 					comments = 'italic',

@@ -21,7 +21,7 @@ return {
 	opts = {
 		projects = { -- define project roots
 			'~/Documents/*/*/*',
-			-- -- '~/Documents/*/*',
+			'~/Documents/*/*',
 			'~/.config/*',
 			'~/.dotfiles/*/*',
 		},
