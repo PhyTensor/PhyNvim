@@ -3,7 +3,7 @@ vim.cmd.colorscheme {
 	-- 'habamax',
 	-- 'dracula',
 	-- 'rose-pine',
-	-- 'tokyonight'
+	'tokyonight',
 	-- 'onedark',
 	-- 'catppuccin',
 	-- 'fluoromachine'
@@ -13,5 +13,5 @@ vim.cmd.colorscheme {
 	-- "vscode"
 	-- "nord"
 	-- "substrata"
-	'nightfox',
+	-- 'nightfox',
 }

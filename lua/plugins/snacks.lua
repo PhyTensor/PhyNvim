@@ -21,12 +21,11 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
-		terminal = { enabled = true },
+		-- terminal = { enabled = true },
 		words = { enabled = true },
 		zen = { enabled = true },
 	},
 	keys = {
-		-- Git
 		{
 			'<leader>gg',
 			function()

@@ -1,14 +1,14 @@
 return {
-	'ibhagwan/fzf-lua',
+	"ibhagwan/fzf-lua",
 	enabled = true,
 	lazy = true,
 	event = {
-		'BufWritePre',
-		'BufReadPre',
-		'BufNewFile',
+		"BufWritePre",
+		"BufReadPre",
+		"BufNewFile",
 	},
 	-- optional for icon support
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	-- or if using mini.icons/mini.nvim
 	-- dependencies = { "echasnovski/mini.icons" },
 	opts = {
@@ -20,40 +20,40 @@ return {
 		keymap = {
 			fzf = {
 				true,
-				['ctrl-u'] = 'preview-page-up',
-				['ctrl-d'] = 'preview-page-down',
-				['ctrl-p'] = 'up',
-				['ctrl-n'] = 'down',
-				['q'] = 'abort',
-				['ctrl-f'] = 'half-page-down',
-				['ctrl-b'] = 'half-page-up',
+				["ctrl-u"] = "preview-page-up",
+				["ctrl-d"] = "preview-page-down",
+				["ctrl-p"] = "up",
+				["ctrl-n"] = "down",
+				["ctrl-q"] = "abort",
+				["ctrl-f"] = "half-page-down",
+				["ctrl-b"] = "half-page-up",
 			},
 		},
 	},
 	config = function(_, opts)
-		require('fzf-lua').setup(opts)
+		require("fzf-lua").setup(opts)
 	end,
 	keys = {
 		{
-			'<leader>ff',
+			"<leader>ff",
 			function()
-				require('fzf-lua').files()
+				require("fzf-lua").files()
 			end,
-			{ desc = '[F]ind [F]iles' },
+			{ desc = "[F]ind [F]iles" },
 		},
 		{
-			'<leader>fg',
+			"<leader>fg",
 			function()
-				require('fzf-lua').live_grep()
+				require("fzf-lua").live_grep()
 			end,
-			{ desc = '[F]ind [G]rep' },
+			{ desc = "[F]ind [G]rep" },
 		},
 		{
-			'<leader>fb',
+			"<leader>fb",
 			function()
-				require('fzf-lua').buffers()
+				require("fzf-lua").buffers()
 			end,
-			{ desc = '[F]ind [B]uffers' },
+			{ desc = "[F]ind [B]uffers" },
 		},
 	},
 }
