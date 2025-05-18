@@ -9,11 +9,24 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'Exit insert mode' })
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 
+-- Clear search highlights on <Esc>
+vim.keymap.set('n', '<Esc>', '<Cmd>nohlsearch<CR>', { desc = 'Clear Search Highlights' })
+
 -- Save
 vim.keymap.set('n', '<leader>sa', ':wall<CR>', { desc = '[S]ave [A]ll' })
 
 -- Save all and Quit
 vim.keymap.set('n', '<leader>sq', ':wqall<CR>', { desc = '[S]ave all and [Q]uit' })
+
+-- Paste without yanking
+vim.keymap.set('v', 'P', '"_dP', { desc = 'Paste without yanking' })
+
+-- Select all
+vim.keymap.set('n', '<leader>a', 'gg<S-v>G', { desc = 'Select All' })
+
+-- Hint: start visual mode with the same area as the previous area and in the same mode
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent Left' })
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent Right' })
 
 -- Launch Lazy
 vim.keymap.set('n', '<leader>l', '<CMD>Lazy<CR>', { desc = 'Launch Lazy' })
@@ -50,10 +63,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have coliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })

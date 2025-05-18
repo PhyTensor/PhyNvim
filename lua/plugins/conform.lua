@@ -1,8 +1,8 @@
 -- Autoformat
 return {
-	'stevearc/conform.nvim',
-	event = { 'BufWritePre' },
-	cmd = { 'ConformInfo' },
+	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	opts = {
 		notify_on_error = true,
 		format_on_save = function(bufnr)
@@ -15,33 +15,39 @@ return {
 			else
 				return {
 					timeout_ms = 500,
-					lsp_format = 'fallback',
+					lsp_format = "fallback",
 					async = false,
 					lsp_fallback = true,
 				}
 			end
 		end,
 		formatters_by_ft = {
-			lua = { 'stylua' },
+			lua = { "stylua" },
 			-- Conform can also run multiple formatters sequentially
-			python = { 'isort' },
-			--
-			rust = { 'rustfmt', lsp_format = 'fallback' },
+			python = { "isort" },
+			-- cs = { "csharpier" },
+			rust = { "rustfmt", lsp_format = "fallback" },
 			-- You can use 'stop_after_first' to run the first available formatter from the list
-			javascript = { 'prettierd', 'prettier', stop_after_first = true },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+		},
+		formatters = {
+			-- csharpier = {
+			-- 	command = "dotnet-csharpier",
+			-- 	args = { "--write-stdout" },
+			-- },
 		},
 	},
 	config = function(_, opts)
-		local conform = require 'conform'
+		local conform = require("conform")
 		conform.setup(opts)
 
-		-- vim.keymap.set({ 'n', 'v' }, '<leader>fm', function()
-		-- 	conform.format {
-		-- 		lsp_fallback = true,
-		-- 		async = true,
-		-- 		lsp_format = 'fallback',
-		-- 		timeout_ms = 500,
-		-- 	}
-		-- end, { desc = '[F]or[M]at buffer or selected text in visual mode' })
+		vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+			conform.format({
+				lsp_fallback = true,
+				async = true,
+				lsp_format = "fallback",
+				timeout_ms = 500,
+			})
+		end, { desc = "[F]or[M]at buffer or selected text in visual mode" })
 	end,
 }

@@ -1,25 +1,36 @@
 return {
 	{
-		'saghen/blink.compat',
-		version = '*',
+		"saghen/blink.compat",
+		version = "*",
 		enabled = true,
 		lazy = true,
+		event = {
+			"BufWritePre",
+			"BufReadPre",
+			"BufNewFile",
+		},
 		opts = {},
 	},
 	{
-		'saghen/blink.cmp',
+		"saghen/blink.cmp",
 		enabled = true,
+		lazy = true,
+		event = {
+			"BufWritePre",
+			"BufReadPre",
+			"BufNewFile",
+		},
 		-- optional = true,
 		-- optional: provides snippets for the snippet source
 		dependencies = {
-			'rafamadriz/friendly-snippets',
+			"rafamadriz/friendly-snippets",
 
 			-- sources
-			'supermaven-inc/supermaven-nvim',
+			"supermaven-inc/supermaven-nvim",
 		},
 
 		-- use a release tag to download pre-built binaries
-		version = '1.*',
+		version = "1.*",
 		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 		-- build = 'cargo build --release',
 		-- If you use nix, you can build from source using latest nightly rust with:
@@ -41,13 +52,13 @@ return {
 			--
 			-- See :h blink-cmp-config-keymap for defining your own keymap
 			keymap = {
-				preset = 'super-tab',
+				preset = "super-tab",
 
-				['<C-Tab>'] = { 'show', 'show_documentation', 'hide_documentation' },
-				['<C-e>'] = { 'hide', 'fallback' },
-				['<CR>'] = { 'accept', 'accept_and_enter', 'fallback' },
+				["<C-Tab>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide", "fallback" },
+				["<CR>"] = { "accept", "accept_and_enter", "fallback" },
 
-				['<Tab>'] = {
+				["<Tab>"] = {
 					-- function(cmp)
 					--         if cmp.snippet_active() then
 					--             return cmp.accept()
@@ -55,37 +66,37 @@ return {
 					--             return cmp.select_and_accept()
 					--         end
 					-- end,
-					'select_next',
+					"select_next",
 					-- 'snippet_forward',
-					'fallback',
+					"fallback",
 				},
-				['<S-Tab>'] = {
-					'select_prev',
+				["<S-Tab>"] = {
+					"select_prev",
 					-- 'snippet_backward',
-					'fallback',
+					"fallback",
 				},
 
-				['<C-p>'] = {
+				["<C-p>"] = {
 					-- 'select_prev',
-					'snippet_backward',
-					'fallback_to_mappings',
+					"snippet_backward",
+					"fallback_to_mappings",
 				},
-				['<C-n>'] = {
+				["<C-n>"] = {
 					-- 'select_next',
-					'snippet_forward',
-					'fallback_to_mappings',
+					"snippet_forward",
+					"fallback_to_mappings",
 				},
 
-				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-				['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+				["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
 			},
 
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
-				nerd_font_variant = 'mono',
+				nerd_font_variant = "mono",
 			},
 
 			-- Enable cmdline
@@ -100,7 +111,7 @@ return {
 				--     },
 				-- },
 				menu = {
-					border = 'rounded',
+					border = "rounded",
 				},
 				ghost_text = {
 					enabled = true,
@@ -110,7 +121,7 @@ return {
 					auto_show_delay_ms = 300,
 
 					window = {
-						border = 'rounded',
+						border = "rounded",
 					},
 				},
 				list = {
@@ -131,16 +142,16 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
-					'lsp',
-					'snippets',
-					'buffer',
-					'path',
-					'supermaven',
+					"lsp",
+					"snippets",
+					"buffer",
+					"path",
+					"supermaven",
 				},
 				providers = {
 					supermaven = {
-						module = 'blink.compat.source',
-						name = 'supermaven',
+						module = "blink.compat.source",
+						name = "supermaven",
 						score_offset = 100,
 						async = true,
 					},
@@ -153,9 +164,9 @@ return {
 			--
 			-- See the fuzzy documentation for more information
 			fuzzy = {
-				implementation = 'prefer_rust_with_warning',
+				implementation = "prefer_rust_with_warning",
 			},
 		},
-		opts_extend = { 'sources.default' },
+		opts_extend = { "sources.default" },
 	},
 }

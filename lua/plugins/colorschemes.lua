@@ -132,6 +132,9 @@ return {
 		enabled = true,
 		lazy = true,
 		priority = 1000,
+		opts = {
+			transparent_bg = false,
+		},
 	},
 	{
 		'maxmx03/fluoromachine.nvim',
@@ -140,7 +143,7 @@ return {
 		priority = 1000, -- load the colorscheme before other non-lazy-loaded plugins
 		opts = {
 			glow = false,
-			theme = 'auto', -- 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
+			theme = 'fluoromachine', -- 'delta',-- 'retrowave',-- 'fluoromachine'
 			transparent = false, -- 'full',-- true,
 		},
 		config = function(_, opts)
@@ -183,7 +186,7 @@ return {
 		priority = 1000,
 		opts = {
 			options = {
-				transparent = false,
+				transparent = true,
 				terminal_colors = true,
 				styles = {
 					comments = 'italic',
@@ -213,7 +216,7 @@ return {
 		lazy = true,
 		opts = {
 			style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-			transparent = false, -- Show/hide background
+			transparent = true, -- Show/hide background
 			ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
 			-- Plugins Config --
 			diagnostics = {
@@ -241,6 +244,11 @@ return {
 		lazy = true,
 		priority = 1000,
 		opts = {
+			transparent = true,
+			styles = {
+				sidebars = 'transparent',
+				floats = 'transparent',
+			},
 			style = 'night',
 		},
 	},
