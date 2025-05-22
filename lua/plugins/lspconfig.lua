@@ -205,8 +205,8 @@ return {
 				spacing = 2,
 				format = function(diagnostic)
 					local diagnostic_message = {
-						[vim.diagnostic.severity.ERROR] = diagnostic.message,
-						[vim.diagnostic.severity.WARN] = diagnostic.message,
+						-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
+						-- [vim.diagnostic.severity.WARN] = diagnostic.message,
 						-- [vim.diagnostic.severity.INFO] = diagnostic.message,
 						-- [vim.diagnostic.severity.HINT] = diagnostic.message,
 					}
@@ -295,7 +295,7 @@ return {
 				capabilities = capabilities,
 				before_init = function(_, config)
 					local default_venv_path = util.path.join(vim.env.HOME, ".venv/bin/python")
-					-- local default_venv_path = util.path.join(vim.env.HOME, '.venv_strawberryfields/bin/python')
+					-- local default_venv_path = util.path.join(vim.env.HOME, ".venv_strawberryfields/bin/python")
 					config.settings.python.pythonPath = default_venv_path
 				end,
 				disableOrganizeImports = false,
@@ -380,10 +380,11 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"mypy",
-			"isort",
+			-- "mypy",
+			-- "isort",
+			-- "ruff",
+			-- "pyright",
 			"debugpy",
-			"pyright",
 			"ktlint",
 			"prettier",
 			"prettierd",
