@@ -38,6 +38,9 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[Q]uickfix [O]pen" })
+-- vim.keymap.set("n", "<leader>qo", vim.diagnostic.setloclist, { desc = "[Q]uickfix [O]pen" })
+vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[Q]uickfix [C]lose" })
 
 -- Splitting windows
 vim.keymap.set("n", "<C-s>", "<C-w>s", { desc = "[S]plit window horizontally" })

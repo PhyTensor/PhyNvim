@@ -1,5 +1,5 @@
 return {
-	'folke/snacks.nvim',
+	"folke/snacks.nvim",
 	enabled = true,
 	priority = 1000,
 	lazy = false,
@@ -27,63 +27,64 @@ return {
 	},
 	keys = {
 		{
-			'<leader>gg',
+			"<leader>gg",
 			function()
 				Snacks.lazygit()
 			end,
-			desc = 'Lazygit',
+			desc = "Lazygit",
 		},
 		{
-			'<leader>gb',
+			"<leader>gb",
 			function()
 				Snacks.picker.git_branches()
 			end,
-			desc = 'Git Branches',
+			desc = "Git Branches",
 		},
 		{
-			'<leader>gl',
+			"<leader>gl",
 			function()
 				Snacks.picker.git_log()
 			end,
-			desc = 'Git Log',
+			desc = "Git Log",
 		},
 		-- File Explorer
 		{
-			'<leader>e',
+			"<leader>e",
 			function()
 				Snacks.explorer()
 			end,
-			desc = 'File Explorer',
+			desc = "File Explorer",
 		},
 		-- Other
 		{
-			'<leader>z',
+			"<leader>z",
 			function()
 				Snacks.zen()
 			end,
-			desc = 'Toggle Zen Mode',
+			desc = "Toggle Zen Mode",
 		},
 		{
-			'<leader>bd',
+			-- '<leader>bd',
+			"<C-x>",
 			function()
 				Snacks.bufdelete()
 			end,
-			desc = 'Delete Buffer',
+			desc = "Delete Buffer",
 		},
 		{
-			'<leader>un',
+			"<leader>un",
 			function()
 				Snacks.notifier.hide()
 			end,
-			desc = 'Dismiss All Notifications',
+			desc = "Dismiss All Notifications",
 		},
 		{
-			'<C-t>',
+			"<C-t>",
 			-- '<leader>tt',
 			function()
 				Snacks.terminal()
 			end,
-			desc = 'Toggle Terminal',
+			desc = "Toggle Terminal",
 		},
 	},
 }

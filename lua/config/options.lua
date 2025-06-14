@@ -39,7 +39,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false -- disable all highlighted search results
 vim.opt.incsearch = true -- enable incremental search
 
-vim.opt.wrap = false -- disable text line wrapping
+vim.opt.wrap = true -- disable text line wrapping
 
 vim.opt.expandtab = false -- convert tabs to spaces
 vim.opt.smartindent = true

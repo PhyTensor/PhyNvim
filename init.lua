@@ -2,8 +2,11 @@
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 -- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.g.dotnet_errors_only = true
+vim.g.dotnet_show_project_fail = false
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -11,10 +14,10 @@ vim.g.have_nerd_font = true
 -- Enable LazyVim auto format
 vim.g.autoformat = true
 
-require 'config.options'
-require 'config.keymaps'
-require 'config.autocmds'
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
 
-require 'config.lazy'
+require("config.lazy")
 
-require 'config.colorscheme'
+require("config.colorscheme")

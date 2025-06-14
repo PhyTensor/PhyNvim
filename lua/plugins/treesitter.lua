@@ -1,33 +1,36 @@
 return {
 	-- Highlight, edit, and navigate code
-	'nvim-treesitter/nvim-treesitter',
-	build = ':TSUpdate',
-	main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate",
+	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	enabled = true,
 	lazy = true,
 	event = {
-		'BufWritePre',
-		'BufReadPre',
-		'BufNewFile',
+		"BufWritePre",
+		"BufReadPre",
+		"BufNewFile",
 	},
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 	opts = {
 		ensure_installed = {
-			'bash',
-			'c',
-			'diff',
-			'html',
-			'lua',
-			'python',
-			'c_sharp',
-			'luadoc',
-			'markdown',
-			'markdown_inline',
-			'query',
-			'vim',
-			'vimdoc',
-			'html',
-			'css',
+			"bash",
+			"c",
+			"diff",
+			"html",
+			"lua",
+			"python",
+			"c_sharp",
+			"luadoc",
+			"markdown",
+			"markdown_inline",
+			"query",
+			"vim",
+			"vimdoc",
+			"html",
+			"css",
+			"gdscript",
+			"godot_resource",
+			"gdshader",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
@@ -37,10 +40,16 @@ return {
 			--  If you are experiencing weird indenting issues, add the language to
 			--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 			-- additional_vim_regex_highlighting = { 'ruby' },
+			additional_vim_regex_highlighting = false,
 		},
 		indent = {
-			enable = true,
+			enable = false,
 			-- disable = { 'ruby' },
+		},
+		rainbow = {
+			enable = true,
+			extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+			max_file_lines = nil, -- if 1000, Do not enable for files with more than 1000 lines, int
 		},
 	},
 	-- There are additional nvim-treesitter modules that you can use to interact

@@ -107,14 +107,7 @@ return {
 				--
 				-- When you move your cursor, the highlights will be cleared (the second autocommand).
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
-				if
-					client
-					and client_supports_method(
-						client,
-						vim.lsp.protocol.Methods.textDocument_documentHighlight,
-						event.buf
-					)
-				then
+				if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
@@ -141,10 +134,7 @@ return {
 				-- code, if the language server you are using supports them
 				--
 				-- This may be unwanted, since they displace some of your code
-				if
-					client
-					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
-				then
+				if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
 					map("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end, "[T]oggle Inlay [H]ints")
@@ -258,16 +248,34 @@ return {
 			},
 
 			lua_ls = {
-				-- cmd = { ... },
+				cmd = { "lua-language-server" },
 				filetypes = { "lua" },
 				capabilities = capabilities,
+				root_markers = {
+					".git",
+					".luarc.json",
+					"luarc.jsonc",
+					".luacheckrc",
+					"stylua.toml",
+					".stylua.toml",
+					"selene.toml",
+					"selene.yml",
+				},
 				settings = {
 					Lua = {
+						runtime = {
+							-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+							version = "LuaJIT",
+						},
 						diagnostics = {
 							-- Get the language server to recognize the `vim` global
-							globals = { "vim" },
+							globals = { "vim", "Snacks" },
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 							disable = { "missing-fields" },
+						},
+						workspace = {
+							-- Make the server aware of Neovim runtime files
+							library = vim.api.nvim_get_runtime_file("", true),
 						},
 						hint = {
 							enable = true,
@@ -295,8 +303,9 @@ return {
 				capabilities = capabilities,
 				before_init = function(_, config)
 					local default_venv_path = util.path.join(vim.env.HOME, ".venv/bin/python")
-					-- local default_venv_path = util.path.join(vim.env.HOME, ".venv_strawberryfields/bin/python")
+					local strawberry_fields_venv_path = util.path.join(vim.env.HOME, ".venv_strawberryfields/bin/python")
 					config.settings.python.pythonPath = default_venv_path
+					config.settings.python.pythonPath = strawberry_fields_venv_path
 				end,
 				disableOrganizeImports = false,
 				analysis = {
@@ -371,10 +380,12 @@ return {
 				},
 			},
 
-			-- gdscript = {
-			--     capabilities = capabilities,
-			--     filetypes = { 'gdscript', 'godot' },
-			-- },
+			gdscript = {
+				capabilities = capabilities,
+				-- filetypes = { "gdscript", "godot" },
+				-- cmd = { "netcat", "localhost", "6005" },
+				settings = {},
+			},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -392,12 +403,13 @@ return {
 			"yamlfix",
 			"css-lsp",
 			"typescript-language-server",
-			"gdtoolkit",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
-			ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+			ensure_installed = {
+				"omnisharp",
+			}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
 			automatic_installation = true,
 			handlers = {
 				function(server_name)

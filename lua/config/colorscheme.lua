@@ -1,17 +1,19 @@
-vim.cmd.colorscheme {
+vim.cmd.colorscheme({
 	-- 'kanagawa',
 	-- 'habamax',
 	-- 'dracula',
 	-- 'rose-pine',
-	'tokyonight',
+	-- 'tokyonight',
 	-- 'onedark',
 	-- 'catppuccin',
 	-- 'fluoromachine'
 	-- 'cyberdream'
-	-- 'night-owl'
+	"night-owl",
 	-- "moonfly"
 	-- "vscode"
 	-- "nord"
 	-- "substrata"
 	-- 'nightfox',
-}
+	-- "kanagawabones",
+	-- "zenbones"
+})
