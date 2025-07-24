@@ -145,8 +145,8 @@ return {
 					"supermaven",
 					"lsp",
 					"snippets",
-					"path",
 					"buffer",
+					"path",
 				},
 				providers = {
 					supermaven = {

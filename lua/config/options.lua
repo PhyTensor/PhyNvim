@@ -1,90 +1,72 @@
--- [[ Setting Options ]]
--- Make line numbers default
-vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
-vim.opt.relativenumber = true
+-- Basic settings
+vim.opt.number = true -- Make line numbers default
+vim.opt.relativenumber = true -- You can also add relative line numbers, to help with jumping.
+vim.opt.cursorline = true -- Show which line your cursor is on
+vim.opt.wrap = false -- disable text line wrapping
+vim.opt.scrolloff = 12 -- Minimal number of screen lines to keep above and below the cursor. scroll page when cursor is # lines
+vim.opt.sidescrolloff = 12 -- scroll page when cursor is # column spaces left/right
 
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
+-- Indentation
+vim.opt.tabstop = 4 -- Tab width
+vim.opt.shiftwidth = 4 -- Indent width
+vim.opt.softtabstop = 4 -- Number of spaces inserted when pressing <Tab>
+vim.opt.expandtab = true -- convert tabs to spaces
+vim.opt.smartindent = true -- Smart auto-indenting
+vim.opt.autoindent = true -- Copy indent from current line
 
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = true
-
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
-
-vim.opt.completeopt = { "menuone", "noselect" }
-
-vim.opt.guifont = "monospace:h12"
-
--- Enable break indent
-vim.opt.breakindent = true
-
--- Save undo history
-vim.opt.undofile = true
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- before all highlighted search results
+-- Search settings
+vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.smartcase = true -- Case sensitive if uppercase in search
 vim.opt.hlsearch = false -- disable all highlighted search results
-vim.opt.incsearch = true -- enable incremental search
+vim.opt.incsearch = true -- enable incremental search i.e. show matches as you type
 
-vim.opt.wrap = true -- disable text line wrapping
+-- Visual settings
+vim.opt.termguicolors = true -- Enable 24-bit colors
+vim.opt.signcolumn = "auto" -- "yes" -- Keep signcolumn on by default
+vim.opt.colorcolumn = "" -- Show column at 80 characters
+vim.opt.showmatch = true -- Highlight matching brackets
+vim.opt.matchtime = 3 -- How long to show matching brackets
+vim.opt.showcmd = false -- Don't show extra info at the bottom
+vim.opt.cmdheight = 1 -- Command line height
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" } -- Completion options
+vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
+vim.opt.pumheight = 10 -- Popup menu height
+vim.opt.pumblend = 10 -- Popup menu transparency
+vim.opt.winblend = 0 -- Floating window transparency
+vim.opt.conceallevel = 0 -- Don't hide markup
+vim.opt.concealcursor = "" -- Don't hide cursor when typing markup
+vim.opt.lazyredraw = true -- Don't redraw during macros
+vim.opt.synmaxcol = 300 -- Syntax highlighting limit
 
-vim.opt.expandtab = false -- convert tabs to spaces
-vim.opt.smartindent = true
+-- File handling
+vim.opt.backup = false -- Don't create backup files
+vim.opt.writebackup = false -- Don't create backup before writing
+vim.opt.swapfile = false -- Don't create swap files
+vim.opt.undofile = true -- Save undo history i.e. persistent undo
+vim.opt.undodir = vim.fn.expand("~/.local/state/nvim/undo") -- undo directory
+vim.opt.updatetime = 300 -- Decrease update time i.e. faster completion
+vim.opt.timeoutlen = 500 -- Decrease mapped sequence wait time i.e. key timeout duration
+vim.opt.ttimeoutlen = 0 -- Key code timeout
+vim.opt.autoread = true -- Auto reload files changed outside of vim
+vim.opt.autowrite = false -- Don't auto save
 
--- Keep signcolumn on by default
-vim.opt.signcolumn = "auto" -- "yes"
+-- Behaviour settings
+vim.opt.hidden = true --Allow hidden buffers
+vim.opt.errorbells = false -- No error bells
+vim.opt.backspace = "indent,eol,start" -- Better Backspace Behaviour
+vim.opt.autochdir = false -- Don't auto change directory
+vim.opt.iskeyword:append("_") -- Treat dash as port of word
+vim.opt.path:append("**") -- Include subdirectories in search
+vim.opt.selection = "exclusive" -- Selection behaviour
+vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.clipboard:append("unnamedplus") -- Use system clipboard. Sync clipboard between OS and Neovim.
+vim.opt.modifiable = true -- Allow buffer modifications
+vim.opt.fileencoding = "UTF-8"
 
-vim.opt.showtabline = 2 -- always show tabline
-
-vim.opt.laststatus = 3 -- always show statusline
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
+-- Split settings. Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = false
--- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
--- vim.opt.listchars = { trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor. scroll page when cursor is # lines
-vim.opt.scrolloff = 12
--- scroll page when cursor is # spaces
-vim.opt.sidescrolloff = 12
-
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
--- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
-vim.opt.confirm = true
-
-vim.opt.showcmd = false
-vim.opt.cmdheight = 1
-
-vim.opt.fileencoding = "utf-8"
+-- Performance imrovements
+vim.opt.redrawtime = 10000 -- Don't redraw during macros
+vim.opt.maxmempattern = 20000 -- Increase memory limit

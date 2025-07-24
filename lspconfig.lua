@@ -1,38 +1,38 @@
 return {
 	"neovim/nvim-lspconfig",
-	enabled = true,
-	lazy = true,
-	event = {
-		"BufWritePre",
-		"BufReadPre",
-		"BufNewFile",
-	},
-	dependencies = {
-		-- Automatically install LSPs and related tools to stdpath for Neovim
-		-- Mason must be loaded before its dependents so we need to set it up here.
-		-- LSP Manager plugins
-		{
-			"williamboman/mason.nvim",
-			opts = {
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
-			},
-		},
-		"williamboman/mason-lspconfig.nvim",
-
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
-		{ "j-hui/fidget.nvim", opts = {} },
-
-		-- Allows extra capabilities provided by nvim-cmp
-		-- 'hrsh7th/cmp-nvim-lsp',
-	},
+	-- enabled = true,
+	-- lazy = true,
+	-- event = {
+	-- 	"BufWritePre",
+	-- 	"BufReadPre",
+	-- 	"BufNewFile",
+	-- },
+	-- dependencies = {
+	-- 	-- Automatically install LSPs and related tools to stdpath for Neovim
+	-- 	-- Mason must be loaded before its dependents so we need to set it up here.
+	-- 	-- LSP Manager plugins
+	-- 	{
+	-- 		"williamboman/mason.nvim",
+	-- 		opts = {
+	-- 			ui = {
+	-- 				icons = {
+	-- 					package_installed = "✓",
+	-- 					package_pending = "➜",
+	-- 					package_uninstalled = "✗",
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	"williamboman/mason-lspconfig.nvim",
+	--
+	-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	--
+	-- 	-- Useful status updates for LSP.
+	-- 	{ "j-hui/fidget.nvim", opts = {} },
+	--
+	-- 	-- Allows extra capabilities provided by nvim-cmp
+	-- 	-- 'hrsh7th/cmp-nvim-lsp',
+	-- },
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
 		--    That is to say, every time a new file is opened that is associated with
@@ -160,50 +160,54 @@ return {
 		--   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 		-- end
 
-		vim.diagnostic.config({
-			severity_sort = true,
-			float = {
-				border = "rounded",
-				source = "if_many",
-			},
-			underline = {
-				severity = vim.diagnostic.severity.ERROR,
-			},
-			signs = vim.g.have_nerd_font and {
-				text = {
-					[vim.diagnostic.severity.ERROR] = "󰅚 ",
-					[vim.diagnostic.severity.WARN] = "󰀪 ",
-					[vim.diagnostic.severity.INFO] = "󰋽 ",
-					[vim.diagnostic.severity.HINT] = " ",
-				},
-			} or {},
-			virtual_text = {
-				source = "if_many",
-				spacing = 2,
-				format = function(diagnostic)
-					local diagnostic_message = {
-						-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
-						-- [vim.diagnostic.severity.WARN] = diagnostic.message,
-						[vim.diagnostic.severity.INFO] = diagnostic.message,
-						[vim.diagnostic.severity.HINT] = diagnostic.message,
-					}
-					return diagnostic_message[diagnostic.severity]
-				end,
-			},
-			virtual_lines = {
-				source = "if_many",
-				spacing = 2,
-				format = function(diagnostic)
-					local diagnostic_message = {
-						-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
-						-- [vim.diagnostic.severity.WARN] = diagnostic.message,
-						-- [vim.diagnostic.severity.INFO] = diagnostic.message,
-						-- [vim.diagnostic.severity.HINT] = diagnostic.message,
-					}
-					return diagnostic_message[diagnostic.severity]
-				end,
-			},
-		})
+		-- vim.diagnostic.config({
+		-- 	severity_sort = true,
+		-- 	float = {
+		-- 		focusable = false,
+		-- 		style = "minimal",
+		-- 		border = "rounded",
+		-- 		source = "always", -- "if_many",
+		-- 		header = "",
+		-- 		-- prefix = "",
+		-- 	},
+		-- 	underline = {
+		-- 		severity = vim.diagnostic.severity.ERROR,
+		-- 	},
+		-- 	signs = vim.g.have_nerd_font and {
+		-- 		text = {
+		-- 			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+		-- 			[vim.diagnostic.severity.WARN] = "󰀪 ",
+		-- 			[vim.diagnostic.severity.INFO] = "󰋽 ",
+		-- 			[vim.diagnostic.severity.HINT] = " ",
+		-- 		},
+		-- 	} or {},
+		-- 	virtual_text = {
+		-- 		source = "if_many",
+		-- 		spacing = 2,
+		-- 		format = function(diagnostic)
+		-- 			local diagnostic_message = {
+		-- 				-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
+		-- 				-- [vim.diagnostic.severity.WARN] = diagnostic.message,
+		-- 				[vim.diagnostic.severity.INFO] = diagnostic.message,
+		-- 				[vim.diagnostic.severity.HINT] = diagnostic.message,
+		-- 			}
+		-- 			return diagnostic_message[diagnostic.severity]
+		-- 		end,
+		-- 	},
+		-- 	virtual_lines = {
+		-- 		source = "if_many",
+		-- 		spacing = 2,
+		-- 		format = function(diagnostic)
+		-- 			local diagnostic_message = {
+		-- 				-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
+		-- 				-- [vim.diagnostic.severity.WARN] = diagnostic.message,
+		-- 				-- [vim.diagnostic.severity.INFO] = diagnostic.message,
+		-- 				-- [vim.diagnostic.severity.HINT] = diagnostic.message,
+		-- 			}
+		-- 			return diagnostic_message[diagnostic.severity]
+		-- 		end,
+		-- 	},
+		-- })
 
 		-- Enable the following language servers
 		--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -271,11 +275,11 @@ return {
 							-- Get the language server to recognize the `vim` global
 							globals = { "vim", "Snacks" },
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							disable = { "missing-fields" },
+							-- disable = { "missing-fields" },
 						},
 						workspace = {
 							-- Make the server aware of Neovim runtime files
-							library = vim.api.nvim_get_runtime_file("", true),
+							-- library = vim.api.nvim_get_runtime_file("", true),
 						},
 						hint = {
 							enable = true,
@@ -380,12 +384,12 @@ return {
 				},
 			},
 
-			gdscript = {
-				capabilities = capabilities,
-				-- filetypes = { "gdscript", "godot" },
-				-- cmd = { "netcat", "localhost", "6005" },
-				settings = {},
-			},
+			-- gdscript = {
+			-- 	capabilities = capabilities,
+			-- 	-- filetypes = { "gdscript", "godot" },
+			-- 	-- cmd = { "netcat", "localhost", "6005" },
+			-- 	settings = {},
+			-- },
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
@@ -403,6 +407,7 @@ return {
 			"yamlfix",
 			"css-lsp",
 			"typescript-language-server",
+			"lua-language-server",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -424,3 +429,9 @@ return {
 		})
 	end,
 }
+
+-- vim.lsp.config("lua_ls", {
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { "vim" }}}}})

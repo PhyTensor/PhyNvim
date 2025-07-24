@@ -2,7 +2,7 @@
 --  See `:help lua-guide-autocommands`
 
 local function augroup(name)
-	return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
 end
 
 -- Highlight when yanking (copying) text
@@ -11,6 +11,7 @@ end
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	pattern = "*",
 	callback = function()
 		vim.highlight.on_yank()
 	end,
@@ -36,10 +37,25 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- Auto-create directories when saving
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	group = augroup("auto-create-directories"),
+-- 	pattern = "*",
+-- 	callback = function(ctx)
+-- 		local dir = vim.fn.expand("<afile>:p:h")
+-- 		if vim.fn.isdirectory(dir) == 0 then
+-- 			vim.fn.mkdir(dir, "p")
+-- 		end
+-- 	end,
+-- })
+
 -- when opening terminal in neovim
+-- Terminal behaviour improvements
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = augroup("custom-neovim_terminal-open"),
+	pattern = "*",
 	callback = function()
+		vim.opt.signcolumn = "no"
 		vim.opt.number = false
 		vim.opt.relativenumber = false
 	end,
@@ -70,26 +86,27 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 -- fix comment on new line
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*" },
-	callback = function()
-		vim.cmd([[set formatoptions-=cro]])
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+-- 	pattern = { "*" },
+-- 	callback = function()
+-- 		vim.cmd([[set formatoptions-=cro]])
+-- 	end,
+-- })
 
 -- wrap words "softly" (no carriage return) in mail buffer
-vim.api.nvim_create_autocmd("Filetype", {
-	pattern = "mail",
-	callback = function()
-		vim.opt.textwidth = 0
-		vim.opt.wrapmargin = 0
-		vim.opt.wrap = true
-		vim.opt.linebreak = true
-		vim.opt.columns = 80
-		vim.opt.colorcolumn = "80"
-	end,
-})
+-- vim.api.nvim_create_autocmd("Filetype", {
+-- 	pattern = "mail",
+-- 	callback = function()
+-- 		vim.opt.textwidth = 0
+-- 		vim.opt.wrapmargin = 0
+-- 		vim.opt.wrap = true
+-- 		vim.opt.linebreak = true
+-- 		vim.opt.columns = 80
+-- 		vim.opt.colorcolumn = "80"
+-- 	end,
+-- })
 
+-- Floating diagnostics message
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
 		vim.diagnostic.open_float(nil, { focusable = false, source = "if_many" })

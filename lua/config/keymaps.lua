@@ -4,6 +4,10 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 
+-- Set <space> as the leader key
+vim.g.mapleader = " " -- Set leader key to space
+vim.g.maplocalleader = " " -- Set local leader key to space
+
 -- Reload config
 vim.keymap.set("n", "<leader>R", ":source ~/.config/nvim/init.lua<CR>", { desc = "[R]eload config" })
 
@@ -26,9 +30,11 @@ vim.keymap.set("v", "P", '"_dP', { desc = "Paste without yanking" })
 -- Select all
 vim.keymap.set("n", "<leader>a", "gg<S-v>G", { desc = "Select All" })
 
--- scrolling remaps
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half a page with cursor centered" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half a page with cursor centered" })
+-- Center screen when jumping
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 
 -- Launch Lazy
 vim.keymap.set("n", "<leader>l", "<CMD>Lazy<CR>", { desc = "Launch Lazy" })
@@ -42,12 +48,10 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- vim.keymap.set("n", "<leader>qo", vim.diagnostic.setloclist, { desc = "[Q]uickfix [O]pen" })
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[Q]uickfix [C]lose" })
 
--- Splitting windows
+-- Splitting and Resizing windows
 vim.keymap.set("n", "<C-s>", "<C-w>s", { desc = "[S]plit window horizontally" })
 vim.keymap.set("n", "<C-v>", "<C-w>v", { desc = "[V]ertically split window" })
 vim.keymap.set("n", "<C-c>", "<C-w>c", { desc = "[C]lose window" })
-
--- Resize windows
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equal width and height of split windows" })
 vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", { desc = "Resize left vertical split window" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize right vertical split window" })
@@ -75,11 +79,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus to the right window"
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
 
--- NOTE: Some terminals have coliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+-- Move selection up/down
+vim.keymap.set("v", "<C-A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<C-A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Visual Maps
 -- Hint: start visual mode with the same area as the previous area and in the same mode

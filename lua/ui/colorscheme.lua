@@ -1,11 +1,11 @@
 vim.cmd.colorscheme({
-	-- 'kanagawa',
-	-- 'habamax',
-	-- 'dracula',
-	-- 'rose-pine',
-	-- 'tokyonight',
-	-- 'onedark',
-	-- 'catppuccin',
+	-- "kanagawa",
+	-- "habamax",
+	-- "dracula",
+	-- "rose-pine",
+	-- "tokyonight",
+	-- "onedark",
+	-- "catppuccin",
 	-- 'fluoromachine'
 	-- 'cyberdream'
 	"night-owl",
@@ -13,7 +13,7 @@ vim.cmd.colorscheme({
 	-- "vscode"
 	-- "nord"
 	-- "substrata"
-	-- 'nightfox',
+	-- "nightfox",
 	-- "kanagawabones",
 	-- "zenbones"
 })

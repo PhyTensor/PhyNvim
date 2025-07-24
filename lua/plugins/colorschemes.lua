@@ -84,11 +84,9 @@ return {
 		lazy = true,
 		name = "catppuccin",
 		priority = 1000,
-		opts = {
-			transparent_background = true,
-		},
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
+		opts = {},
+		config = function()
+			require("ui.ui").theme_catppuccin()
 		end,
 	},
 	{
