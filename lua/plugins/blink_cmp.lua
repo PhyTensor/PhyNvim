@@ -104,12 +104,12 @@ return {
 
 			-- (Default) Only show the documentation popup when manually triggered
 			completion = {
-				-- accept = {
-				--     -- experimental auto-brackets support
-				--     auto_brackets = {
-				--         enabled = true,
-				--     },
-				-- },
+				accept = {
+					-- experimental auto-brackets support
+					auto_brackets = {
+						enabled = true,
+					},
+				},
 				menu = {
 					border = "rounded",
 				},
@@ -142,11 +142,11 @@ return {
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = {
+					"supermaven",
 					"lsp",
 					"snippets",
 					"buffer",
 					"path",
-					"supermaven",
 				},
 				providers = {
 					supermaven = {
