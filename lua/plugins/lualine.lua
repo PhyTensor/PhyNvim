@@ -14,3 +14,4 @@ return {
 		require("ui.ui").statusline()
 	end,
 }
+

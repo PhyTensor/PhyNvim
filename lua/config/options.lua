@@ -28,11 +28,12 @@ vim.opt.showmatch = true -- Highlight matching brackets
 vim.opt.matchtime = 3 -- How long to show matching brackets
 vim.opt.showcmd = false -- Don't show extra info at the bottom
 vim.opt.cmdheight = 1 -- Command line height
-vim.opt.completeopt = { "menuone", "noinsert", "noselect" } -- Completion options
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect", "fuzzy", "popup", "preview" } -- Completion options
 vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
 vim.opt.pumheight = 10 -- Popup menu height
 vim.opt.pumblend = 10 -- Popup menu transparency
 vim.opt.winblend = 0 -- Floating window transparency
+vim.opt.winborder = "rounded" -- default border for all floating windows
 vim.opt.conceallevel = 0 -- Don't hide markup
 vim.opt.concealcursor = "" -- Don't hide cursor when typing markup
 vim.opt.lazyredraw = true -- Don't redraw during macros
@@ -66,6 +67,9 @@ vim.opt.fileencoding = "UTF-8"
 -- Split settings. Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- LSP
+vim.lsp.inlay_hint.enable(true)
 
 -- Performance imrovements
 vim.opt.redrawtime = 10000 -- Don't redraw during macros

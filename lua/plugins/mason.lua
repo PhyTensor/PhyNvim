@@ -18,6 +18,9 @@ return {
 				},
 			},
 		},
+		config = function()
+			require("mason").setup()
+		end,
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
@@ -29,26 +32,13 @@ return {
 			"BufNewFile",
 		},
 		dependencies = { "mason-org/mason.nvim" },
-		opts = {},
-		config = function()
-			require("lsp.lsp").setup_servers()
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		enabled = true,
-		lazy = true,
-		event = {
-			"BufWritePre",
-			"BufReadPre",
-			"BufNewFile",
+		opts = {
+			-- configure LSP servers
+			-- ensure_installed = require("core.servers"),
+			-- automatic_installation = false,
 		},
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-		},
-		config = function()
-			require("lsp.lsp").setup_handlers()
+		config = function(_, opts)
+			require("mason-lspconfig").setup(opts)
 		end,
 	},
 }

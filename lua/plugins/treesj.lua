@@ -1,19 +1,19 @@
 return {
-	'Wansmer/treesj',
+	"Wansmer/treesj",
 	enabled = true,
 	lazy = true,
 	event = {
-		'BufWritePre',
-		'BufReadPre',
-		'BufNewFile',
+		"BufWritePre",
+		"BufReadPre",
+		"BufNewFile",
 	},
-	dependencies = { 'nvim-treesitter/nvim-treesitter' },
+	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	keys = {
-		'<leader>m',
-		'<leader>j',
-		'<leader>s',
+		"<leader>m",
+		"<leader>j",
+		"<leader>s",
 	},
 	config = function()
-		require('treesj').setup {}
+		require("treesj").setup({})
 	end,
 }

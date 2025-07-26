@@ -1,6 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	event = {
 		"BufReadPre", -- load whenever we opoen new buffer or pres existing file

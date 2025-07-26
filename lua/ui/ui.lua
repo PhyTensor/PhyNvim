@@ -30,8 +30,6 @@ function M.theme_catppuccin()
 	})
 end
 
-local function file_size() end
-
 -- Status line configuration
 function M.statusline()
 	local lazy_status = require("lazy.status") -- to configure lazy pending updates count

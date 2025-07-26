@@ -1,14 +1,11 @@
--- autopairs
--- https://github.com/windwp/nvim-autopairs
-
 return {
-	'windwp/nvim-autopairs',
+	"windwp/nvim-autopairs",
 	enabled = true,
 	lazy = true,
 	event = {
-		'BufWritePre',
-		'BufReadPre',
-		'BufNewFile',
+		"BufWritePre",
+		"BufReadPre",
+		"BufNewFile",
 	},
 	-- event = 'InsertEnter',
 	-- Optional dependency
@@ -16,7 +13,7 @@ return {
 		-- 'hrsh7th/nvim-cmp',
 	},
 	config = function()
-		require('nvim-autopairs').setup {}
+		require("nvim-autopairs").setup({})
 		-- If you want to automatically add `(` after selecting a function or method
 		-- local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 		-- local cmp = require 'cmp'

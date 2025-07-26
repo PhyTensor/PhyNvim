@@ -3,19 +3,13 @@ return {
 	enabled = true,
 	lazy = false,
 	priority = 100,
-	-- init = function()
-	-- 	-- enable saving the state of plugins in the session
-	-- 	vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
-	-- end,
+	init = function()
+		-- enable saving the state of plugins in the session
+		vim.opt.sessionoptions:append 'globals' -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
+	end,
 	dependencies = {
 		{ 'nvim-lua/plenary.nvim' },
-		-- optional picker
 		{ 'ibhagwan/fzf-lua' },
-		-- optional picker
-		{
-			'nvim-telescope/telescope.nvim',
-			-- tag = '0.1.4',
-		},
 		{ 'Shatur/neovim-session-manager' },
 	},
 	opts = {
@@ -27,7 +21,7 @@ return {
 		},
 		picker = {
 			type = 'fzf-lua', -- 'telescope', -- or "fzf-lua"
-			-- preview = true, -- show directory structure preview in Telescope
+			preview = true, -- show directory structure preview in Telescope
 			preview = {
 				enabled = true, -- show directory structure in Telescope preview
 				git_status = true, -- show branch name, an ahead/behind counter, and the git status of each file/folder
@@ -61,7 +55,7 @@ return {
 	config = function(_, opts)
 		require('neovim-project').setup(opts)
 
-		vim.keymap.set('n', '<leader>pp', '<CMD>Telescope neovim-project discover<CR>', { desc = 'Find [P]roject based on [P]atterns' })
-		vim.keymap.set('n', '<leader>ph', '<CMD>Telescope neovim-project history<CR>', { desc = 'Select [P]roject based on [H]istory' })
+		vim.keymap.set('n', '<leader>pp', '<CMD>NeovimProjectDiscover default<CR>', { desc = 'Find [P]roject based on [P]atterns' })
+		vim.keymap.set('n', '<leader>ph', '<CMD>NeovimProjectHistory<CR>', { desc = 'Select [P]roject based on [H]istory' })
 	end,
 }

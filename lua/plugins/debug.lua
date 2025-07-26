@@ -9,7 +9,7 @@
 return {
 	-- NOTE: Yes, you can install new plugins here!
 	"mfussenegger/nvim-dap",
-	enabled = true,
+	enabled = false,
 	lazy = true,
 	event = {
 		"BufWritePre",

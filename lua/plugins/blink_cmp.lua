@@ -96,11 +96,17 @@ return {
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
-				nerd_font_variant = "mono",
+				nerd_font_variant = "normal",
 			},
 
 			-- Enable cmdline
-			cmdline = { enabled = true },
+			cmdline = {
+				enabled = true,
+				completion = { menu = { auto_show = true } },
+				keymap = {
+					["<CR>"] = { "accept_and_enter", "fallback" },
+				},
+			},
 
 			-- (Default) Only show the documentation popup when manually triggered
 			completion = {
@@ -111,7 +117,8 @@ return {
 					},
 				},
 				menu = {
-					border = "rounded",
+					border = "rounded", -- nil
+					scrollbar = false,
 				},
 				ghost_text = {
 					enabled = true,
@@ -126,7 +133,7 @@ return {
 				},
 				list = {
 					selection = {
-						preselect = false,
+						preselect = true,
 						-- preselect = function(ctx)
 						--     return not require('blink.cmp').snippet_active { direction = 1 }
 						-- end,
@@ -147,6 +154,7 @@ return {
 					"snippets",
 					"buffer",
 					"path",
+					"cmdline",
 				},
 				providers = {
 					supermaven = {
@@ -154,6 +162,9 @@ return {
 						name = "supermaven",
 						score_offset = 100,
 						async = true,
+					},
+					cmdline = {
+						min_keyword_length = 2,
 					},
 				},
 			},
