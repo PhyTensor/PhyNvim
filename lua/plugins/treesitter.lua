@@ -52,7 +52,7 @@ return {
 			max_file_lines = nil, -- if 1000, Do not enable for files with more than 1000 lines, int
 		},
 	},
-	config = function(_, opts)
-		require("nvim-treesitter").setup(opts)
-	end,
+	-- config = function(_, opts)
+	-- 	require("nvim-treesitter").setup(opts)
+	-- end,
 }

@@ -1,13 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-
--- Set <space> as the leader key
-vim.g.mapleader = " " -- Set leader key to space
-vim.g.maplocalleader = " " -- Set local leader key to space
-
 -- Reload config
 vim.keymap.set("n", "<leader>R", ":source ~/.config/nvim/init.lua<CR>", { desc = "[R]eload config" })
 
@@ -24,7 +17,7 @@ vim.keymap.set("n", "<leader>sa", ":wall<CR>", { desc = "[S]ave [A]ll" })
 -- Save all and Quit
 vim.keymap.set("n", "<leader>sq", ":wqall<CR>", { desc = "[S]ave all and [Q]uit" })
 
--- Paste without yanking
+-- Paste without yanking - keep last yanked when pasting
 vim.keymap.set("v", "P", '"_dP', { desc = "Paste without yanking" })
 
 -- Select all
@@ -52,6 +45,7 @@ vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[Q]uickfix [C]los
 vim.keymap.set("n", "<C-s>", "<C-w>s", { desc = "[S]plit window horizontally" })
 vim.keymap.set("n", "<C-v>", "<C-w>v", { desc = "[V]ertically split window" })
 vim.keymap.set("n", "<C-c>", "<C-w>c", { desc = "[C]lose window" })
+vim.keymap.set("n", "<C-x>", ":bdelete!<CR>", { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equal width and height of split windows" })
 vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", { desc = "Resize left vertical split window" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize right vertical split window" })
@@ -63,7 +57,6 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize rig
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 -- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

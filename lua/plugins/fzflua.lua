@@ -55,6 +55,13 @@ return {
 			end,
 			{ desc = "[F]ind [B]uffers" },
 		},
+		{
+			"<leader>Space",
+			function()
+				require("fzf-lua").buffers()
+			end,
+			{ desc = "[F]ind [B]uffers" },
+		},
 	},
 }
 

@@ -6,7 +6,7 @@ return {
 	name = "godot",
 	-- Connect directly to the RPC server (Godot's built-in LSP)
 	cmd = { "netcat", "127.0.0.1", port },
-	filetypes = { "gdscript", "gdshader" },
+	filetypes = { "gd", "gdscript", "gdshader" },
 	root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".godot", ".git" }, { upward = true })[1]),
 	root_markers = { "project.godot", ".godot", ".git" },
 	-- on_attach = function(client, bufnr)
