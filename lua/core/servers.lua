@@ -1,7 +1,6 @@
 local servers = {
     "bashls",
     -- "clangd",
-    -- "csharp_ls",
     "cssls",
     "eslint",
     "gopls",

@@ -6,12 +6,12 @@
 -- for any git rev.
 
 return {
-	"sindrets/diffview.nvim",
-	enabled = false,
-	lazy = true,
-	event = { "BufReadPre" },
-	opts = {},
-	config = function(_, opts)
-		require("diffview").setup(opts)
-	end,
+    "sindrets/diffview.nvim",
+    enabled = true,
+    lazy = true,
+    event = { "BufReadPre" },
+    opts = {},
+    config = function(_, opts)
+        require("diffview").setup(opts)
+    end,
 }
