@@ -5,13 +5,4 @@
 -- unified, single tabpage interface that lets you easily review all changed files
 -- for any git rev.
 
-return {
-    "sindrets/diffview.nvim",
-    enabled = true,
-    lazy = true,
-    event = { "BufReadPre" },
-    opts = {},
-    config = function(_, opts)
-        require("diffview").setup(opts)
-    end,
-}
+return { "sindrets/diffview.nvim", enabled = true, lazy = false, opts = {} }

@@ -2,12 +2,6 @@
 return {
 	"stevearc/conform.nvim",
 	enabled = true,
-	lazy = true,
-	event = {
-		"BufWritePre",
-		"BufReadPre",
-		"BufNewFile",
-	},
 	-- cmd = { "ConformInfo" },
 	opts = {
 		notify_on_error = true,
@@ -32,16 +26,15 @@ return {
 			-- Conform can also run multiple formatters sequentially
 			python = { "isort" },
 			-- cs = { "csharpier" },
-			rust = { "rustfmt", lsp_format = "fallback" },
+			-- rust = { "rustfmt", lsp_format = "fallback" },
 			markdown = { "prettier" },
-			-- You can use 'stop_after_first' to run the first available formatter from the list
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettierd", "prettier", stop_after_first = true },
-			jypescriptreact = { "prettierd", "prettier", stop_after_first = true },
-			json = { "prettierd", "prettier", stop_after_first = true },
-			html = { "prettierd", "prettier", stop_after_first = true },
-			css = { "prettierd", "prettier", stop_after_first = true },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			jypescriptreact = { "prettier" },
+			json = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
 		},
 		formatters = {},
 	},

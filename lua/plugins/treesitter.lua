@@ -1,14 +1,8 @@
+-- Highlight, edit, and navigate code
 return {
-	-- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	enabled = true,
-	lazy = true,
-	event = {
-		"BufWritePre",
-		"BufReadPre",
-		"BufNewFile",
-	},
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -44,7 +38,7 @@ return {
 		},
 		indent = {
 			enable = false,
-			-- disable = { 'ruby' },
+			disable = {},
 		},
 		rainbow = {
 			enable = true,
@@ -52,7 +46,4 @@ return {
 			max_file_lines = nil, -- if 1000, Do not enable for files with more than 1000 lines, int
 		},
 	},
-	-- config = function(_, opts)
-	-- 	require("nvim-treesitter").setup(opts)
-	-- end,
 }

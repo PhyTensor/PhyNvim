@@ -1,16 +1,8 @@
 return {
 	"ibhagwan/fzf-lua",
 	enabled = true,
-	lazy = true,
-	event = {
-		"BufWritePre",
-		"BufReadPre",
-		"BufNewFile",
-	},
-	-- optional for icon support
+	lazy = false,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- or if using mini.icons/mini.nvim
-	-- dependencies = { "echasnovski/mini.icons" },
 	opts = {
 		defaults = {
 			git_icons = true,
@@ -30,9 +22,6 @@ return {
 			},
 		},
 	},
-	config = function(_, opts)
-		require("fzf-lua").setup(opts)
-	end,
 	keys = {
 		{
 			"<leader>ff",
@@ -56,7 +45,7 @@ return {
 			{ desc = "[F]ind [B]uffers" },
 		},
 		{
-			"<leader>Space",
+			"<leader><Space>",
 			function()
 				require("fzf-lua").buffers()
 			end,

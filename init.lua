@@ -11,3 +11,5 @@ require("core.lsp")
 
 -- Set colorscheme after plugins are loaded
 vim.cmd.colorscheme("catppuccin-mocha")
+
+vim.cmd(":hi statusline guibg=NONE")
