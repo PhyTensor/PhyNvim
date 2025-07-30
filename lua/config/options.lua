@@ -17,7 +17,7 @@ vim.opt.autoindent = true -- Copy indent from current line
 -- Search settings
 vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.smartcase = true -- Case sensitive if uppercase in search
-vim.opt.hlsearch = false -- disable all highlighted search results
+vim.opt.hlsearch = true -- disable all highlighted search results
 vim.opt.incsearch = true -- enable incremental search i.e. show matches as you type
 
 -- Visual settings
