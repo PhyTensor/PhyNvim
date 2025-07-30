@@ -64,7 +64,7 @@ return {
 			desc = "Toggle Zen Mode",
 		},
 		{
-			"<leader>un",
+			"<leader>qn",
 			function()
 				Snacks.notifier.hide()
 			end,

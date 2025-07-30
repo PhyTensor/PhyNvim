@@ -24,6 +24,7 @@ return {
 	},
 	keys = {
 		{
+			mode = "n",
 			"<leader>ff",
 			function()
 				require("fzf-lua").files()
@@ -45,11 +46,19 @@ return {
 			{ desc = "[F]ind [B]uffers" },
 		},
 		{
-			"<leader><Space>",
+			"<leader><leader>",
 			function()
 				require("fzf-lua").buffers()
 			end,
 			{ desc = "[F]ind [B]uffers" },
+		},
+
+		{
+			"<leader>qf",
+			function()
+				require("fzf-lua").quickfix()
+			end,
+			{ desc = "Show quick fix list" },
 		},
 	},
 }
