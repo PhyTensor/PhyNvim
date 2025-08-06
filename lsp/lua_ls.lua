@@ -3,10 +3,8 @@
 return {
 	-- Command and arguments to start the server.
 	cmd = { "lua-language-server" },
-
 	-- Filetypes to automatically attach to.
 	filetypes = { "lua" },
-
 	-- Sets the "root directory" to the parent directory of the file in the
 	-- current buffer that contains either a ".luarc.json" or a
 	-- ".luarc.jsonc" file. Files that share a root directory will reuse
@@ -21,14 +19,13 @@ return {
 		"selene.yml",
 		"stylua.toml",
 	},
-
 	-- Specific settings to send to the server. The schema for this is
 	-- defined by the server. For example the schema for lua-language-server
 	-- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
 	settings = {
 		Lua = {
 			runtime = {
-				version = "LuaJIT",
+				version = "luajit",
 			},
 			diagnostics = {
 				disable = { "missing-fields", "missing-parameters" },
@@ -37,29 +34,26 @@ return {
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = {
+					vim.env.VIMRUNTIME,
+				},
+				-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+				-- library = vim.api.nvim_get_runtime_file("", true),
 				checkThirdParty = false,
 			},
 			hint = {
 				enable = true,
-				setType = false,
+				setType = true,
 				paramType = true,
 				paramName = "Disable",
 				semicolon = "Disable",
 				arrayIndex = "Disable",
 			},
 			completion = {
-				callSnippet = "Replace",
+				-- callSnippet = "Replace",
 			},
 		},
 	},
 	single_file_support = true,
 	log_level = vim.lsp.protocol.MessageType.Warning,
-
-	-- capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), blink.get_lsp_capabilities(), {
-	-- 	fileOperations = {
-	-- 		didRename = true,
-	-- 		willRename = true,
-	-- 	},
-	-- }),
 }

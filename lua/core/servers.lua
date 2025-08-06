@@ -1,7 +1,5 @@
 local servers = {
-	"bashls",
 	"cssls",
-	"eslint",
 	"gopls",
 	"godot",
 	"html",

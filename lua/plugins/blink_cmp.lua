@@ -91,7 +91,7 @@ return {
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
-				nerd_font_variant = "normal",
+				nerd_font_variant = "mono",
 			},
 
 			-- Enable cmdline
@@ -128,7 +128,7 @@ return {
 				},
 				documentation = {
 					auto_show = true,
-					auto_show_delay_ms = 300,
+					auto_show_delay_ms = 0,
 
 					window = {
 						border = "rounded",
