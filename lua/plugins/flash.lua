@@ -1,43 +1,42 @@
 return {
-	'folke/flash.nvim',
+	"folke/flash.nvim",
 	enabled = true,
-	lazy = true,
-	event = { 'BufReadPre', 'BufNewFile' },
+	event = { "BufWritePre", "BufReadPre", "BufNewFile" },
 	---@type Flash.Config
 	opts = {},
 	keys = {
 		{
-			'\\',
-			mode = { 'n', 'x', 'o' },
+			"\\",
+			mode = { "n", "x", "o" },
 			function()
 				-- default options: exact mode, multi window, all directions, with a backdrop
-				require('flash').jump()
+				require("flash").jump()
 			end,
-			desc = 'Flash',
+			desc = "Flash",
 		},
 		{
-			'S',
-			mode = { 'n', 'o', 'x' },
+			"S",
+			mode = { "n", "o", "x" },
 			function()
-				require('flash').treesitter()
+				require("flash").treesitter()
 			end,
-			desc = 'Flash Treesitter',
+			desc = "Flash Treesitter",
 		},
 		{
-			'r',
-			mode = 'o',
+			"r",
+			mode = "o",
 			function()
-				require('flash').remote()
+				require("flash").remote()
 			end,
-			desc = 'Remote Flash',
+			desc = "Remote Flash",
 		},
 		{
-			'R',
-			mode = { 'o', 'x' },
+			"R",
+			mode = { "o", "x" },
 			function()
-				require('flash').treesitter_search()
+				require("flash").treesitter_search()
 			end,
-			desc = 'Treesitter Search',
+			desc = "Treesitter Search",
 		},
 	},
 }

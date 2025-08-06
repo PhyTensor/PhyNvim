@@ -1,8 +1,8 @@
 -- Autoformat
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
+	enabled = true,
+	-- cmd = { "ConformInfo" },
 	opts = {
 		notify_on_error = true,
 		format_on_save = function(bufnr)
@@ -25,21 +25,18 @@ return {
 			lua = { "stylua" },
 			-- Conform can also run multiple formatters sequentially
 			python = { "isort" },
-			cs = { "csharpier" },
-			rust = { "rustfmt", lsp_format = "fallback" },
-			-- You can use 'stop_after_first' to run the first available formatter from the list
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettierd", "prettier", stop_after_first = true },
-			jypescriptreact = { "prettierd", "prettier", stop_after_first = true },
-			json = { "prettierd", "prettier", stop_after_first = true },
+			-- cs = { "csharpier" },
+			-- rust = { "rustfmt", lsp_format = "fallback" },
+			markdown = { "prettier" },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			jypescriptreact = { "prettier" },
+			json = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
 		},
-		formatters = {
-			-- csharpier = {
-			-- 	command = "dotnet-csharpier",
-			-- 	args = { "--write-stdout" },
-			-- },
-		},
+		formatters = {},
 	},
 	config = function(_, opts)
 		local conform = require("conform")

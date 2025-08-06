@@ -30,8 +30,6 @@ function M.theme_catppuccin()
 	})
 end
 
-local function file_size() end
-
 -- Status line configuration
 function M.statusline()
 	local lazy_status = require("lazy.status") -- to configure lazy pending updates count
@@ -149,8 +147,8 @@ function M.statusline()
 		inactive_sections = {
 			lualine_a = {},
 			lualine_b = {},
-			lualine_c = { "filename" },
-			lualine_x = { "location" },
+			lualine_c = { { "filename", path = 1 } },
+			lualine_x = { { "location", padding = 0 } },
 			lualine_y = {},
 			lualine_z = {},
 		},

@@ -1,13 +1,6 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-
--- Set <space> as the leader key
-vim.g.mapleader = " " -- Set leader key to space
-vim.g.maplocalleader = " " -- Set local leader key to space
-
 -- Reload config
 vim.keymap.set("n", "<leader>R", ":source ~/.config/nvim/init.lua<CR>", { desc = "[R]eload config" })
 
@@ -24,15 +17,24 @@ vim.keymap.set("n", "<leader>sa", ":wall<CR>", { desc = "[S]ave [A]ll" })
 -- Save all and Quit
 vim.keymap.set("n", "<leader>sq", ":wqall<CR>", { desc = "[S]ave all and [Q]uit" })
 
--- Paste without yanking
+-- Paste without yanking - keep last yanked when pasting
 vim.keymap.set("v", "P", '"_dP', { desc = "Paste without yanking" })
 
 -- Select all
 vim.keymap.set("n", "<leader>a", "gg<S-v>G", { desc = "Select All" })
 
+-- Center screen when pressing <Return>
+vim.keymap.set({ "n", "i", "v" }, "<Return>", "<Return>zz", { desc = "" })
+
+-- Center screen when moving up and down
+vim.keymap.set("n", "j", "jzz", { desc = "" })
+vim.keymap.set("n", "k", "kzz", { desc = "" })
+
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
+vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Full page forward (centered)" })
+vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Full page backwards (centered)" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 
@@ -43,15 +45,15 @@ vim.keymap.set("n", "<leader>l", "<CMD>Lazy<CR>", { desc = "Launch Lazy" })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
--- vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR>", { desc = "[Q]uickfix [O]pen" })
--- vim.keymap.set("n", "<leader>qo", vim.diagnostic.setloclist, { desc = "[Q]uickfix [O]pen" })
+vim.keymap.set("n", "<leader>qd", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[Q]uickfix [C]lose" })
 
 -- Splitting and Resizing windows
 vim.keymap.set("n", "<C-s>", "<C-w>s", { desc = "[S]plit window horizontally" })
+vim.keymap.set("n", "<C-^>", "<C-w>v", { desc = "[V]ertically split window" })
 vim.keymap.set("n", "<C-v>", "<C-w>v", { desc = "[V]ertically split window" })
 vim.keymap.set("n", "<C-c>", "<C-w>c", { desc = "[C]lose window" })
+vim.keymap.set("n", "<C-x>", ":bdelete!<CR>", { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equal width and height of split windows" })
 vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", { desc = "Resize left vertical split window" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize right vertical split window" })
@@ -63,12 +65,6 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize rig
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 -- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -88,4 +84,39 @@ vim.keymap.set("v", "<C-A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" 
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 
+-- Search and Replace - Visual mode
 vim.keymap.set("v", "<leader>sr", '"hy:%s/<C-r>h//g<left><left>', { desc = "Visual [S]earch and [R]eplace" })
+
+-- Search file-wide + Quickfix
+vim.keymap.set({ "n", "v" }, "<leader>fw", function()
+	local term = vim.fn.input("Search term: ")
+	local ok = pcall(function()
+		vim.cmd("vimgrep /" .. term .. "/ %")
+	end)
+
+	if ok then
+		vim.cmd("copen")
+	else
+		vim.notify("No matches found", vim.log.levels.INFO)
+	end
+end, { desc = "Search current file and open quickfix" })
+
+-- Search project-wide + Quickfix
+vim.keymap.set("n", "<leader>fp", function()
+	local term = vim.fn.input("Search term: ")
+	local ok = pcall(function()
+		vim.cmd("vimgrep /" .. term .. "/ **/*")
+	end)
+
+	if ok then
+		vim.cmd("copen")
+	else
+		vim.notify("No matches found in project", vim.log.levels.INFO)
+	end
+end, { desc = "Search project files and open quickfix" })
+
+-- Quickfix navigation
+vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next quickfix item (centered)" })
+vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous quickfix item (centered)" })
+vim.keymap.set("n", "]Q", ":clast<CR>zz", { desc = "Last quickfix item (centered)" })
+vim.keymap.set("n", "[Q", ":cfirst<CR>zz", { desc = "First quickfix item (centered)" })

@@ -1,36 +1,31 @@
 return {
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	enabled = true,
+	-- 	opts = {},
+	-- 	keys = {},
+	-- },
 	{
 		"saghen/blink.compat",
 		version = "*",
 		enabled = true,
-		lazy = true,
-		event = {
-			"BufWritePre",
-			"BufReadPre",
-			"BufNewFile",
-		},
 		opts = {},
 	},
 	{
 		"saghen/blink.cmp",
 		enabled = true,
-		lazy = true,
-		event = {
-			"BufWritePre",
-			"BufReadPre",
-			"BufNewFile",
-		},
 		-- optional = true,
 		-- optional: provides snippets for the snippet source
 		dependencies = {
-			"rafamadriz/friendly-snippets",
+			-- "rafamadriz/friendly-snippets",
 
 			-- sources
 			"supermaven-inc/supermaven-nvim",
 		},
 
 		-- use a release tag to download pre-built binaries
-		version = "1.*",
+		-- version = "1.*",
+		version = "*",
 		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 		-- build = 'cargo build --release',
 		-- If you use nix, you can build from source using latest nightly rust with:
@@ -100,7 +95,13 @@ return {
 			},
 
 			-- Enable cmdline
-			cmdline = { enabled = true },
+			cmdline = {
+				enabled = true,
+				completion = { menu = { auto_show = true } },
+				keymap = {
+					["<CR>"] = { "accept_and_enter", "fallback" },
+				},
+			},
 
 			-- (Default) Only show the documentation popup when manually triggered
 			completion = {
@@ -111,22 +112,33 @@ return {
 					},
 				},
 				menu = {
-					border = "rounded",
+					border = "rounded", -- nil
+					scrollbar = false,
+					draw = {
+						columns = {
+							{ "kind_icon" },
+							{ "label", "label_description", gap = 1 },
+							{ "kind" },
+							{ "source_name" },
+						},
+					},
 				},
 				ghost_text = {
 					enabled = true,
 				},
 				documentation = {
 					auto_show = true,
-					auto_show_delay_ms = 300,
+					auto_show_delay_ms = 0,
 
 					window = {
 						border = "rounded",
+						scrollbar = false,
+						winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
 					},
 				},
 				list = {
 					selection = {
-						preselect = false,
+						preselect = true,
 						-- preselect = function(ctx)
 						--     return not require('blink.cmp').snippet_active { direction = 1 }
 						-- end,
@@ -147,6 +159,7 @@ return {
 					"snippets",
 					"buffer",
 					"path",
+					"cmdline",
 				},
 				providers = {
 					supermaven = {
@@ -154,6 +167,9 @@ return {
 						name = "supermaven",
 						score_offset = 100,
 						async = true,
+					},
+					cmdline = {
+						min_keyword_length = 2,
 					},
 				},
 			},

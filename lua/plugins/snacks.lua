@@ -1,7 +1,7 @@
 return {
 	"folke/snacks.nvim",
-	enabled = true,
 	priority = 1000,
+	enabled = true,
 	lazy = false,
 	---@type snacks.Config
 	opts = {
@@ -9,10 +9,10 @@ return {
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 		bigfile = { enabled = true },
-		bufdelete = { enabled = true },
+		bufdelete = { enabled = false },
 		dashboard = { enabled = false },
 		explorer = { enabled = true },
-		indent = { enabled = true },
+		indent = { enabled = false },
 		input = { enabled = true },
 		lazygit = { enabled = true },
 		picker = { enabled = true },
@@ -21,7 +21,7 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
-		-- terminal = { enabled = true },
+		terminal = { enabled = true },
 		words = { enabled = true },
 		zen = { enabled = true },
 	},
@@ -64,15 +64,7 @@ return {
 			desc = "Toggle Zen Mode",
 		},
 		{
-			-- '<leader>bd',
-			"<C-x>",
-			function()
-				Snacks.bufdelete()
-			end,
-			desc = "Delete Buffer",
-		},
-		{
-			"<leader>un",
+			"<leader>qn",
 			function()
 				Snacks.notifier.hide()
 			end,

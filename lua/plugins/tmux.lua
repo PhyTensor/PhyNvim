@@ -1,14 +1,8 @@
 return {
-	'aserowy/tmux.nvim',
+	"aserowy/tmux.nvim",
 	enabled = true,
-	lazy = true,
-	event = {
-		'BufWritePre',
-		'BufReadPre',
-		'BufNewFile',
-	},
 	opt = {},
-	config = function(_, opts)
-		require('tmux').setup(opts)
+	config = function()
+		require("tmux").setup()
 	end,
 }
