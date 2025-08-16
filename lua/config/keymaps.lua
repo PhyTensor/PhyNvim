@@ -12,10 +12,9 @@ vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlights" })
 
 -- Save
-vim.keymap.set("n", "<leader>sa", ":wall<CR>", { desc = "[S]ave [A]ll" })
-
--- Save all and Quit
-vim.keymap.set("n", "<leader>sq", ":wqall<CR>", { desc = "[S]ave all and [Q]uit" })
+vim.keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Save Buffer" })
+vim.keymap.set("n", "<leader>wa", ":wall<CR>", { desc = "[S]ave [A]ll" })
+vim.keymap.set("n", "<leader>wq", ":wqall<CR>", { desc = "[S]ave all and [Q]uit" })
 
 -- Paste without yanking - keep last yanked when pasting
 vim.keymap.set("v", "P", '"_dP', { desc = "Paste without yanking" })

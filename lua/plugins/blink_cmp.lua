@@ -48,10 +48,10 @@ return {
 			-- See :h blink-cmp-config-keymap for defining your own keymap
 			keymap = {
 				preset = "super-tab",
-
 				["<C-Tab>"] = { "show", "show_documentation", "hide_documentation" },
 				["<C-e>"] = { "hide", "fallback" },
 				["<CR>"] = { "accept", "accept_and_enter", "fallback" },
+				["C-y"] = { "select_and_accept" },
 
 				["<Tab>"] = {
 					-- function(cmp)
