@@ -1,10 +1,10 @@
 return {
-	cmd = { "vscode-json-language-server", "--stdio" },
-	filetypes = { "json", "jsonc" },
-	settings = {
-		json = {
-			validate = { enable = true },
-			format = { eanble = true },
-		},
-	},
+    cmd = { "vscode-json-languageserver", "--stdio" },
+    filetypes = { "json", "jsonc" },
+    settings = {
+        json = {
+            validate = { enable = true },
+            format = { eanble = true },
+        },
+    },
 }
