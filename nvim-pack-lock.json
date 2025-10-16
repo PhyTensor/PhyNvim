@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "cb87357",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
+    "catppuccin": {
+      "rev": "af58927",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "fidget.nvim": [],
+    "nvim": {
+      "rev": "af58927",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "oil.nvim": []
+  }
+}

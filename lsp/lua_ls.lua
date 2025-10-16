@@ -1,7 +1,5 @@
--- local blink = require("blink.cmp")
-
 return {
-	-- Command and arguments to start the server.
+		-- Command and arguments to start the server.
 	cmd = { "lua-language-server" },
 	-- Filetypes to automatically attach to.
 	filetypes = { "lua" },
@@ -57,3 +55,4 @@ return {
 	single_file_support = true,
 	log_level = vim.lsp.protocol.MessageType.Warning,
 }
+
