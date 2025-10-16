@@ -2,17 +2,70 @@
   "plugins": {
     "blink.cmp": {
       "rev": "cb87357",
-      "src": "https://github.com/Saghen/blink.cmp"
+      "src": "https://github.com/Saghen/blink.cmp",
+      "version": "'*'"
+    },
+    "blink.compat": {
+      "rev": "1454f14",
+      "src": "https://github.com/saghen/blink.compat"
     },
     "catppuccin": {
       "rev": "af58927",
       "src": "https://github.com/catppuccin/nvim"
     },
     "fidget.nvim": [],
+    "fzf-lua": {
+      "rev": "83e4080",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "gitsigns": {
+      "rev": "1ee5c1f",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lualine": {
+      "rev": "3946f01",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "neovim-project": {
+      "rev": "584d614",
+      "src": "https://github.com/coffebar/neovim-project"
+    },
+    "neovim-session-manager": {
+      "rev": "3409dc9",
+      "src": "https://github.com/Shatur/neovim-session-manager"
+    },
     "nvim": {
       "rev": "af58927",
       "src": "https://github.com/catppuccin/nvim"
     },
-    "oil.nvim": []
+    "nvim-autopairs": {
+      "rev": "7a2c97c",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-treesitter": [],
+    "nvim-web-devicons": [],
+    "oil": [],
+    "oil.nvim": [],
+    "plenary": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "snacks": [],
+    "supermaven-nvim": {
+      "rev": "07d20fc",
+      "src": "https://github.com/supermaven-inc/supermaven-nvim"
+    },
+    "treesj": {
+      "rev": "4770492",
+      "src": "https://github.com/Wansmer/treesj"
+    },
+    "which-key": {
+      "rev": "b4177e3",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
   }
 }
