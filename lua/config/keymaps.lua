@@ -31,8 +31,6 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Full page backwards (centered)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
 
-vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format)
-
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Diagnostic keymaps

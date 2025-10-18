@@ -13,6 +13,10 @@
       "rev": "af58927",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "diffview.nvim": {
+      "rev": "4516612",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
     "fidget.nvim": [],
     "fzf-lua": {
       "rev": "83e4080",
@@ -42,7 +46,9 @@
       "rev": "7a2c97c",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
-    "nvim-treesitter": [],
+    "nvim-treesitter": {
+      "version": "'master'"
+    },
     "nvim-web-devicons": [],
     "oil": [],
     "oil.nvim": [],
@@ -54,10 +60,18 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "475d3ad",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "snacks": [],
     "supermaven-nvim": {
       "rev": "07d20fc",
       "src": "https://github.com/supermaven-inc/supermaven-nvim"
+    },
+    "tmux.nvim": {
+      "rev": "2c1c3be",
+      "src": "https://github.com/aserowy/tmux.nvim"
     },
     "treesj": {
       "rev": "4770492",

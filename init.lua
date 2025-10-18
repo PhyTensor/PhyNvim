@@ -95,6 +95,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
+		-- gF - Format
+		map("gF", function()
+				vim.lsp.buf.format()
+		end, "[F]ormat")
+
 		-- grr - References
 		map("grr", function()
 			vim.lsp.buf.references()

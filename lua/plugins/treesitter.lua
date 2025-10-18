@@ -39,13 +39,32 @@ require("nvim-treesitter").setup({
 		-- additional_vim_regex_highlighting = { 'ruby' },
 		additional_vim_regex_highlighting = false,
 	},
-	-- indent = {
-	-- 	enable = false,
-	-- 	disable = {},
-	-- },
+	indent = {
+		enable = true,
+		-- disable = {},
+	},
 	-- rainbow = {
 	-- 	enable = true,
 	-- 	extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
 	-- 	max_file_lines = nil, -- if 1000, Do not enable for files with more than 1000 lines, int
 	-- },
 })
+
+-- When upgrading the plugin, one must ensure all installed parsers are updated to the latest version via :TSUpdate
+vim.api.nvim_create_autocmd('PackChanged', {
+  desc = 'Handle nvim-treesitter updates',
+  group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
+  callback = function(event)
+    if event.data.kind == 'update' and event.data.spec.name == 'nvim-treesitter' then
+      vim.notify('nvim-treesitter updated, running TSUpdate...', vim.log.levels.INFO)
+      ---@diagnostic disable-next-line: param-type-mismatch
+      local ok = pcall(vim.cmd, 'TSUpdate')
+      if ok then
+        vim.notify('TSUpdate completed successfully!', vim.log.levels.INFO)
+      else
+        vim.notify('TSUpdate command not available yet, skipping', vim.log.levels.WARN)
+      end
+    end
+  end,
+})
+

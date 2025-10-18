@@ -1,4 +1,7 @@
 -- Extract Blink.cmp configuration
+--
+-- @module 'blink.cmp'
+-- @type blink.cmp.Config
 require("blink.cmp").setup({
 	-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 	-- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -125,4 +128,22 @@ require("blink.cmp").setup({
 		implementation = "prefer_rust_with_warning",
 	},
 })
+
+
+-- vim.api.nvim_create_autocmd('PackChanged', {
+--   desc = 'Handle nvim-treesitter updates',
+--   group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
+--   callback = function(event)
+--     if event.data.kind == 'update' and event.data.spec.name == 'nvim-treesitter' then
+--       vim.notify('nvim-treesitter updated, running TSUpdate...', vim.log.levels.INFO)
+--       ---@diagnostic disable-next-line: param-type-mismatch
+--       local ok = pcall(vim.cmd, 'TSUpdate')
+--       if ok then
+--         vim.notify('TSUpdate completed successfully!', vim.log.levels.INFO)
+--       else
+--         vim.notify('TSUpdate command not available yet, skipping', vim.log.levels.WARN)
+--       end
+--     end
+--   end,
+-- })
 
