@@ -1,5 +1,5 @@
 -- sudo pacman -Syu python-lsp-server
--- sudo pacman -Syu python-pyflakes python-isort python-pylint python-mccabe
+-- sudo pacman -Syu python-lsp-server python-pyflakes python-isort python-pylint python-mccabe
 
 return {
     cmd = { "pylsp" },

@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "Oil": {
+      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "blink.cmp": {
       "rev": "cb87357",
       "src": "https://github.com/Saghen/blink.cmp",
@@ -17,7 +21,10 @@
       "rev": "4516612",
       "src": "https://github.com/sindrets/diffview.nvim"
     },
-    "fidget.nvim": [],
+    "fidget.nvim": {
+      "rev": "4ec7bed6c86b671ddde03ca1b227343cfa3e65fa",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
     "fzf-lua": {
       "rev": "83e4080",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -47,11 +54,22 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'master'"
     },
-    "nvim-web-devicons": [],
-    "oil": [],
-    "oil.nvim": [],
+    "nvim-web-devicons": {
+      "rev": "3362099de3368aa620a8105b19ed04c2053e38c0",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil": {
+      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "oil.nvim": {
+      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "plenary": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -64,7 +82,10 @@
       "rev": "475d3ad",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
-    "snacks": [],
+    "snacks": {
+      "rev": "454ba02d69347c0735044f159b95d2495fc79a73",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "supermaven-nvim": {
       "rev": "07d20fc",
       "src": "https://github.com/supermaven-inc/supermaven-nvim"

@@ -21,6 +21,7 @@ require("nvim-treesitter").setup({
 		"godot_resource",
 		"gdshader",
 		"yaml",
+		"json",
 	},
 	-- Autoinstall languages that are not installed
 	auto_install = true,

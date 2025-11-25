@@ -5,6 +5,8 @@ vim.keymap.set("i", "jk", "<Esc>zz", { desc = "Exit insert mode" })
 -- Clear search highlights on <Esc>
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlights" })
 
+-- vim.keymap.set({"n", "v", "x"}, "<C-q>", "")
+
 -- Save
 vim.keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Save Buffer" })
 vim.keymap.set("n", "<leader>wa", ":wall<CR>", { desc = "[S]ave [A]ll" })

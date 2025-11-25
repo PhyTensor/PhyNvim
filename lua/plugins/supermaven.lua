@@ -1,9 +1,9 @@
 require('supermaven-nvim').setup({
 	keymaps = {
 		-- Commented out so that keymaps will be handled by blink.cmp or nvim-cmp
-		accept_suggestion = "<Return>",
-		clear_suggestion = "<C-]>",
-		accept_word = "<C-j>",
+		-- accept_suggestion = "<Return>",
+		-- clear_suggestion = "<C-]>",
+		-- accept_word = "<C-j>",
 	},
 	-- ignore_filetypes = { cpp = true }, -- or { "cpp", }
 	ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },

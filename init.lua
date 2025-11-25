@@ -13,6 +13,8 @@ vim.lsp.enable({
 	"pylsp",
 	"godot",
 	"omnisharp",
+	"yamlls",
+	"jsonls",
 })
 
 -- Extract colorscheme setup
@@ -97,7 +99,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- gF - Format
 		map("gF", function()
-				vim.lsp.buf.format()
+			vim.lsp.buf.format()
 		end, "[F]ormat")
 
 		-- grr - References
@@ -200,8 +202,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("phynvim-lsp-detach", { clear = true }),
 				callback = function(event2)
 					vim.lsp.buf.clear_references()
-					vim.api.nvim_clear_autocmds({ group = "phynvim-lsp-highlight", buffer = event2
-					.buf })
+					vim.api.nvim_clear_autocmds({
+						group = "phynvim-lsp-highlight",
+						buffer = event2
+						    .buf
+					})
 				end,
 			})
 		end
