@@ -2,7 +2,7 @@
 local options = {
 	defaults = {
 		git_icons = true,
-		file_icons = false,
+		file_icons = true,
 		color_icons = true,
 	},
 	keymap = {
@@ -12,7 +12,8 @@ local options = {
 			["ctrl-d"] = "preview-page-down",
 			["ctrl-p"] = "up",
 			["ctrl-n"] = "down",
-			["ctrl-q"] = "abort",
+			-- ["ctrl-q"] = "abort",
+			["ctrl-q"] = "select-all+accept",
 			["ctrl-f"] = "half-page-down",
 			["ctrl-b"] = "half-page-up",
 		},
@@ -49,9 +50,8 @@ local keys = {
 		end,
 		{ desc = "[F]ind [B]uffers" },
 	},
-
 	{
-		"<leader>qf",
+		"<leader>lf",
 		function()
 			require("fzf-lua").quickfix()
 		end,
@@ -70,4 +70,3 @@ for _, m in ipairs(keys) do
 end
 
 require("fzf-lua").setup(options)
-
