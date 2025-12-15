@@ -15,6 +15,7 @@ vim.lsp.enable({
 	"omnisharp",
 	"yamlls",
 	"jsonls",
+	"qmlls",
 })
 
 -- Extract colorscheme setup
@@ -33,7 +34,7 @@ vim.diagnostic.config({
 		border = "rounded", -- "rounded", -- "single",
 		source = true, -- "if_many", -- true
 		header = "Diagnostics",
-		prefix = " ● ",
+		prefix = "●",
 	},
 	signs = vim.g.have_nerd_font and {
 		text = {
@@ -52,39 +53,35 @@ vim.diagnostic.config({
 	virtual_text = {
 		source = "if_many",
 		spacing = 4,
-		prefix = " ● ",
+		prefix = "● ",
 		update_in_insert = false,
 		severity_sort = true,
 		format = function(diagnostic)
 			-- Add a custom format function to show error codes
 			-- local code = diagnostic.code and string.format('[%s]', diagnostic.code) or ''
 			-- return string.format('%s %s', code, diagnostic.message)
-
 			local diagnostic_message = {
-				-- [vim.diagnostic.severity.ERROR] = diagnostic.message,
 				[vim.diagnostic.severity.WARN] = diagnostic.message,
 				[vim.diagnostic.severity.INFO] = diagnostic.message,
 				[vim.diagnostic.severity.HINT] = diagnostic.message,
-			}
-			return diagnostic_message[diagnostic.severity]
-		end,
-	},
-	virtual_lines = {
-		-- Only show virtual line diagnostics for the current cursor line
-		current_line = false,
-		source = "if_many",
-		spacing = 4,
-		prefix = " ● ",
-		format = function(diagnostic)
-			local diagnostic_message = {
 				[vim.diagnostic.severity.ERROR] = diagnostic.message,
-				-- [vim.diagnostic.severity.WARN] = diagnostic.message,
-				-- [vim.diagnostic.severity.INFO] = diagnostic.message,
-				-- [vim.diagnostic.severity.HINT] = diagnostic.message,
 			}
 			return diagnostic_message[diagnostic.severity]
 		end,
 	},
+	-- virtual_lines = {
+	-- 	-- Only show virtual line diagnostics for the current cursor line
+	-- 	current_line = false,
+	-- 	source = "if_many",
+	-- 	spacing = 4,
+	-- 	prefix = "● ",
+	-- 	format = function(diagnostic)
+	-- 		local diagnostic_message = {
+	-- 			[vim.diagnostic.severity.ERROR] = diagnostic.message,
+	-- 		}
+	-- 		return diagnostic_message[diagnostic.severity]
+	-- 	end,
+	-- },
 })
 
 -- Extract LSP Keymaps and autocmds
@@ -205,7 +202,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					vim.api.nvim_clear_autocmds({
 						group = "phynvim-lsp-highlight",
 						buffer = event2
-						    .buf
+							.buf
 					})
 				end,
 			})

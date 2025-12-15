@@ -11,7 +11,7 @@ require('neovim-project').setup({
 		-- "~/Documents/*/*/*",
 		"~/Documents/*/*",
 		"~/.config/*",
-		"~/.dotfiles/*/*",
+		"~/.dotfiles/*",
 	},
 	picker = {
 		type = "snacks", -- 'telescope', -- or "fzf-lua"

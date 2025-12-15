@@ -3,6 +3,7 @@ require("nvim-treesitter").setup({
 		"bash",
 		"http",
 		"c",
+		"kotlin",
 		"diff",
 		"html",
 		"lua",
