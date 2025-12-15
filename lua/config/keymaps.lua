@@ -1,11 +1,9 @@
 -- Exit insert mode
-vim.keymap.set("i", "jj", "<Esc>zz", { desc = "Exit insert mode" })
-vim.keymap.set("i", "jk", "<Esc>zz", { desc = "Exit insert mode" })
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 
 -- Clear search highlights on <Esc>
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>", { desc = "Clear Search Highlights" })
-
--- vim.keymap.set({"n", "v", "x"}, "<C-q>", "")
 
 -- Save
 vim.keymap.set("n", "<leader>ww", ":w<CR>", { desc = "Save Buffer" })
@@ -20,10 +18,6 @@ vim.keymap.set("n", "<leader>a", "gg<S-v>G", { desc = "Select All" })
 
 -- Center screen when pressing <Return>
 vim.keymap.set({ "n", "i", "v" }, "<Return>", "<Return>zz", { desc = "" })
-
--- Center screen when moving up and down
-vim.keymap.set("n", "j", "jzz", { desc = "" })
-vim.keymap.set("n", "k", "kzz", { desc = "" })
 
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })

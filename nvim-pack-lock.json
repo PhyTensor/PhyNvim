@@ -5,9 +5,9 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "blink.cmp": {
-      "rev": "cb87357",
-      "src": "https://github.com/Saghen/blink.cmp",
-      "version": "'*'"
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "'v1.8.0'"
     },
     "blink.compat": {
       "rev": "1454f14",
@@ -33,9 +33,17 @@
       "rev": "1ee5c1f",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "indent-blankline.nvim": {
+      "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
     "lualine": {
       "rev": "3946f01",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
+      "src": "https://github.com/mason-org/mason.nvim"
     },
     "neovim-project": {
       "rev": "584d614",
@@ -81,6 +89,10 @@
     "render-markdown.nvim": {
       "rev": "475d3ad",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "roslyn.nvim": {
+      "rev": "548d98036ac7f0a11f60e699aa020639fff1c57b",
+      "src": "https://github.com/seblyng/roslyn.nvim"
     },
     "snacks": {
       "rev": "454ba02d69347c0735044f159b95d2495fc79a73",
