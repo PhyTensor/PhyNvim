@@ -23,6 +23,7 @@ require("nvim-treesitter").setup({
 		"gdshader",
 		"yaml",
 		"json",
+        "hyprlang",
 	},
 	-- Autoinstall languages that are not installed
 	auto_install = true,

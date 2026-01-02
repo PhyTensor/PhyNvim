@@ -14,3 +14,6 @@ vim.opt.winborder = "bold"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+
+vim.opt.clipboard:append("unnamedplus") -- Use system clipboard. Sync clipboard between OS and Neovim.
+

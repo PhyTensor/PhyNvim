@@ -22,10 +22,10 @@ vim.keymap.set({ "n", "i", "v" }, "<Return>", "<Return>zz", { desc = "" })
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
-vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Full page forward (centered)" })
-vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Full page backwards (centered)" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
+vim.keymap.set("n", "<C-f>", "<C-f>", { desc = "Full page forward (centered)" })
+vim.keymap.set("n", "<C-b>", "<C-b>", { desc = "Full page backwards (centered)" })
+vim.keymap.set("n", "<C-u>", "<C-u>", { desc = "Half page up (centered)" })
+vim.keymap.set("n", "<C-d>", "<C-d>", { desc = "Half page down (centered)" })
 
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 

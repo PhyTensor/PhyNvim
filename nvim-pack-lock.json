@@ -78,6 +78,10 @@
       "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "onedark.nvim": {
+      "rev": "213c23ae45a04797572242568d5d51937181792d",
+      "src": "https://github.com/navarasu/onedark.nvim"
+    },
     "plenary": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
@@ -102,13 +106,25 @@
       "rev": "07d20fc",
       "src": "https://github.com/supermaven-inc/supermaven-nvim"
     },
+    "tiny-inline-diagnostic.nvim": {
+      "rev": "d9d12d4bfb9a4c5b8b8bdf7f612551df6972946c",
+      "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
     "tmux.nvim": {
       "rev": "2c1c3be",
       "src": "https://github.com/aserowy/tmux.nvim"
     },
+    "tokyonight.nvim": {
+      "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
     "treesj": {
       "rev": "4770492",
       "src": "https://github.com/Wansmer/treesj"
+    },
+    "vscode.nvim": {
+      "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
+      "src": "https://github.com/Mofiqul/vscode.nvim"
     },
     "which-key": {
       "rev": "b4177e3",

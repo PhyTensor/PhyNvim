@@ -123,5 +123,5 @@ require("lualine").setup({
 	},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = { "fugitive", "quickfix", "nvim-tree" },
+	extensions = { "quickfix", "nvim-tree" },
 })
