@@ -18,6 +18,9 @@ vim.lsp.enable({
     "qmlls",
     "cssls",
     "html",
+    "ts_ls",
+    "vue_ls",
+    "hyprls",
 })
 
 -- Extract colorscheme setup

@@ -5,13 +5,23 @@
 vim.opt.sessionoptions:append("globals")  -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
 -- end
 
+-- require("neovim-project").load(
+--     {
+--         "plenary.nvim",
+--     },
+--     {
+--         "neovim-session-manager",
+--     }
+-- )
+--
 -- function M.setup()
 require('neovim-project').setup({
 	projects = { -- define project roots
 		-- "~/Documents/*/*/*",
-		"~/Documents/*/*",
+		"~/Documents/*/*/*/*",
 		"~/.config/*",
 		"~/.dotfiles/*",
+        "~/dev/*",
 	},
 	picker = {
 		type = "snacks", -- 'telescope', -- or "fzf-lua"
