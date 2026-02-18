@@ -1,3 +1,5 @@
+local utils = require("config.utils")
+
 require("treesj").setup()
 
 local keys = {
@@ -27,8 +29,4 @@ local keys = {
 	},
 }
 
-for _, m in ipairs(keys) do
-	local mode, lhs, rhs, opts
-	mode, lhs, rhs, opts = m[1], m[2], m[3], m[4]
-	vim.keymap.set(mode, lhs, rhs, opts or {})
-end
+utils.set_keymaps(keys)

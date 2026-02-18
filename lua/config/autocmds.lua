@@ -1,104 +1,64 @@
 local function augroup(name)
-	return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
+    return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
 end
 
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("phnvim-highlight-yank", { clear = true }),
-	pattern = "*",
-	callback = function()
-		vim.hl.on_yank()
-	end,
+    desc = "Highlight when yanking (copying) text",
+    group = augroup("highlight_yank"),
+    pattern = "*",
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
-
--- resize splits if window got resized
--- vim.api.nvim_create_autocmd({ "VimResized" }, {
--- 	group = augroup("resize_splits"),
--- 	callback = function()
--- 		vim.cmd("tabdo wincmd =")
--- 	end,
--- })
-
--- go to last line when opening a buffer
--- vim.api.nvim_create_autocmd("BufReadPost", {
---     group = augroup("last_loc"),
---     callback = function()
---         local mark = vim.api.nvim_buf_get_mark(0, '"')
---         local lcount = vim.api.nvim_buf_line_count(0)
---         if mark[1] > 0 and mark[1] <= lcount then
---             pcall(vim.api.nvim_win_set_cursor, 0, mark)
---         end
---     end,
--- })
-
--- Auto-create directories when saving
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	group = augroup("auto-create-directories"),
--- 	pattern = "*",
--- 	callback = function(ctx)
--- 		local dir = vim.fn.expand("<afile>:p:h")
--- 		if vim.fn.isdirectory(dir) == 0 then
--- 			vim.fn.mkdir(dir, "p")
--- 		end
--- 	end,
--- })
-
--- when opening terminal in neovim
--- Terminal behaviour improvements
--- vim.api.nvim_create_autocmd("TermOpen", {
--- 	group = augroup("custom-neovim_terminal-open"),
--- 	pattern = "*",
--- 	callback = function()
--- 		vim.opt.signcolumn = "no"
--- 		vim.opt.number = false
--- 		vim.opt.relativenumber = false
--- 	end,
--- })
 
 -- Removes any trailing whitespace when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
-	desc = "remove trailing whitespace on save",
-	group = augroup("remove trailing trailing whitespace"),
-	pattern = { "*" },
-	command = [[%s/\s\+$//e]],
+    desc = "Remove trailing whitespace on save",
+    group = augroup("trailing_whitespace"),
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
 })
 
--- wrap and check for spell in text filetypes
--- vim.api.nvim_create_autocmd("FileType", {
--- 	group = augroup("wrap_spell"),
--- 	pattern = { "gitcommit", "markdown" },
--- 	callback = function()
--- 		vim.opt_local.wrap = true
--- 		vim.opt_local.spell = true
--- 	end,
--- })
+-- Go to last cursor position when opening files
+vim.api.nvim_create_autocmd("BufReadPost", {
+    desc = "Go to last cursor position when opening files",
+    group = augroup("last_loc"),
+    callback = function()
+        local mark = vim.api.nvim_buf_get_mark(0, '"')
+        local lcount = vim.api.nvim_buf_line_count(0)
+        if mark[1] > 0 and mark[1] <= lcount then
+            pcall(vim.api.nvim_win_set_cursor, 0, mark)
+        end
+    end,
+})
 
--- Check if we need to reload the file when it changed
--- vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
--- 	group = augroup("checktime"),
--- 	command = "checktime",
--- })
+-- Auto-create parent directories when saving
+vim.api.nvim_create_autocmd("BufWritePre", {
+    desc = "Auto-create parent directories when saving",
+    group = augroup("auto_create_dir"),
+    callback = function(event)
+        local file = vim.uv.fs_realpath(event.match) or event.match
+        vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+    end,
+})
 
--- fix comment on new line
--- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
--- 	pattern = { "*" },
--- 	callback = function()
--- 		vim.cmd([[set formatoptions-=cro]])
--- 	end,
--- })
+-- Check if file changed outside of Neovim
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    desc = "Check if file changed outside of Neovim",
+    group = augroup("checktime"),
+    callback = function()
+        if vim.o.buftype ~= "nofile" then
+            vim.cmd("checktime")
+        end
+    end,
+})
 
--- wrap words "softly" (no carriage return) in mail buffer
--- vim.api.nvim_create_autocmd("Filetype", {
--- 	pattern = "mail",
--- 	callback = function()
--- 		vim.opt.textwidth = 0
--- 		vim.opt.wrapmargin = 0
--- 		vim.opt.wrap = true
--- 		vim.opt.linebreak = true
--- 		vim.opt.columns = 80
--- 		vim.opt.colorcolumn = "80"
--- 	end,
--- })
+-- Resize splits when window is resized
+vim.api.nvim_create_autocmd("VimResized", {
+    desc = "Resize splits when window is resized",
+    group = augroup("resize_splits"),
+    callback = function()
+        vim.cmd("tabdo wincmd =")
+    end,
+})

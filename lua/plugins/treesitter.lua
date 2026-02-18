@@ -44,13 +44,16 @@ require("nvim-treesitter").setup({
 	},
 	indent = {
 		enable = true,
-		-- disable = {},
 	},
-	-- rainbow = {
-	-- 	enable = true,
-	-- 	extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-	-- 	max_file_lines = nil, -- if 1000, Do not enable for files with more than 1000 lines, int
-	-- },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<C-space>",
+			node_incremental = "<C-space>",
+			scope_incremental = false,
+			node_decremental = "<bs>",
+		},
+	},
 })
 
 -- When upgrading the plugin, one must ensure all installed parsers are updated to the latest version via :TSUpdate

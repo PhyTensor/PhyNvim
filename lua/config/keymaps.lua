@@ -16,17 +16,11 @@ vim.keymap.set("v", "P", '"_dP', { desc = "Paste without yanking" })
 -- Select all
 vim.keymap.set("n", "<leader>a", "gg<S-v>G", { desc = "Select All" })
 
--- Center screen when pressing <Return>
-vim.keymap.set({ "n", "i", "v" }, "<Return>", "<Return>zz", { desc = "" })
-
 -- Center screen when jumping
 vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
-vim.keymap.set("n", "<C-f>", "<C-f>", { desc = "Full page forward (centered)" })
-vim.keymap.set("n", "<C-b>", "<C-b>", { desc = "Full page backwards (centered)" })
-vim.keymap.set("n", "<C-u>", "<C-u>", { desc = "Half page up (centered)" })
-vim.keymap.set("n", "<C-d>", "<C-d>", { desc = "Half page down (centered)" })
 
+-- File explorer
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Diagnostic keymaps
@@ -43,18 +37,7 @@ vim.keymap.set("n", "<leader>=", "<C-w>=", { desc = "Equal width and height of s
 vim.keymap.set("n", "<C-Left>", ":vertical resize +3<CR>", { desc = "Resize left vertical split window" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize -3<CR>", { desc = "Resize right vertical split window" })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
--- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
+-- Window navigation with CTRL+<hjkl>
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
@@ -64,8 +47,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the upper window"
 vim.keymap.set("v", "<C-A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 vim.keymap.set("v", "<C-A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
--- Visual Maps
--- Hint: start visual mode with the same area as the previous area and in the same mode
+-- Visual mode indentation (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 
@@ -74,30 +56,30 @@ vim.keymap.set("v", "<leader>sr", '"hy:%s/<C-r>h//g<left><left>', { desc = "Visu
 
 -- Search file-wide + Quickfix
 vim.keymap.set({ "n", "v" }, "<leader>fw", function()
-	local term = vim.fn.input("Search term: ")
-	local ok = pcall(function()
-		vim.cmd("vimgrep /" .. term .. "/ %")
-	end)
+    local term = vim.fn.input("Search term: ")
+    local ok = pcall(function()
+        vim.cmd("vimgrep /" .. term .. "/ %")
+    end)
 
-	if ok then
-		vim.cmd("copen")
-	else
-		vim.notify("No matches found", vim.log.levels.INFO)
-	end
+    if ok then
+        vim.cmd("copen")
+    else
+        vim.notify("No matches found", vim.log.levels.INFO)
+    end
 end, { desc = "Search current file and open quickfix" })
 
 -- Search project-wide + Quickfix
 vim.keymap.set("n", "<leader>fp", function()
-	local term = vim.fn.input("Search term: ")
-	local ok = pcall(function()
-		vim.cmd("vimgrep /" .. term .. "/ **/*")
-	end)
+    local term = vim.fn.input("Search term: ")
+    local ok = pcall(function()
+        vim.cmd("vimgrep /" .. term .. "/ **/*")
+    end)
 
-	if ok then
-		vim.cmd("copen")
-	else
-		vim.notify("No matches found in project", vim.log.levels.INFO)
-	end
+    if ok then
+        vim.cmd("copen")
+    else
+        vim.notify("No matches found in project", vim.log.levels.INFO)
+    end
 end, { desc = "Search project files and open quickfix" })
 
 -- Quickfix navigation
@@ -105,4 +87,3 @@ vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next quickfix item (centered
 vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous quickfix item (centered)" })
 vim.keymap.set("n", "]Q", ":clast<CR>zz", { desc = "Last quickfix item (centered)" })
 vim.keymap.set("n", "[Q", ":cfirst<CR>zz", { desc = "First quickfix item (centered)" })
-

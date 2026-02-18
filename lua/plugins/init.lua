@@ -2,10 +2,11 @@
 vim.pack.add({
     { src = "https://github.com/navarasu/onedark.nvim" },
     { src = "https://github.com/folke/tokyonight.nvim" },
+    { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter",           version = "master" },
     { src = "https://github.com/j-hui/fidget.nvim" },
-    { src = "https://github.com/stevearc/oil.nvim" },
+    -- { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/saghen/blink.cmp",                          version = "v1.8.0" },
     { src = "https://github.com/saghen/blink.compat" },
@@ -31,10 +32,11 @@ vim.pack.add({
 
 require('plugins.onedark')
 require('plugins.tokyonight')
+require('plugins.catppuccin')
 require('plugins.webdevicons')
 require('plugins.treesitter')
 require('plugins.fidget')
-require('plugins.oil')
+-- require('plugins.oil')
 require('plugins.mason')
 require('plugins.blink')
 require('plugins.snacks')
