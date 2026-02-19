@@ -90,6 +90,10 @@
       "rev": "c54380dd4d8d1738b9691a7c349ecad7967ac12e",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
+    "rose-pine": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
+    },
     "roslyn.nvim": {
       "rev": "548d98036ac7f0a11f60e699aa020639fff1c57b",
       "src": "https://github.com/seblyng/roslyn.nvim"

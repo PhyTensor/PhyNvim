@@ -26,7 +26,7 @@ local lsp_servers = {
 for _, server in ipairs(lsp_servers) do
     local ok, err = pcall(vim.lsp.enable, server)
     if not ok then
-        vim.notify("Failed to enable LSP: " .. server, vim.log.levels.WARN)
+        vim.notify("Failed to enable LSP: " .. server .. " - " .. err, vim.log.levels.WARN)
     end
 end
 
@@ -49,7 +49,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("grs", function() vim.lsp.buf.workspace_symbol() end, "Workspace Symbol")
 
         -- Override K with rounded border
-        map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover Documentation")
+        map("K", function() vim.lsp.buf.hover({
+            border = "rounded",
+            max_height = 25,
+            max_width = 120,
+        }) end, "Hover Documentation")
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
