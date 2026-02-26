@@ -1,76 +1,58 @@
-require("nvim-treesitter").setup({
-	ensure_installed = {
-		"bash",
-		"http",
-		"c",
-		"kotlin",
-		"diff",
-		"html",
-		"lua",
-		"python",
-		"c_sharp",
-		"luadoc",
-		"markdown",
-		"markdown_inline",
-		"query",
-		"vim",
-		"vimdoc",
-		"html",
-		"css",
-		"godot",
-		"gdscript",
-		"godot_resource",
-		"gdshader",
-		"yaml",
-		"json",
+local setup_treesitter = function()
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup({})
+
+    local ensure_installed = {
+        "bash",
+        "http",
+        "c",
+        "kotlin",
+        "diff",
+        "html",
+        "lua",
+        "python",
+        "c_sharp",
+        "luadoc",
+        "markdown",
+        "markdown_inline",
+        "query",
+        "vim",
+        "vimdoc",
+        "html",
+        "css",
+        "gdscript",
+        "gdshader",
+        "godot_resource",
+        "yaml",
+        "json",
         "hyprlang",
-	},
-	-- Autoinstall languages that are not installed
-	auto_install = true,
-	highlight = {
-		enable = true,
-		disable = function(lang, buf)
-			local max_filesize = 100 * 1024 -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-			if ok and stats and stats.size > max_filesize then
-				return true
-			end
-		end,
-		-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-		--  If you are experiencing weird indenting issues, add the language to
-		--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-		-- additional_vim_regex_highlighting = { 'ruby' },
-		additional_vim_regex_highlighting = false,
-	},
-	indent = {
-		enable = true,
-	},
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "<C-space>",
-			node_incremental = "<C-space>",
-			scope_incremental = false,
-			node_decremental = "<bs>",
-		},
-	},
-})
+    }
 
--- When upgrading the plugin, one must ensure all installed parsers are updated to the latest version via :TSUpdate
-vim.api.nvim_create_autocmd('PackChanged', {
-  desc = 'Handle nvim-treesitter updates',
-  group = vim.api.nvim_create_augroup('nvim-treesitter-pack-changed-update-handler', { clear = true }),
-  callback = function(event)
-    if event.data.kind == 'update' and event.data.spec.name == 'nvim-treesitter' then
-      vim.notify('nvim-treesitter updated, running TSUpdate...', vim.log.levels.INFO)
-      ---@diagnostic disable-next-line: param-type-mismatch
-      local ok = pcall(vim.cmd, 'TSUpdate')
-      if ok then
-        vim.notify('TSUpdate completed successfully!', vim.log.levels.INFO)
-      else
-        vim.notify('TSUpdate command not available yet, skipping', vim.log.levels.WARN)
-      end
+    local config = require("nvim-treesitter.config")
+
+    local already_installed = config.get_installed()
+    local parsers_to_install = {}
+
+    for _, parser in ipairs(ensure_installed) do
+        if not vim.tbl_contains(already_installed, parser) then
+            table.insert(parsers_to_install, parser)
+        end
     end
-  end,
-})
 
+    if #parsers_to_install > 0 then
+        treesitter.install(parsers_to_install)
+    end
+
+    local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })
+
+    vim.api.nvim_create_autocmd("FileType", {
+        group = group,
+        callback = function(args)
+            if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(args.match)) then
+                vim.treesitter.start(args.buf)
+            end
+        end,
+    })
+end
+
+setup_treesitter()

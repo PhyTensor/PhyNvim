@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "Oil": {
-      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
-      "src": "https://github.com/stevearc/oil.nvim"
-    },
     "blink.cmp": {
       "rev": "b19413d214068f316c78978b08264ed1c41830ec",
       "src": "https://github.com/saghen/blink.cmp",
@@ -12,10 +8,6 @@
     "blink.compat": {
       "rev": "1454f14a8d855a578ceeba77c62538fa1459a67c",
       "src": "https://github.com/saghen/blink.compat"
-    },
-    "catppuccin": {
-      "rev": "af58927c55c9f3272c940ff02b3cee94a1249f26",
-      "src": "https://github.com/catppuccin/nvim"
     },
     "diffview.nvim": {
       "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
@@ -58,17 +50,13 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "rev": "dc42c209f3820bdfaae0956f15de29689aa6b451",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
+      "version": "'main'"
     },
     "nvim-web-devicons": {
       "rev": "3362099de3368aa620a8105b19ed04c2053e38c0",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
-    "oil": {
-      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
-      "src": "https://github.com/stevearc/oil.nvim"
     },
     "oil.nvim": {
       "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
@@ -83,10 +71,6 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown": {
-      "rev": "c54380dd4d8d1738b9691a7c349ecad7967ac12e",
-      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
-    },
-    "render-markdown.nvim": {
       "rev": "c54380dd4d8d1738b9691a7c349ecad7967ac12e",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
@@ -125,10 +109,6 @@
     "treesj": {
       "rev": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841",
       "src": "https://github.com/Wansmer/treesj"
-    },
-    "vscode.nvim": {
-      "rev": "aa1102a7e15195c9cca22730b09224a7f7745ba8",
-      "src": "https://github.com/Mofiqul/vscode.nvim"
     },
     "which-key": {
       "rev": "b4177e3eaf15fe5eb8357ebac2286d488be1ed00",
