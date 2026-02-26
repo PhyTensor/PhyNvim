@@ -25,6 +25,8 @@ vim.keymap.set("n", "#", "#zzzv", { desc = "Search Word Back (centered)" })
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>qd", vim.diagnostic.setloclist, { desc = "Open [D]iagnostic [Q]uickfix list" })
 vim.keymap.set("n", "<leader>qc", "<cmd>cclose<CR>", { desc = "[Q]uickfix [C]lose" })
+vim.keymap.set("n", "<leader>td", function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end,
+    { desc = "Toggle diagnostics" })
 
 -- Splitting windows
 vim.keymap.set("n", "<C-s>", "<C-w>s", { desc = "[S]plit window horizontally" })
@@ -47,8 +49,8 @@ vim.keymap.set("n", "<C-c>", "<C-w>c", { desc = "[C]lose window" })
 vim.keymap.set("n", "<C-x>", ":bdelete!<CR>", { desc = "Delete Buffer" })
 
 -- Move selection up/down
-vim.keymap.set("v", "<C-A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<C-A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Visual mode indentation (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })

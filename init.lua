@@ -6,7 +6,6 @@ require('config.keymaps')
 
 -- Plugin Management
 require('plugins')
-
 -- LSP Configuration
 local lsp_servers = {
     "lua_ls",

@@ -1,10 +1,10 @@
 local function augroup(name)
-    return vim.api.nvim_create_augroup("UserConfig_" .. name, { clear = true })
+    return vim.api.nvim_create_augroup("UserConfig" .. name, { clear = true })
 end
 
--- Highlight when yanking (copying) text
+-- Highlight when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
+    desc = "Highlight when yanking text",
     group = augroup("highlight_yank"),
     pattern = "*",
     callback = function()
@@ -25,8 +25,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     desc = "Go to last cursor position when opening files",
     group = augroup("last_loc"),
     callback = function()
-        local mark = vim.api.nvim_buf_get_mark(0, '"')
-        local lcount = vim.api.nvim_buf_line_count(0)
+        if vim.o.diff then -- except in diff mode
+            return
+        end
+
+        local mark = vim.api.nvim_buf_get_mark(0, '"') -- last position
+        local lcount = vim.api.nvim_buf_line_count(0)  -- last line
+
         if mark[1] > 0 and mark[1] <= lcount then
             pcall(vim.api.nvim_win_set_cursor, 0, mark)
         end
@@ -60,5 +65,16 @@ vim.api.nvim_create_autocmd("VimResized", {
     group = augroup("resize_splits"),
     callback = function()
         vim.cmd("tabdo wincmd =")
+    end,
+})
+
+--wrap, linebreak, spellcheck on markdown and text files
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("text files"),
+    pattern = { "markdown", "text", "gitcommit" },
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.spell = true
     end,
 })

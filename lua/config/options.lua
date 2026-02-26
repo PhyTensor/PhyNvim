@@ -5,10 +5,14 @@ vim.opt.mouse = "a"                     -- Mouse support
 vim.opt.clipboard:append("unnamedplus") -- Use system clipboard
 vim.opt.undofile = true                 -- Persistent undo history to disk between sessions
 vim.opt.undolevels = 10000              -- More undo history
-vim.opt.autoread = true                 -- Automatically reload files changed outside of neovim
+vim.opt.autoread = true                 -- auto-reload files changes if outside of neovim
+vim.opt.autowrite = false               -- do not auto-save
 vim.opt.confirm = true                  -- Confirm before closing unsaved changes
 vim.opt.updatetime = 200                -- Faster CursorHold events. Time in ms before CursorHold event trigers
-vim.opt.timeoutlen = 300                -- Faster which-key popup. TIme ms to wait for mapped key sequence to complete
+vim.opt.timeoutlen = 300                -- Faster which-key popup. Time ms to wait for mapped key sequence to complete
+vim.opt.ttimeoutlen = 0                 -- key code timeout
+vim.opt.errorbells = false              -- no error sounds
+vim.opt.backspace = "indent,eol,start"  -- better backspace behaviour
 
 -- ============================================================================
 -- UI/Display
@@ -21,8 +25,10 @@ vim.opt.wrap = true               -- wrap ling lines
 vim.opt.breakindent = true        -- wrapped lines preserve indentation
 vim.opt.cursorline = true         -- highlight current line
 vim.opt.signcolumn = "yes:1"      -- always show sign column with width of 1
+vim.opt.colorcolumn = "100"       -- show column at 100 characters
 vim.opt.laststatus = 3            -- Global statusline
 vim.opt.showmode = true           -- show mode in command line (show in statusline)
+vim.opt.showmatch = true          -- highlights matching brackets
 vim.opt.showcmd = true            -- show partial command in command line
 vim.opt.ruler = true              -- show cursor position in command line
 vim.opt.showtabline = 1           -- show tab line
@@ -33,6 +39,11 @@ vim.opt.winblend = 10             -- Floating window transparency
 vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
 vim.opt.winborder = "bold"        -- "rounded" -- use rounded borders for floating windows
 -- vim.o.winborder = "rounded" -- Use rounded borders for floating windows
+vim.opt.conceallevel = 0          -- do not hide markup
+vim.opt.concealcursor = "niv"     -- do not hide cursorline in markup
+vim.opt.lazyredraw = true         -- do not redraw during macros
+vim.opt.synmaxcol = 300           -- syntax highlighting limit
+vim.opt.hidden = false            -- allow hidden buffers
 
 -- ============================================================================
 -- Search
@@ -62,7 +73,7 @@ vim.opt.splitright = true -- Open vertical splits to the right of the current wi
 -- ============================================================================
 -- Files
 -- ============================================================================
-vim.opt.fileencoding = "utf-8" -- File encoding for new files
+vim.opt.encoding = "utf-8" -- File encoding for new files
 vim.opt.swapfile = false       -- don't create swap files
 vim.opt.backup = false         -- don't create backup files before overwriting
 vim.opt.writebackup = false    -- don't create backup files while editing
@@ -71,12 +82,14 @@ vim.opt.writebackup = false    -- don't create backup files while editing
 -- Completion
 -- ============================================================================
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Completion menu options
-vim.opt.conceallevel = 0                                -- Show all text normally (no concealment)
 
 -- ============================================================================
 -- Syntax
 -- ============================================================================
-vim.opt.redrawtime = 1500 -- Faster syntax highlighting timeout
+vim.opt.redrawtime = 10000             -- Faster syntax highlighting timeout. Increased redraw tolerance
+vim.opt.maxmempattern = 20000          -- increase max memory
+vim.opt.wildmenu = true                -- tab completion
+vim.opt.diffopt:append("linematch:60") -- improve diff display
 
 -- ============================================================================
 -- Other
@@ -87,6 +100,6 @@ vim.opt.guifont = "monospace:h17" -- Font for GUI Neovim (e.g., Neovide)
 -- ============================================================================
 -- Scrolling
 -- ============================================================================
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+vim.opt.scrolloff = 10     -- keep # lines above/below cursor
+vim.opt.sidescrolloff = 10 -- keep # lines left/right of cursor
 vim.opt.smoothscroll = true
