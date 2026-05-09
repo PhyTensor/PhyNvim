@@ -1,5 +1,5 @@
 -- sudo pacman -Syu python-lsp-server
--- sudo pacman -Syu python-pyflakes python-isort python-pylint python-mccabe
+-- sudo pacman -Syu python-lsp-server python-pyflakes python-isort python-pylint python-mccabe
 
 return {
     cmd = { "pylsp" },
@@ -25,9 +25,14 @@ return {
                 yapf = { enabled = false },
                 mccabe = { enabled = true },
                 pylint = { enabled = false }, -- very noisy
-                pylsp_mypy = { enabled = false },
+                pylsp_mypy = { enabled = true },
                 pylsp_isort = { enabled = true },
                 pyslp_black = { enabled = false },
+                -- ruff = {
+                --     enabled = true,
+                --     extendSelect = { "I" }, -- Sort imports
+                --     format = { "I" },       -- Ensure it handles formatting
+                -- },
             },
         },
     },

@@ -1,11 +1,8 @@
-return {
-	"j-hui/fidget.nvim",
-	enabled = true,
-	opts = {
-		notification = {
-			window = {
-				winblend = 0,
-			},
-		},
-	},
-}
+-- LSP Progress notifications
+require("fidget").setup({
+    notification = {
+        window = {
+            winblend = 0
+        }
+    }
+})

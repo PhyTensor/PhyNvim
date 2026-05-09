@@ -1,31 +1,32 @@
-return {
-	"Wansmer/treesj",
-	enabled = true,
-	dependencies = { "nvim-treesitter/nvim-treesitter" },
-	keys = {
-		{
-			"<leader>m",
-			mode = { "n", "v" },
-			function()
-				require("treesj").toggle({ split = { recursive = true } })
-			end,
-			desc = "Toggle split or join code block",
-		},
-		{
-			"<leader>j",
-			mode = { "n", "v" },
-			function()
-				require("treesj").join()
-			end,
-			desc = "[J]oin code block",
-		},
-		{
-			"<leader>ss",
-			mode = { "n", "v" },
-			function()
-				require("treesj").split()
-			end,
-			desc = "[S]plit code block",
-		},
+local utils = require("config.utils")
+
+require("treesj").setup()
+
+local keys = {
+	{
+		{ "n", "v" },
+		"<leader>m",
+		function()
+			require("treesj").toggle({ split = { recursive = true } })
+		end,
+		{ desc = "Toggle split or join code block" },
+	},
+	{
+		{ "n", "v" },
+		"<leader>j",
+		function()
+			require("treesj").join()
+		end,
+		{ desc = "[J]oin code block" },
+	},
+	{
+		{ "n", "v" },
+		"<leader>ss",
+		function()
+			require("treesj").split()
+		end,
+		{ desc = "[S]plit code block" },
 	},
 }
+
+utils.set_keymaps(keys)

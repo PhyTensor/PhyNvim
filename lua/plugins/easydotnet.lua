@@ -1,0 +1,2 @@
+require('easy-dotnet').setup({
+})

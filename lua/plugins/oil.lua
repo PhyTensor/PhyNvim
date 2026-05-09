@@ -1,14 +1,18 @@
-return {
-    "stevearc/oil.nvim",
-    enabled = true,
-    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    -- lazy = false,
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {
-        view_options = {
-            show_hidden = true,
-        },
-    },
+-- Extract Oil configuration
+require("oil").setup({
+    view_options = {
+        show_hidden = true
+    }
+})
+
+local keys = {
+    {
+        "n",
+        "\\",
+        "<CMD>Oil<CR>",
+        { desc = "Open parent directory" }
+    }
 }
+
+local utils = require("config.utils")
+utils.set_keymaps(keys)
