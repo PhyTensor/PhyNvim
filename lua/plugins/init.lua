@@ -27,8 +27,9 @@ vim.pack.add({
     { src = "https://github.com/aserowy/tmux.nvim" },
     { src = "https://github.com/sindrets/diffview.nvim" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
-    { src = "https://github.com/seblyng/roslyn.nvim" },
     { src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
+    { src = "https://github.com/GustavEikaas/easy-dotnet.nvim" },
+    { src = "https://github.com/stevearc/conform.nvim" },
 })
 
 require('plugins.onedark')
@@ -53,8 +54,9 @@ require('plugins.rendermarkdown')
 require('plugins.tmux')
 require('plugins.diffview')
 require('plugins.indentblankline')
-require('plugins.roslyn')
 require('plugins.diagnostics')
+require('plugins.easydotnet')
+require('plugins.conform')
 
 -- vim.print(vim.pack.get())
 -- vim.pack.del({"nvim-treesitter"})

@@ -97,3 +97,7 @@ vim.keymap.set("n", "]q", ":cnext<CR>zz", { desc = "Next quickfix item (centered
 vim.keymap.set("n", "[q", ":cprev<CR>zz", { desc = "Previous quickfix item (centered)" })
 vim.keymap.set("n", "]Q", ":clast<CR>zz", { desc = "Last quickfix item (centered)" })
 vim.keymap.set("n", "[Q", ":cfirst<CR>zz", { desc = "First quickfix item (centered)" })
+
+vim.keymap.set("n", "<leader>td", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics" })

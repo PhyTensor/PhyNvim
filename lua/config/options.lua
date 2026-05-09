@@ -27,7 +27,7 @@ vim.opt.cursorline = true         -- highlight current line
 vim.opt.signcolumn = "yes:1"      -- always show sign column with width of 1
 vim.opt.colorcolumn = "100"       -- show column at 100 characters
 vim.opt.laststatus = 3            -- Global statusline
-vim.opt.showmode = true           -- show mode in command line (show in statusline)
+vim.opt.showmode = false           -- show mode in command line (show in statusline)
 vim.opt.showmatch = true          -- highlights matching brackets
 vim.opt.showcmd = true            -- show partial command in command line
 vim.opt.ruler = true              -- show cursor position in command line
@@ -43,7 +43,7 @@ vim.opt.conceallevel = 0          -- do not hide markup
 vim.opt.concealcursor = "niv"     -- do not hide cursorline in markup
 vim.opt.lazyredraw = true         -- do not redraw during macros
 vim.opt.synmaxcol = 300           -- syntax highlighting limit
-vim.opt.hidden = false            -- allow hidden buffers
+vim.opt.hidden = true            -- allow hidden buffers
 
 -- ============================================================================
 -- Search
@@ -73,10 +73,10 @@ vim.opt.splitright = true -- Open vertical splits to the right of the current wi
 -- ============================================================================
 -- Files
 -- ============================================================================
-vim.opt.encoding = "utf-8" -- File encoding for new files
-vim.opt.swapfile = false       -- don't create swap files
-vim.opt.backup = false         -- don't create backup files before overwriting
-vim.opt.writebackup = false    -- don't create backup files while editing
+vim.opt.encoding = "utf-8"  -- File encoding for new files
+vim.opt.swapfile = false    -- don't create swap files
+vim.opt.backup = false      -- don't create backup files before overwriting
+vim.opt.writebackup = false -- don't create backup files while editing
 
 -- ============================================================================
 -- Completion
@@ -89,6 +89,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Completion menu optio
 vim.opt.redrawtime = 10000             -- Faster syntax highlighting timeout. Increased redraw tolerance
 vim.opt.maxmempattern = 20000          -- increase max memory
 vim.opt.wildmenu = true                -- tab completion
+vim.opt.wildmode = "longest:full,full" -- tab completion longest common match, full completion list
 vim.opt.diffopt:append("linematch:60") -- improve diff display
 
 -- ============================================================================

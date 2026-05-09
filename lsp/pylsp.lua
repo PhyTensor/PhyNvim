@@ -25,9 +25,14 @@ return {
                 yapf = { enabled = false },
                 mccabe = { enabled = true },
                 pylint = { enabled = false }, -- very noisy
-                pylsp_mypy = { enabled = false },
+                pylsp_mypy = { enabled = true },
                 pylsp_isort = { enabled = true },
                 pyslp_black = { enabled = false },
+                -- ruff = {
+                --     enabled = true,
+                --     extendSelect = { "I" }, -- Sort imports
+                --     format = { "I" },       -- Ensure it handles formatting
+                -- },
             },
         },
     },

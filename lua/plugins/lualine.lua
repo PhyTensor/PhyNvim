@@ -1,3 +1,5 @@
+local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -12,8 +14,9 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = {
-			"mode",
-		},
+            "mode",
+            job_indicator,
+        },
 		lualine_b = {
 			"branch",
 			"diff",
