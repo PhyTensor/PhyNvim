@@ -32,12 +32,12 @@ vim.opt.showmatch = true          -- highlights matching brackets
 vim.opt.showcmd = true            -- show partial command in command line
 vim.opt.ruler = true              -- show cursor position in command line
 vim.opt.showtabline = 1           -- show tab line
-vim.opt.cmdheight = 1             -- height of the commdn line area
+vim.opt.cmdheight = 0             -- height of the commdn line area
 vim.opt.pumheight = 12            -- maximum height of popup menu
 vim.opt.pumblend = 10             -- Popup menu transparency
 vim.opt.winblend = 10             -- Floating window transparency
 vim.opt.fillchars = { eob = " " } -- Hide ~ characters on empty lines
-vim.opt.winborder = "bold"        -- "rounded" -- use rounded borders for floating windows
+vim.opt.winborder = "rounded"        -- "rounded" -- use rounded borders for windows
 -- vim.o.winborder = "rounded" -- Use rounded borders for floating windows
 vim.opt.conceallevel = 0          -- do not hide markup
 vim.opt.concealcursor = "niv"     -- do not hide cursorline in markup
@@ -57,12 +57,13 @@ vim.opt.smartcase = true  -- Override ignorecase if pattern contains uppercase
 -- ============================================================================
 -- Indentation
 -- ============================================================================
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 4 -- Number of spaces for a tab
+vim.opt.softtabstop = 4 -- Number of spaces for a tab when editing
 vim.opt.shiftwidth = 4     -- Number os spaces for each indentation level
-vim.opt.expandtab = true   -- Convert tabs to spaces
-vim.opt.autoindent = true
+vim.opt.expandtab = false   -- Convert tabs to spaces
+vim.opt.autoindent = true -- Enable auto indentation
 vim.opt.smartindent = true -- Auto-indent new lines based on syntax
+vim.opt.shiftround = true -- Round indent to multiple of shiftwiddth
 
 -- ============================================================================
 -- Splits

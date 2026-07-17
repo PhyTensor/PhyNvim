@@ -11,6 +11,7 @@ require("mason").setup({
         "github:Crashdummyy/mason-registry",
     },
     ensure_installed = {
-        "roslyn",
+        -- "roslyn",
+		"pyrefly",
     },
 })

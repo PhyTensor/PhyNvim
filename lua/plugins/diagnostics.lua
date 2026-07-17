@@ -28,7 +28,7 @@ require("tiny-inline-diagnostic").setup({
     transparent_cursorline = false,
     -- Choose a preset style for diagnostic appearance
     -- Available: "modern", "classic", "minimal", "powerline", "ghost", "simple", "nonerdfont", "amongus"
-    preset = "classic",
+	preset = "modern",
     signs = {
         left = "",
         right = "",
