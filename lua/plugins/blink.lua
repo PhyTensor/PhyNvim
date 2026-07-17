@@ -20,47 +20,43 @@ require("blink.cmp").setup({
         ["<CR>"] = { "accept", "accept_and_enter", "fallback" },
         ["C-y"] = { "select_and_accept" },
 
-        ["<Tab>"] = {
-            -- function(cmp)
-            --         if cmp.snippet_active() then
-            --             return cmp.accept()
-            --         else
-            --             return cmp.select_and_accept()
-            --         end
-            -- end,
-            "select_next",
-            -- 'snippet_forward',
-            "fallback",
-        },
-        ["<S-Tab>"] = {
-            "select_prev",
-            -- 'snippet_backward',
-            "fallback",
-        },
+        ["<Tab>"] = { "select_next", "fallback" },
+		["<C-j>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+		["<C-k>"] = { "select_prev", "fallback" },
 
-        ["<C-p>"] = {
-            -- 'select_prev',
-            "snippet_backward",
-            "fallback_to_mappings",
-        },
-        ["<C-n>"] = {
-            -- 'select_next',
-            "snippet_forward",
-            "fallback_to_mappings",
-        },
+        ["<C-p>"] = { "snippet_backward", "fallback_to_mappings" },
+        ["<C-n>"] = { "snippet_forward", "fallback_to_mappings" },
 
         ["<C-b>"] = { "scroll_documentation_up", "fallback" },
         ["<C-f>"] = { "scroll_documentation_down", "fallback" },
 
-        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
+        -- ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
     },
+
+	-- keymap = {
+	--        preset = "default",
+	--        ["<C-space>"] = {},
+	--        ["<C-p>"] = {},
+	--        ["<Tab>"] = {},
+	--        ["<S-Tab>"] = {},
+	--        ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
+	--        ["<C-n>"] = { "select_and_accept" },
+	--        ["<C-k>"] = { "select_prev", "fallback" },
+	--        ["<C-j>"] = { "select_next", "fallback" },
+	--        ["<C-b>"] = { "scroll_documentation_down", "fallback" },
+	--        ["<C-f>"] = { "scroll_documentation_up", "fallback" },
+	--        ["<C-l>"] = { "snippet_forward", "fallback" },
+	--        ["<C-h>"] = { "snippet_backward", "fallback" },
+	--        -- ["<C-e>"] = { "hide" },
+	--    },
 
     signature = { enabled = true },
 
     appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
-        nerd_font_variant = "mono",
+        nerd_font_variant = "normal",
         -- use_nvim_cmp_as_default = false,
     },
 
@@ -82,7 +78,7 @@ require("blink.cmp").setup({
         },
         documentation = {
             auto_show = true,
-            auto_show_delay_ms = 0,
+            auto_show_delay_ms = 280,
             window = {
                 border = "rounded",
                 scrollbar = false,

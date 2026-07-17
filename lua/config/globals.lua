@@ -7,6 +7,8 @@ vim.g.maplocalleader = " " -- Set space as the local leader key for buffer-local
 -- ============================================================================
 -- Disable Built-in Plugins
 -- ============================================================================
+-- vim.g.netrw_liststyle = 1 -- Use the long listing view
+-- vim.g.netrw_sort_by = "size" -- sort files by size
 vim.g.loaded_netrw = 1       -- Disable netrw file explorer (using a different file explorer)
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw plugin component
 
