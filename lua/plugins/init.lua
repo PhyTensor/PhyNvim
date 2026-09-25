@@ -37,6 +37,7 @@ vim.pack.add({
 	-- { src = "https://github.com/stevearc/dressing.nvim" },
 	-- { src = "https://github.com/folke/flash.nvim" },
 	-- { src = "https://github.com/MunifTanjim/nui.nvim" },
+	{ src = "https://github.com/AlexandrosAlexiou/kotlin.nvim" },
 })
 
 require('plugins.material')
@@ -69,6 +70,7 @@ require('plugins.conform')
 -- require('plugins.trouble')
 -- require('plugins.dressing')
 -- require('plugins.flash')
+require('plugins.kotlin')
 
 -- vim.print(vim.pack.get())
 -- vim.pack.del({"nvim-treesitter"})

@@ -37,6 +37,10 @@
       "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
+    "kotlin.nvim": {
+      "rev": "74119c9ee1b923eb0da67efd5521c2ae58bab70d",
+      "src": "https://github.com/AlexandrosAlexiou/kotlin.nvim"
+    },
     "lualine": {
       "rev": "3946f0122255bc377d14a59b27b609fb3ab25768",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
