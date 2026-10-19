@@ -11,7 +11,11 @@ require("mason").setup({
         "github:Crashdummyy/mason-registry",
     },
     ensure_installed = {
-        -- "roslyn",
 		"pyrefly",
+		"prettier",
+		"prettierd",
+		"ty",
+		"typescript-language-server",
+		"kotlin-lsp",
     },
 })
